@@ -1867,5 +1867,19 @@
   <script src="content-loader.js"></script>
   <script src="local-media-preview.js"></script>
   <script src="site-editor.js"></script>
+  <script>
+    (function(){
+      var s = document.createElement('script');
+      s.src = 'data/content.json';
+      s.onload = function(){
+        try {
+          window.__MB_CONTENT = JSON.parse(s.textContent || s.text).texts || [];
+        } catch(e){ window.__MB_CONTENT = []; }
+      };
+      s.onerror = function(){ window.__MB_CONTENT = []; };
+      document.head.appendChild(s);
+    })();
+  </script>
+  <script src="chatbot.js"></script>
 </body>
 </html>

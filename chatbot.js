@@ -28,6 +28,19 @@
 
   function stripHtml(s){ return s.replace(/<[^>]*>/g,'').trim(); }
 
+  function partialMatch(haystack, needle){
+    haystack = haystack.toLowerCase();
+    needle = needle.toLowerCase();
+    if(haystack.indexOf(needle) !== -1) return true;
+    if(needle.length < 4) return false;
+    var parts = haystack.split(/\s+/);
+    for(var p=0;p<parts.length;p++){
+      if(parts[p].length < 4) continue;
+      if(parts[p].indexOf(needle) !== -1 || needle.indexOf(parts[p]) !== -1) return true;
+    }
+    return false;
+  }
+
   function findBestAnswer(input){
     if(!contentData.length) return null;
     var q = input.toLowerCase().replace(/[¿?¡!.,;:]/g,'').trim();
@@ -44,7 +57,7 @@
 
       var matchCount = 0;
       for(var j=0;j<qWords.length;j++){
-        if(combined.indexOf(qWords[j]) !== -1) matchCount++;
+        if(partialMatch(combined, qWords[j])) matchCount++;
       }
       if(matchCount === 0) continue;
 
@@ -68,7 +81,7 @@
             var aEs = (contentData[k].es || '').toLowerCase();
             var aCombined = aEn + ' ' + aEs;
             var aMatch = 0;
-            for(var l=0;l<qWords.length;l++){ if(aCombined.indexOf(qWords[l])!==-1) aMatch++; }
+            for(var l=0;l<qWords.length;l++){ if(partialMatch(aCombined, qWords[l])) aMatch++; }
             if(aMatch > matchCount){ matchCount = aMatch; bonus = 5; }
             break;
           }

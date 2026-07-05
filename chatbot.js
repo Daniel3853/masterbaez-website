@@ -36,10 +36,11 @@
     var scored = [];
     for(var i=0;i<contentData.length;i++){
       var item = contentData[i];
-      var key = item.key || '';
+      var origKey = item.key || '';
+      var searchKey = origKey.toLowerCase().replace(/_/g,' ');
       var en = (item.en || '').toLowerCase();
       var es = (item.es || '').toLowerCase();
-      var combined = en + ' ' + es;
+      var combined = searchKey + ' ' + en + ' ' + es;
 
       var matchCount = 0;
       for(var j=0;j<qWords.length;j++){
@@ -48,14 +49,14 @@
       if(matchCount === 0) continue;
 
       var bonus = 0;
-      if(isFaqQ(key)) bonus = -5; // deprioritize question titles
-      if(isPriority(key)) bonus = 3;
-      if(key.indexOf('_title') !== -1) bonus = 0; // neutral
-      if(key.indexOf('_tag') !== -1 || key.indexOf('_label') !== -1 || key.indexOf('_level') !== -1 || key.indexOf('_time') !== -1 || key.indexOf('_age') !== -1) bonus = -2;
+      if(isFaqQ(origKey)) bonus = -5;
+      if(isPriority(origKey)) bonus = 3;
+      if(origKey.indexOf('_title') !== -1) bonus = 0;
+      if(origKey.indexOf('_tag') !== -1 || origKey.indexOf('_label') !== -1 || origKey.indexOf('_level') !== -1 || origKey.indexOf('_time') !== -1 || origKey.indexOf('_age') !== -1) bonus = -2;
 
       // Penalize very short entries
       var textLen = Math.max(en.length, es.length);
-      if(textLen < 20) bonus -= 3;
+      if(textLen < 20) bonus -= 1;
       if(textLen > 80) bonus += 2;
 
       // Boost FAQ answers when question matches
@@ -78,12 +79,12 @@
     }
 
     scored.sort(function(a,b){ return b.score - a.score; });
-    if(scored.length && scored[0].score >= 2){
+    if(scored.length && scored[0].score >= 1){
       var best = scored[0].item;
       var bestKey = best.key;
 
       // If it's a FAQ question, return the answer instead
-      if(isFaqQ(bestKey)){
+      if(isFaqQ(best.key)){
         var aKey = faqAnswerKey(bestKey);
         for(var m=0;m<contentData.length;m++){
           if(contentData[m].key === aKey){

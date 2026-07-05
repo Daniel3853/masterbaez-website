@@ -9,7 +9,6 @@
     if (slot.querySelector('.se-upload-label')) return;
 
     var existingVideo = slot.querySelector('video');
-    var placeholder = slot.querySelector('.programs-video-placeholder');
 
     var el;
     if (item.type === 'video') {
@@ -23,7 +22,6 @@
         el.style.width = '100%';
         el.style.height = '100%';
         el.style.objectFit = 'cover';
-        if (placeholder) placeholder.style.display = 'none';
         return;
       }
       el = document.createElement('video');

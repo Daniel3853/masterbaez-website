@@ -875,19 +875,16 @@
 
     .programs-video {
       max-width: 800px; margin: 32px auto 0; border-radius: 16px;
-      overflow: hidden; position: relative; aspect-ratio: 16/9;
+      overflow: hidden; aspect-ratio: 16/9;
       background: #1a1a30; border: 1px solid #2a2a50;
+      position: relative;
+    }
+    .programs-video:empty::after {
+      content: '🎬 Welcome Video'; position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: rgba(255,255,255,0.3);
     }
     .programs-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .programs-video-placeholder {
-      position: absolute; inset: 0; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; cursor: pointer;
-      background: linear-gradient(135deg, #1a1a3a, #2d1b69);
-      color: #fff; z-index: 2; gap: 8px; transition: opacity 0.3s;
-    }
-    .programs-video-placeholder:hover { opacity: 0.85; }
-    .programs-video-placeholder span { font-size: 48px; }
-    .programs-video-placeholder p { font-size: 16px; font-weight: 600; color: rgba(255,255,255,0.6); }
 
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 

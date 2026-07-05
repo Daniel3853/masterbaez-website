@@ -31,13 +31,13 @@
     adminLink.textContent = '⚙ Admin';
     adminLink.title = 'Acceder al editor del sitio';
     adminLink.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9999;' +
-      'background:rgba(0,0,0,0.5);color:rgba(255,255,255,0.5);' +
-      'padding:6px 12px;border-radius:8px;font-size:12px;font-weight:500;' +
+      'background:#fbbf24;color:#1a1a2e;' +
+      'padding:6px 12px;border-radius:8px;font-size:12px;font-weight:700;' +
       'text-decoration:none;font-family:Inter,Arial,sans-serif;' +
-      'border:1px solid rgba(255,255,255,0.1);' +
-      'transition:all 0.3s;backdrop-filter:blur(4px);';
-    adminLink.onmouseover = function() { adminLink.style.background = 'rgba(168,85,247,0.3)'; adminLink.style.color = '#fff'; };
-    adminLink.onmouseout = function() { adminLink.style.background = 'rgba(0,0,0,0.5)'; adminLink.style.color = 'rgba(255,255,255,0.5)'; };
+      'border:none;' +
+      'transition:all 0.3s;';
+    adminLink.onmouseover = function() { adminLink.style.background = '#fcd34d'; adminLink.style.color = '#000'; };
+    adminLink.onmouseout = function() { adminLink.style.background = '#fbbf24'; adminLink.style.color = '#1a1a2e'; };
     adminLink.onclick = function(e) {
       e.preventDefault();
       if (authorized) { toggleEditMode(); return; }

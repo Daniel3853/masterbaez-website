@@ -319,6 +319,8 @@ var MB_QA = [
     d.id='mbChatWidget';
     d.innerHTML='<style>'+
       '#mbT{position:fixed;bottom:210px;right:20px;z-index:99998;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#6c5ce7,#a855f7);border:none;color:#fff;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(108,92,231,0.4);transition:transform .2s;display:flex;align-items:center;justify-content:center}'+
+      '#mbT::before{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(168,85,247,0.5);animation:mbPulse 2s ease-out infinite;pointer-events:none}'+
+      '#mbT::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(168,85,247,0.25);animation:mbPulse 2s ease-out .5s infinite;pointer-events:none}'+
       '#mbT:hover{transform:scale(1.05)}'+
       '#mbB{position:fixed;bottom:276px;right:20px;z-index:99997;width:360px;height:440px;max-height:calc(100vh-300px);background:#13132a;border:1px solid #2a2a50;border-radius:16px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.5)}'+
       '.mb-h{background:linear-gradient(135deg,#1a1a3a,#23234d);padding:16px 20px;border-bottom:1px solid #2a2a50}'+
@@ -338,7 +340,8 @@ var MB_QA = [
       '#mbTg span{width:6px;height:6px;border-radius:50%;background:#6b6b8b;animation:mbP 1.2s infinite}'+
       '#mbTg span:nth-child(2){animation-delay:.2s}#mbTg span:nth-child(3){animation-delay:.4s}'+
       '@keyframes mbP{0%,60%,100%{opacity:.3}20%{opacity:1}}'+
-      '@media(max-width:480px){#mbT{bottom:200px;right:10px;width:48px;height:48px;font-size:20px}#mbB{width:calc(100vw-32px);right:10px;bottom:256px;height:380px}}'+
+      '@keyframes mbPulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.6);opacity:0}}'+
+      '@media(max-width:480px){#mbT{bottom:200px;right:10px;width:48px;height:48px;font-size:20px}#mbT::before{inset:-3px}#mbT::after{inset:-6px}#mbB{width:calc(100vw-32px);right:10px;bottom:256px;height:380px}}'+
       '</style>'+
       '<button id="mbT">💬</button>'+
       '<div id="mbB">'+

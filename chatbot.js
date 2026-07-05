@@ -1,5 +1,5 @@
 (function(){
-  var lang = 'en', opened = false, contentData = [];
+  var lang = 'en', opened = false, kb = [];
 
   var esHints = ['hola','gracias','favor','puedes','querría','necesito','qué','eres','hijo','hija','niño','niña','clases','programas','precios','horarios','dirección','teléfono','artes','marciales','tímido','tdah','confianza','disciplina','cinturón','garantía','devolución','opiniones','reseñas','comenzar','empezar','inscribir','registrar','prueba','gratis','uniforme','pago','mensualidad','cuánto','cuál','dónde','cómo','ubicados','oferta','extraescolar','pequeños','tigres','acoso','violencia','atrás','resultados','horario','abierto','fundador','dueño','reseña','pembroke','pines','davie','plantation','weston','sabermás','saber'];
 
@@ -7,23 +7,6 @@
     t = t.toLowerCase();
     for(var i=0;i<esHints.length;i++){if(t.indexOf(esHints[i])!==-1) return 'es';}
     return 'en';
-  }
-
-  // Load content.json and build smart index
-  function loadContent(cb){
-    fetch('data/content.json').then(function(r){return r.json();}).then(function(d){
-      contentData = d && d.texts ? d.texts : [];
-      cb();
-    }).catch(function(){cb();});
-  }
-
-  // FAQ pairs: faq_q1 -> faq_a1, etc.
-  function isFaqQ(key){ return /^faq_q\d+$/.test(key); }
-  function faqAnswerKey(key){ return key.replace('faq_q','faq_a'); }
-
-  // Priority keys (descriptive content)
-  function isPriority(key){
-    return /(_desc|_p\d+|_text|_name|_title)$/.test(key) || /^faq_a/.test(key) || /^trans_/.test(key) || /^pillar_/.test(key) || /^comp_muv/.test(key) || /^prog_\d+_desc/.test(key) || /^belt_\d+_desc/.test(key) || /^inside_\d+_desc/.test(key) || /^testimonial_\d+_text/.test(key) || /^offer_/.test(key);
   }
 
   function stripHtml(s){ return s.replace(/<[^>]*>/g,'').trim(); }
@@ -41,86 +24,81 @@
     return false;
   }
 
+  function buildKB(){
+    kb = [];
+    var trans = window.translations || {};
+    Object.keys(trans).forEach(function(key){
+      var en = (trans[key].en || '').trim();
+      var es = (trans[key].es || '').trim();
+      if(!en && !es) return;
+      var searchText = key.replace(/_/g,' ') + ' ' + en + ' ' + es;
+    kb.push({key:key, en:en, es:es, search:searchText, len: Math.max(en.length, es.length)});
+  });
+  console.log('Chatbot: loaded ' + kb.length + ' entries');
+}
+
   function findBestAnswer(input){
-    if(!contentData.length) return null;
+    buildKB(); // Always rebuild to use latest translations
+    if(!kb.length) return null;
+
     var q = input.toLowerCase().replace(/[¿?¡!.,;:]/g,'').trim();
     var qWords = q.split(/\s+/).filter(function(w){return w.length>1;});
 
     var scored = [];
-    for(var i=0;i<contentData.length;i++){
-      var item = contentData[i];
-      var origKey = item.key || '';
-      var searchKey = origKey.toLowerCase().replace(/_/g,' ');
-      var en = (item.en || '').toLowerCase();
-      var es = (item.es || '').toLowerCase();
-      var combined = searchKey + ' ' + en + ' ' + es;
-
+    for(var i=0;i<kb.length;i++){
+      var item = kb[i];
       var matchCount = 0;
       for(var j=0;j<qWords.length;j++){
-        if(partialMatch(combined, qWords[j])) matchCount++;
+        if(partialMatch(item.search, qWords[j])) matchCount++;
       }
       if(matchCount === 0) continue;
 
       var bonus = 0;
-      if(isFaqQ(origKey)) bonus = -5;
-      if(isPriority(origKey)) bonus = 3;
-      if(origKey.indexOf('_title') !== -1) bonus = 0;
-      if(origKey.indexOf('_tag') !== -1 || origKey.indexOf('_label') !== -1 || origKey.indexOf('_level') !== -1 || origKey.indexOf('_time') !== -1 || origKey.indexOf('_age') !== -1) bonus = -2;
+      // FAQ questions -> deprioritize
+      if(/^faq_q\d+$/.test(item.key)) bonus -= 5;
+      // Priority: descriptive content
+      if(/(_desc|_p\d+|_text|_name)$/.test(item.key) || /^faq_a/.test(item.key) || /^pillar_/.test(item.key) || /^comp_muv/.test(item.key) || /^offer_/.test(item.key)) bonus += 3;
+      // Labels/tags -> deprioritize
+      if(/_tag$|_label$|_level$|_time$|_age$/.test(item.key)) bonus -= 2;
+      // Short entries penalty
+      if(item.len < 20) bonus -= 1;
+      if(item.len > 80) bonus += 2;
 
-      // Penalize very short entries
-      var textLen = Math.max(en.length, es.length);
-      if(textLen < 20) bonus -= 1;
-      if(textLen > 80) bonus += 2;
-
-      // Boost FAQ answers when question matches
-      if(isFaqQ(key)){
-        var answerKey = faqAnswerKey(key);
-        for(var k=0;k<contentData.length;k++){
-          if(contentData[k].key === answerKey){
-            var aEn = (contentData[k].en || '').toLowerCase();
-            var aEs = (contentData[k].es || '').toLowerCase();
-            var aCombined = aEn + ' ' + aEs;
-            var aMatch = 0;
-            for(var l=0;l<qWords.length;l++){ if(partialMatch(aCombined, qWords[l])) aMatch++; }
-            if(aMatch > matchCount){ matchCount = aMatch; bonus = 5; }
-            break;
-          }
-        }
-      }
-
-      scored.push({item:item, score:matchCount + bonus, matchCount:matchCount});
+      scored.push({key:item.key, en:item.en, es:item.es, len:item.len, score:matchCount + bonus, matchCount:matchCount});
     }
 
     scored.sort(function(a,b){ return b.score - a.score; });
+
+    if(scored.length){
+      console.log('Chatbot: top match for "'+input+'" =', scored[0].key, 'score:', scored[0].score, 'matchCount:', scored[0].matchCount);
+    } else {
+      console.log('Chatbot: no matches for "'+input+'"');
+    }
+
     if(scored.length && scored[0].score >= 1){
-      var best = scored[0].item;
-      var bestKey = best.key;
+      var best = scored[0];
 
-      // If it's a FAQ question, return the answer instead
-      if(isFaqQ(best.key)){
-        var aKey = faqAnswerKey(bestKey);
-        for(var m=0;m<contentData.length;m++){
-          if(contentData[m].key === aKey){
-            var aText = lang==='es' ? (contentData[m].es||contentData[m].en) : (contentData[m].en||contentData[m].es);
-            return stripHtml(aText);
+      // FAQ question -> return answer
+      if(/^faq_q\d+$/.test(best.key)){
+        var aKey = best.key.replace('faq_q','faq_a');
+        for(var i=0;i<kb.length;i++){
+          if(kb[i].key === aKey){
+            return stripHtml(lang==='es'?(kb[i].es||kb[i].en):(kb[i].en||kb[i].es));
           }
         }
       }
 
-      // Prefer _desc over _title/_name
-      if(/_title$|_name$/.test(bestKey)){
-        var better = bestKey.replace(/_title$/,'_desc').replace(/_name$/,'_desc');
-        for(var n=0;n<contentData.length;n++){
-          if(contentData[n].key === better){
-            var bText = lang==='es' ? (contentData[n].es||contentData[n].en) : (contentData[n].en||contentData[n].es);
-            if(bText.length > 20) return stripHtml(bText);
-            break;
+      // Prefer _desc over _title
+      if(/_title$|_name$/.test(best.key)){
+        var better = best.key.replace(/_title$/,'_desc').replace(/_name$/,'_desc');
+        for(var i=0;i<kb.length;i++){
+          if(kb[i].key === better && kb[i].len > 20){
+            return stripHtml(lang==='es'?(kb[i].es||kb[i].en):(kb[i].en||kb[i].es));
           }
         }
       }
 
-      var text = lang==='es' ? (best.es||best.en) : (best.en||best.es);
-      return stripHtml(text);
+      return stripHtml(lang==='es'?(best.es||best.en):(best.en||best.es));
     }
     return null;
   }
@@ -148,6 +126,7 @@
 
   function addMessage(text, isUser){
     var chat = document.getElementById('mbChatMessages');
+    if(!chat) return;
     var msg = document.createElement('div');
     msg.className = 'mb-msg ' + (isUser?'mb-user':'mb-bot');
     msg.innerHTML = isUser ? '<span style="color:#8a8aaa;">You:</span> '+escapeHtml(text) : text;
@@ -190,7 +169,7 @@
       '<button id="mbChatToggle">💬</button>'+
       '<div id="mbChatBox">'+
         '<div class="mb-header"><h3>🤖 AI Asistente</h3><p>Master Baez Martial Arts</p></div>'+
-        '<div id="mbChatMessages"><div class="mb-msg mb-bot">👋 ¡Pregúntame cualquier cosa sobre Master Baez!<br><br>👋 Ask me anything about Master Baez!</div></div>'+
+        '<div id="mbChatMessages"><div class="mb-msg mb-bot">👋 ¡Pregúntame cualquier cosa sobre Master Baez!</div></div>'+
         '<div id="mbTyping"><span></span><span></span><span></span> <span style="margin-left:6px">...</span></div>'+
         '<div class="mb-input-area"><input id="mbInput" placeholder="Escribe tu pregunta..."><button id="mbSend">➤</button></div>'+
       '</div>';
@@ -204,6 +183,13 @@
     document.getElementById('mbInput').onkeydown=function(e){if(e.key==='Enter')handleSend();};
   }
 
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){loadContent(createUI);});
-  else loadContent(createUI);
+  // Wait for content-loader to populate window.translations
+  function init(){
+    if(window.translations && Object.keys(window.translations).length > 10){
+      createUI();
+    } else {
+      setTimeout(init, 200);
+    }
+  }
+  init();
 })();

@@ -20,7 +20,7 @@
  */
 (function () {
   var OVERRIDES_KEY = 'mb_site_content_overrides';
-  var EDITOR_PASSWORD = 'admin123';
+  var EDITOR_PASSWORD = window.__ADMIN_PASSWORD || 'admin123';
   var authorized = false;
   var editMode = false;
 

@@ -30,7 +30,7 @@
     adminLink.href = '#';
     adminLink.textContent = '⚙ Admin';
     adminLink.title = 'Acceder al editor del sitio';
-    adminLink.style.cssText = 'position:fixed;bottom:210px;left:16px;z-index:9999;' +
+    adminLink.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9999;' +
       'background:rgba(0,0,0,0.5);color:rgba(255,255,255,0.5);' +
       'padding:6px 12px;border-radius:8px;font-size:12px;font-weight:500;' +
       'text-decoration:none;font-family:Inter,Arial,sans-serif;' +

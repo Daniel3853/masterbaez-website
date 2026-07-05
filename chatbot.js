@@ -318,9 +318,9 @@ var MB_QA = [
     var d = document.createElement('div');
     d.id='mbChatWidget';
     d.innerHTML='<style>'+
-      '#mbT{position:fixed;bottom:24px;right:24px;z-index:99998;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#6c5ce7,#a855f7);border:none;color:#fff;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(108,92,231,0.4);transition:transform .2s;display:flex;align-items:center;justify-content:center}'+
+      '#mbT{position:fixed;bottom:210px;right:20px;z-index:99998;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#6c5ce7,#a855f7);border:none;color:#fff;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(108,92,231,0.4);transition:transform .2s;display:flex;align-items:center;justify-content:center}'+
       '#mbT:hover{transform:scale(1.05)}'+
-      '#mbB{position:fixed;bottom:90px;right:24px;z-index:99997;width:360px;height:520px;max-height:calc(100vh-120px);background:#13132a;border:1px solid #2a2a50;border-radius:16px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.5)}'+
+      '#mbB{position:fixed;bottom:276px;right:20px;z-index:99997;width:360px;height:440px;max-height:calc(100vh-300px);background:#13132a;border:1px solid #2a2a50;border-radius:16px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.5)}'+
       '.mb-h{background:linear-gradient(135deg,#1a1a3a,#23234d);padding:16px 20px;border-bottom:1px solid #2a2a50}'+
       '.mb-h h3{margin:0;font-size:16px;font-weight:700;color:#e0e0f0}'+
       '.mb-h p{margin:2px 0 0;font-size:12px;color:#6b6b8b}'+
@@ -338,7 +338,7 @@ var MB_QA = [
       '#mbTg span{width:6px;height:6px;border-radius:50%;background:#6b6b8b;animation:mbP 1.2s infinite}'+
       '#mbTg span:nth-child(2){animation-delay:.2s}#mbTg span:nth-child(3){animation-delay:.4s}'+
       '@keyframes mbP{0%,60%,100%{opacity:.3}20%{opacity:1}}'+
-      '@media(max-width:480px){#mbB{width:calc(100vw-32px);right:16px;bottom:80px}}'+
+      '@media(max-width:480px){#mbT{bottom:200px;right:10px;width:48px;height:48px;font-size:20px}#mbB{width:calc(100vw-32px);right:10px;bottom:256px;height:380px}}'+
       '</style>'+
       '<button id="mbT">💬</button>'+
       '<div id="mbB">'+

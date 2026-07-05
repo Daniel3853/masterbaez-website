@@ -1,0 +1,1854 @@
+{
+  "texts": [
+    {
+      "key": "nav_programs",
+      "en": "Programs",
+      "es": "Programas"
+    },
+    {
+      "key": "nav_about",
+      "en": "About",
+      "es": "Nosotros"
+    },
+    {
+      "key": "nav_testimonials",
+      "en": "Testimonials",
+      "es": "Testimonios"
+    },
+    {
+      "key": "nav_blog",
+      "en": "Blog",
+      "es": "Blog"
+    },
+    {
+      "key": "nav_contact",
+      "en": "Contact",
+      "es": "Contacto"
+    },
+    {
+      "key": "nav_cta",
+      "en": "Start Today",
+      "es": "Empieza Hoy"
+    },
+    {
+      "key": "hero_tag",
+      "en": "Martial Arts Classes for Kids, Teens & Adults in Cooper City, FL",
+      "es": "Clases de Artes Marciales para Niños, Adolescentes y Adultos en Cooper City, FL"
+    },
+    {
+      "key": "hero_title",
+      "en": "YOUR CHILD HAS A <em>CHAMPION</em> INSIDE THEM.<br><span style=\"font-size:20px;font-weight:500;color:#6b6b8b;letter-spacing:0;\">(We Help Them Find It.)</span>",
+      "es": "TU HIJO TIENE UN <em>CAMPEÓN</em> DENTRO.<br><span style=\"font-size:20px;font-weight:500;color:#6b6b8b;letter-spacing:0;\">(Les Ayudamos a Encontrarlo.)</span>"
+    },
+    {
+      "key": "hero_desc",
+      "en": "Modern martial arts for modern families. Where fitness meets identity development and kids discover the champion they were born to be.",
+      "es": "Artes marciales modernas para familias modernas. Donde el fitness se combina con el desarrollo de identidad y los niños descubren el campeón que nacieron para ser."
+    },
+    {
+      "key": "hero_btn1",
+      "en": "START WITH 2 FREE CLASSES",
+      "es": "EMPIEZA CON 2 CLASES GRATIS"
+    },
+    {
+      "key": "hero_btn2",
+      "en": "View Programs",
+      "es": "Ver Programas"
+    },
+    {
+      "key": "section_methodology",
+      "en": "THE GRAND MASTER BAEZ METHODOLOGY",
+      "es": "LA METODOLOGÍA GRAN MAESTRO BAEZ"
+    },
+    {
+      "key": "section_programs",
+      "en": "PROGRAMS",
+      "es": "PROGRAMAS"
+    },
+    {
+      "key": "section_how_title",
+      "en": "HOW WE ENGINEER CHAMPIONS",
+      "es": "CÓMO FORMAMOS CAMPEONES"
+    },
+    {
+      "key": "section_how_desc",
+      "en": "We don't wing it. We've perfected a proven system that transforms kids into confident leaders.",
+      "es": "No improvisamos. Hemos perfeccionado un sistema comprobado que transforma niños en líderes seguros."
+    },
+    {
+      "key": "pillar_1_title",
+      "en": "Martial Arts Excellence",
+      "es": "Excelencia en Artes Marciales"
+    },
+    {
+      "key": "pillar_1_desc",
+      "en": "More than kicks and punches. Students learn authentic Taekwondo, Karate, Hapkido, and practical Self-Defense skills while developing confidence, focus, coordination, and physical fitness in a safe and positive environment.",
+      "es": "Más que patadas y golpes. Los estudiantes aprenden Taekwondo, Karate, Hapkido y técnicas de Defensa Personal mientras desarrollan confianza, enfoque, coordinación y condición física en un ambiente seguro y positivo."
+    },
+    {
+      "key": "pillar_2_title",
+      "en": "Bullying Prevention & Self-Defense",
+      "es": "Prevención de Acoso y Defensa Personal"
+    },
+    {
+      "key": "pillar_2_desc",
+      "en": "We teach children how to recognize, avoid, and respond to bullying with confidence and respect. Our goal is to empower students with awareness, communication skills, and age-appropriate self-defense techniques.",
+      "es": "Enseñamos a los niños a reconocer, evitar y responder al acoso con confianza y respeto. Nuestro objetivo es empoderar a los estudiantes con conciencia, habilidades de comunicación y técnicas de defensa personal apropiadas para su edad."
+    },
+    {
+      "key": "pillar_3_title",
+      "en": "Character & Leadership Development",
+      "es": "Desarrollo de Carácter y Liderazgo"
+    },
+    {
+      "key": "pillar_3_desc",
+      "en": "Respect, discipline, confidence, perseverance, and leadership are built into every class. These life skills help students succeed not only in martial arts, but also at home, in school, and throughout life.",
+      "es": "Respeto, disciplina, confianza, perseverancia y liderazgo están integrados en cada clase. Estas habilidades ayudan a los estudiantes a tener éxito no solo en artes marciales, sino también en casa, la escuela y la vida."
+    },
+    {
+      "key": "pillar_4_title",
+      "en": "Family Partnership",
+      "es": "Asociación Familiar"
+    },
+    {
+      "key": "pillar_4_desc",
+      "en": "We believe parents are an important part of every child's success. Our instructors work together with families to reinforce positive values, strong character, and personal growth both on and off the mat.",
+      "es": "Creemos que los padres son parte importante del éxito de cada niño. Nuestros instructores trabajan con las familias para reforzar valores positivos, carácter fuerte y crecimiento personal dentro y fuera del tapiz."
+    },
+    {
+      "key": "pillar_5_title",
+      "en": "The Grand Master Baez Methodology",
+      "es": "La Metodología Gran Maestro Baez"
+    },
+    {
+      "key": "pillar_5_desc",
+      "en": "For more than 30 years, Grand Master Daniel Baez has helped students build confidence, discipline, respect, and leadership through a proven teaching system that combines traditional martial arts values with modern training methods.",
+      "es": "Por más de 30 años, el Gran Maestro Daniel Baez ha ayudado a estudiantes a desarrollar confianza, disciplina, respeto y liderazgo a través de un sistema de enseñanza que combina valores tradicionales de artes marciales con métodos modernos de entrenamiento."
+    },
+    {
+      "key": "pillar_6_title",
+      "en": "A Positive Community",
+      "es": "Una Comunidad Positiva"
+    },
+    {
+      "key": "pillar_6_desc",
+      "en": "Founded in 1991 and proudly serving Cooper City from the same location for over 30 years, Master Baez Martial Arts is a place where students of all ages are encouraged, challenged, and inspired to become the best version of themselves.",
+      "es": "Fundada en 1991 y sirviendo a Cooper City desde la misma ubicación por más de 30 años, Master Baez Martial Arts es un lugar donde estudiantes de todas las edades son animados, desafiados e inspirados a convertirse en la mejor versión de sí mismos."
+    },
+    {
+      "key": "programs_label",
+      "en": "PROGRAMS",
+      "es": "PROGRAMAS"
+    },
+    {
+      "key": "programs_title",
+      "en": "DESIGNED FOR EVERY STAGE OF DEVELOPMENT",
+      "es": "DISEÑADO PARA CADA ETAPA DE DESARROLLO"
+    },
+    {
+      "key": "programs_sub",
+      "en": "We don't believe in one-size-fits-all. Different ages need different approaches.",
+      "es": "No creemos en talla única. Diferentes edades necesitan diferentes enfoques."
+    },
+    {
+      "key": "programs_click",
+      "en": "Click on a program to learn more",
+      "es": "Haz clic en un programa para saber más"
+    },
+    {
+      "key": "prog_1_age",
+      "en": "Ages 4-6",
+      "es": "Edades 4-6"
+    },
+    {
+      "key": "prog_1_name",
+      "en": "Tiny Tigers",
+      "es": "Tigres Pequeños"
+    },
+    {
+      "key": "prog_1_desc",
+      "en": "Building foundational motor skills, social interaction, and a love for physical activity in a fun, high-energy environment.",
+      "es": "Desarrollando habilidades motoras fundamentales, interacción social y amor por la actividad física en un ambiente divertido y de alta energía."
+    },
+    {
+      "key": "prog_2_age",
+      "en": "Ages 7-12",
+      "es": "Edades 7-12"
+    },
+    {
+      "key": "prog_2_name",
+      "en": "Kids Martial Arts",
+      "es": "Artes Marciales para Niños"
+    },
+    {
+      "key": "prog_2_desc",
+      "en": "Advanced technique, leadership development, and character building. Where kids transform into confident young leaders.",
+      "es": "Técnica avanzada, desarrollo de liderazgo y formación de carácter. Donde los niños se transforman en jóvenes líderes seguros."
+    },
+    {
+      "key": "prog_3_age",
+      "en": "Ages 13+",
+      "es": "Edades 13+"
+    },
+    {
+      "key": "prog_3_name",
+      "en": "Adult Fitness Program",
+      "es": "Programa de Fitness para Adultos"
+    },
+    {
+      "key": "prog_3_desc",
+      "en": "Elite training for teens and adults. Advanced martial arts, strength conditioning, and real-world leadership skills.",
+      "es": "Entrenamiento de élite para adolescentes y adultos. Artes marciales avanzadas, acondicionamiento físico y habilidades de liderazgo."
+    },
+    {
+      "key": "prog_4_age",
+      "en": "Ages 6-12",
+      "es": "Edades 6-12"
+    },
+    {
+      "key": "prog_4_name",
+      "en": "Life Skills After School Program",
+      "es": "Programa Extraescolar de Habilidades para la Vida"
+    },
+    {
+      "key": "prog_4_desc",
+      "en": "Structured after-school care combining martial arts training and character development in a safe environment.",
+      "es": "Cuidado extraescolar estructurado que combina entrenamiento de artes marciales y desarrollo de carácter en un ambiente seguro."
+    },
+    {
+      "key": "learn_more",
+      "en": "Learn More →",
+      "es": "Saber Más →"
+    },
+    {
+      "key": "programs_help",
+      "en": "Not sure which program? <a href=\"#trial\" style=\"color:#a855f7;font-weight:600;\">Start your trial</a> and we'll help you find the right fit.",
+      "es": "¿No sabes qué programa? <a href=\"#trial\" style=\"color:#a855f7;font-weight:600;\">Prueba gratis</a> y te ayudamos a encontrar el ideal."
+    },
+    {
+      "key": "section_belt",
+      "en": "BELT JOURNEY",
+      "es": "VIAJE DEL CINTURÓN"
+    },
+    {
+      "key": "section_inside",
+      "en": "INSIDE THE LAB",
+      "es": "DENTRO DEL LABORATORIO"
+    },
+    {
+      "key": "inside_title",
+      "en": "SEE WHAT HAPPENS INSIDE",
+      "es": "MIRA LO QUE PASA DENTRO"
+    },
+    {
+      "key": "inside_desc",
+      "en": "Nervous? We get it. Will my shy child participate? Will the coaches push too hard? Will they feel overwhelmed? Here's what happens in every class:",
+      "es": "¿Nervioso? Lo entendemos. ¿Mi hijo tímido participará? ¿Los entrenadores presionarán demasiado? ¿Se sentirá abrumado? Esto es lo que sucede en cada clase:"
+    },
+    {
+      "key": "inside_1_title",
+      "en": "High-Energy Welcome",
+      "es": "Bienvenida de Alta Energía"
+    },
+    {
+      "key": "inside_1_desc",
+      "en": "We start every class with movement that breaks the ice. No child stands on the sidelines. Everyone moves from minute one.",
+      "es": "Empezamos cada clase con movimiento que rompe el hielo. Ningún niño se queda al margen. Todos se mueven desde el minuto uno."
+    },
+    {
+      "key": "inside_1_time",
+      "en": "Minutes 1-5",
+      "es": "Minutos 1-5"
+    },
+    {
+      "key": "inside_2_title",
+      "en": "Skill-Building That Challenges",
+      "es": "Desarrollo de Habilidades que Desafía"
+    },
+    {
+      "key": "inside_2_desc",
+      "en": "Age-appropriate training that pushes them just beyond what they think they can do. We meet them where they are and take them one step further.",
+      "es": "Entrenamiento apropiado para su edad que los empuja más allá de lo que creen que pueden hacer. Los encontramos donde están y los llevamos un paso más allá."
+    },
+    {
+      "key": "inside_2_time",
+      "en": "Minutes 5-15",
+      "es": "Minutos 5-15"
+    },
+    {
+      "key": "inside_3_title",
+      "en": "Partner Work & Leadership",
+      "es": "Trabajo en Pareja y Liderazgo"
+    },
+    {
+      "key": "inside_3_desc",
+      "en": "Your child works with a partner. This is where confidence blooms. When they realize they can help someone else succeed.",
+      "es": "Tu hijo trabaja con un compañero. Aquí es donde florece la confianza. Cuando se dan cuenta de que pueden ayudar a otros a tener éxito."
+    },
+    {
+      "key": "inside_3_time",
+      "en": "Minutes 15-25",
+      "es": "Minutos 15-25"
+    },
+    {
+      "key": "inside_4_title",
+      "en": "Reflection & Gratitude",
+      "es": "Reflexión y Gratitud"
+    },
+    {
+      "key": "inside_4_desc",
+      "en": "We end with gratitude. Kids share what they learned and celebrate each other's wins. This is where the identity shift happens.",
+      "es": "Terminamos con gratitud. Los niños comparten lo que aprendieron y celebran los logros de los demás. Aquí es donde ocurre el cambio de identidad."
+    },
+    {
+      "key": "inside_4_time",
+      "en": "Minutes 25-30",
+      "es": "Minutos 25-30"
+    },
+    {
+      "key": "inside_tag",
+      "en": "Your child will leave sweaty, smiling, and asking when they can come back.",
+      "es": "Tu hijo saldrá sudado, sonriendo y preguntando cuándo puede volver."
+    },
+    {
+      "key": "section_transformations",
+      "en": "REAL TRANSFORMATIONS",
+      "es": "TRANSFORMACIONES REALES"
+    },
+    {
+      "key": "section_trans_desc",
+      "en": "Real kids, real results. See how Master Baez changes lives.",
+      "es": "Niños reales, resultados reales. Mira cómo Master Baez cambia vidas."
+    },
+    {
+      "key": "section_testimonials",
+      "en": "TESTIMONIALS",
+      "es": "TESTIMONIOS"
+    },
+    {
+      "key": "section_testimonial_desc",
+      "en": "Hear from our parents and students.",
+      "es": "Escucha a nuestros padres y estudiantes."
+    },
+    {
+      "key": "section_contact",
+      "en": "CONTACT US",
+      "es": "CONTÁCTANOS"
+    },
+    {
+      "key": "footer_rights",
+      "en": "All rights reserved.",
+      "es": "Todos los derechos reservados."
+    },
+    {
+      "key": "offer_tag",
+      "en": "SPECIAL OFFER",
+      "es": "OFERTA ESPECIAL"
+    },
+    {
+      "key": "offer_start",
+      "en": "Start Risk-Free Today",
+      "es": "Empieza Sin Riesgo Hoy"
+    },
+    {
+      "key": "offer_title",
+      "en": "2 CLASSES FREE + 3 MONTHS FOR $149",
+      "es": "2 CLASES GRATIS + 3 MESES POR $149"
+    },
+    {
+      "key": "offer_1",
+      "en": "🥋 2 classes per week",
+      "es": "🥋 Clases 2 días a la semana"
+    },
+    {
+      "key": "offer_2",
+      "en": "👕 Welcome uniform",
+      "es": "👕 Uniforme de bienvenida"
+    },
+    {
+      "key": "offer_3",
+      "en": "📋 Personalized evaluation",
+      "es": "📋 Evaluación personalizada"
+    },
+    {
+      "key": "offer_4",
+      "en": "🎉 Access to all group classes",
+      "es": "🎉 Acceso a todas las clases grupales"
+    },
+    {
+      "key": "offer_total",
+      "en": "Total Value:",
+      "es": "Valor Total:"
+    },
+    {
+      "key": "offer_btn",
+      "en": "CLAIM YOUR SPOT NOW",
+      "es": "RESERVA TU LUGAR AHORA"
+    },
+    {
+      "key": "offer_guarantee",
+      "en": "100% Money-Back Promise: If your child doesn't love their first week, we'll refund every penny. No questions asked.",
+      "es": "Garantía de devolución: si tu hijo no ama su primera semana, devolvemos cada centavo. Sin preguntas."
+    },
+    {
+      "key": "offer_spots",
+      "en": "⚡ Only 3 Spots Left This Month",
+      "es": "⚡ Solo quedan 3 lugares este mes"
+    },
+    {
+      "key": "testimonial_1_text",
+      "en": "\"My son's confidence has skyrocketed since joining. The instructors are incredible role models.\"",
+      "es": "\"La confianza de mi hijo se ha disparado desde que se unió. Los instructores son modelos increíbles.\""
+    },
+    {
+      "key": "testimonial_1_name",
+      "en": "— Maria G.",
+      "es": "— María G."
+    },
+    {
+      "key": "testimonial_2_text",
+      "en": "\"The best decision we ever made for our daughter. She loves every class!\"",
+      "es": "\"La mejor decisión que tomamos para nuestra hija. ¡Ama cada clase!\""
+    },
+    {
+      "key": "testimonial_2_name",
+      "en": "— Carlos R.",
+      "es": "— Carlos R."
+    },
+    {
+      "key": "testimonial_3_text",
+      "en": "\"I've tried other martial arts schools but none compare to the quality of instruction here.\"",
+      "es": "\"He probado otras escuelas de artes marciales pero ninguna se compara a la calidad de instrucción aquí.\""
+    },
+    {
+      "key": "testimonial_3_name",
+      "en": "— Jessica T.",
+      "es": "— Jessica T."
+    },
+    {
+      "key": "testimonials_title",
+      "en": "REAL PARENTS. REAL TRANSFORMATIONS.",
+      "es": "PADRES REALES. TRANSFORMACIONES REALES."
+    },
+    {
+      "key": "testimonials_sub",
+      "en": "Don't just take our word for it. Here's what families are saying about their Master Baez experience.",
+      "es": "No solo confíes en nuestra palabra. Esto es lo que las familias dicen sobre su experiencia en Master Baez."
+    },
+    {
+      "key": "comparison_label",
+      "en": "JOIN THE MASTER BAEZ FAMILY",
+      "es": "ÚNETE A LA FAMILIA MASTER BAEZ"
+    },
+    {
+      "key": "comparison_title",
+      "en": "THE CHOICE IS CLEAR",
+      "es": "LA ELECCIÓN ES CLARA"
+    },
+    {
+      "key": "comparison_sub",
+      "en": "Let's be honest. You have options. So why choose Master Baez?",
+      "es": "Seamos honestos. Tienes opciones. ¿Por qué elegir Master Baez?"
+    },
+    {
+      "key": "comp_others_title",
+      "en": "✕ Others",
+      "es": "✕ Otros"
+    },
+    {
+      "key": "comp_muv_title",
+      "en": "✓ Master Baez Martial Arts",
+      "es": "✓ Master Baez Martial Arts"
+    },
+    {
+      "key": "comp_grp_traditional",
+      "en": "vs. Traditional Martial Arts Schools",
+      "es": "vs. Escuelas Tradicionales de Artes Marciales"
+    },
+    {
+      "key": "comp_grp_team",
+      "en": "vs. Team Sports (Soccer, Baseball, Basketball)",
+      "es": "vs. Deportes de Equipo (Fútbol, Béisbol, Baloncesto)"
+    },
+    {
+      "key": "comp_grp_other",
+      "en": "vs. Other Activities (Dance, Gymnastics, Music)",
+      "es": "vs. Otras Actividades (Baile, Gimnasia, Música)"
+    },
+    {
+      "key": "comp_grp_none",
+      "en": "vs. No Structured Activity",
+      "es": "vs. Sin Actividad Estructurada"
+    },
+    {
+      "key": "comp_trad_1",
+      "en": "<span class=\"icon\">✕</span> Rigid, outdated approach",
+      "es": "<span class=\"icon\">✕</span> Enfoque rígido y anticuado"
+    },
+    {
+      "key": "comp_trad_2",
+      "en": "<span class=\"icon\">✕</span> Focus on tradition over transformation",
+      "es": "<span class=\"icon\">✕</span> Enfoque en tradición sobre transformación"
+    },
+    {
+      "key": "comp_trad_3",
+      "en": "<span class=\"icon\">✕</span> One-size-fits-all curriculum",
+      "es": "<span class=\"icon\">✕</span> Currículo único para todos"
+    },
+    {
+      "key": "comp_trad_4",
+      "en": "<span class=\"icon\">✕</span> No partnership with parents",
+      "es": "<span class=\"icon\">✕</span> Sin alianza con los padres"
+    },
+    {
+      "key": "comp_team_1",
+      "en": "<span class=\"icon\">✕</span> Hyper-competitive environments",
+      "es": "<span class=\"icon\">✕</span> Ambientes hipercompetitivos"
+    },
+    {
+      "key": "comp_team_2",
+      "en": "<span class=\"icon\">✕</span> Limited individual attention",
+      "es": "<span class=\"icon\">✕</span> Atención individual limitada"
+    },
+    {
+      "key": "comp_team_3",
+      "en": "<span class=\"icon\">✕</span> Skill-focused, not character-focused",
+      "es": "<span class=\"icon\">✕</span> Enfoque en habilidad, no en carácter"
+    },
+    {
+      "key": "comp_team_4",
+      "en": "<span class=\"icon\">✕</span> Bench time and politics",
+      "es": "<span class=\"icon\">✕</span> Tiempo en banca y política"
+    },
+    {
+      "key": "comp_other_1",
+      "en": "<span class=\"icon\">✕</span> Great for skill development",
+      "es": "<span class=\"icon\">✕</span> Bueno para desarrollo de habilidades"
+    },
+    {
+      "key": "comp_other_2",
+      "en": "<span class=\"icon\">✕</span> Limited confidence-building",
+      "es": "<span class=\"icon\">✕</span> Desarrollo de confianza limitado"
+    },
+    {
+      "key": "comp_other_3",
+      "en": "<span class=\"icon\">✕</span> No mental toughness training",
+      "es": "<span class=\"icon\">✕</span> Sin entrenamiento de fortaleza mental"
+    },
+    {
+      "key": "comp_other_4",
+      "en": "<span class=\"icon\">✕</span> No leadership development",
+      "es": "<span class=\"icon\">✕</span> Sin desarrollo de liderazgo"
+    },
+    {
+      "key": "comp_other_5",
+      "en": "<span class=\"icon\">✕</span> No emotional intelligence training",
+      "es": "<span class=\"icon\">✕</span> Sin entrenamiento de inteligencia emocional"
+    },
+    {
+      "key": "comp_other_6",
+      "en": "<span class=\"icon\">✕</span> Expensive competitions",
+      "es": "<span class=\"icon\">✕</span> Competencias costosas"
+    },
+    {
+      "key": "comp_none_1",
+      "en": "<span class=\"icon\">✕</span> Screen addiction",
+      "es": "<span class=\"icon\">✕</span> Adicción a pantallas"
+    },
+    {
+      "key": "comp_none_2",
+      "en": "<span class=\"icon\">✕</span> Lack of physical fitness",
+      "es": "<span class=\"icon\">✕</span> Falta de condición física"
+    },
+    {
+      "key": "comp_none_3",
+      "en": "<span class=\"icon\">✕</span> No discipline training",
+      "es": "<span class=\"icon\">✕</span> Sin entrenamiento en disciplina"
+    },
+    {
+      "key": "comp_none_4",
+      "en": "<span class=\"icon\">✕</span> Missing social skills",
+      "es": "<span class=\"icon\">✕</span> Habilidades sociales faltantes"
+    },
+    {
+      "key": "comp_muv_trad_1",
+      "en": "<span class=\"icon\">✓</span> Modern, gamified approach kids actually engage with",
+      "es": "<span class=\"icon\">✓</span> Enfoque moderno y dinámico que atrae a los niños"
+    },
+    {
+      "key": "comp_muv_trad_2",
+      "en": "<span class=\"icon\">✓</span> Focus on character development and identity",
+      "es": "<span class=\"icon\">✓</span> Enfoque en desarrollo de carácter e identidad"
+    },
+    {
+      "key": "comp_muv_trad_3",
+      "en": "<span class=\"icon\">✓</span> Age-specific programs designed for how kids learn",
+      "es": "<span class=\"icon\">✓</span> Programas específicos por edad diseñados para cómo aprenden los niños"
+    },
+    {
+      "key": "comp_muv_trad_4",
+      "en": "<span class=\"icon\">✓</span> True partnership with parents",
+      "es": "<span class=\"icon\">✓</span> Verdadera alianza con los padres"
+    },
+    {
+      "key": "comp_muv_team_1",
+      "en": "<span class=\"icon\">✓</span> Challenge-focused, not competition-obsessed",
+      "es": "<span class=\"icon\">✓</span> Enfoque en desafíos, no obsesionado con competencia"
+    },
+    {
+      "key": "comp_muv_team_2",
+      "en": "<span class=\"icon\">✓</span> Every athlete gets personalized coaching",
+      "es": "<span class=\"icon\">✓</span> Cada atleta recibe entrenamiento personalizado"
+    },
+    {
+      "key": "comp_muv_team_3",
+      "en": "<span class=\"icon\">✓</span> Character runs the game",
+      "es": "<span class=\"icon\">✓</span> El carácter gobierna el juego"
+    },
+    {
+      "key": "comp_muv_team_4",
+      "en": "<span class=\"icon\">✓</span> Everyone participates, everyone grows",
+      "es": "<span class=\"icon\">✓</span> Todos participan, todos crecen"
+    },
+    {
+      "key": "comp_muv_other_1",
+      "en": "<span class=\"icon\">✓</span> Athletic skill + mental toughness + emotional intelligence",
+      "es": "<span class=\"icon\">✓</span> Habilidad atlética + fortaleza mental + inteligencia emocional"
+    },
+    {
+      "key": "comp_muv_other_2",
+      "en": "<span class=\"icon\">✓</span> Confidence forged through challenge",
+      "es": "<span class=\"icon\">✓</span> Confianza forjada a través del desafío"
+    },
+    {
+      "key": "comp_muv_other_3",
+      "en": "<span class=\"icon\">✓</span> Real-world resilience training",
+      "es": "<span class=\"icon\">✓</span> Entrenamiento de resiliencia para el mundo real"
+    },
+    {
+      "key": "comp_muv_other_4",
+      "en": "<span class=\"icon\">✓</span> Natural leadership opportunities",
+      "es": "<span class=\"icon\">✓</span> Oportunidades naturales de liderazgo"
+    },
+    {
+      "key": "comp_muv_none_1",
+      "en": "<span class=\"icon\">✓</span> Healthy screen time balance",
+      "es": "<span class=\"icon\">✓</span> Equilibrio saludable de tiempo frente a pantallas"
+    },
+    {
+      "key": "comp_muv_none_2",
+      "en": "<span class=\"icon\">✓</span> Elite athletic development",
+      "es": "<span class=\"icon\">✓</span> Desarrollo atlético de élite"
+    },
+    {
+      "key": "comp_muv_none_3",
+      "en": "<span class=\"icon\">✓</span> Discipline and structure",
+      "es": "<span class=\"icon\">✓</span> Disciplina y estructura"
+    },
+    {
+      "key": "comp_muv_none_4",
+      "en": "<span class=\"icon\">✓</span> Community and belonging",
+      "es": "<span class=\"icon\">✓</span> Comunidad y pertenencia"
+    },
+    {
+      "key": "comp_outro",
+      "en": "The choice is clear. Master Baez is the gold standard for child development through athletic training.",
+      "es": "La elección es clara. Master Baez es el estándar de oro para el desarrollo infantil a través del entrenamiento atlético."
+    },
+    {
+      "key": "faq_label",
+      "en": "FAQ",
+      "es": "Preguntas Frecuentes"
+    },
+    {
+      "key": "faq_title",
+      "en": "FREQUENTLY ASKED QUESTIONS",
+      "es": "PREGUNTAS FRECUENTES"
+    },
+    {
+      "key": "footer_tagline",
+      "en": "Where Champions Are Forged. Modern martial arts for modern families.",
+      "es": "Donde se Forjan Campeones. Artes marciales modernas para familias modernas."
+    },
+    {
+      "key": "footer_since",
+      "en": "Since 1991 — Serving Cooper City for Over 30 Years 💜",
+      "es": "Desde 1991 — Sirviendo a Cooper City por Más de 30 Años 💜"
+    },
+    {
+      "key": "footer_quick",
+      "en": "Quick Links",
+      "es": "Enlaces Rápidos"
+    },
+    {
+      "key": "footer_why",
+      "en": "Why Master Baez",
+      "es": "Por qué Master Baez"
+    },
+    {
+      "key": "footer_location",
+      "en": "Location",
+      "es": "Ubicación"
+    },
+    {
+      "key": "footer_who",
+      "en": "Who We Help",
+      "es": "A Quién Ayudamos"
+    },
+    {
+      "key": "footer_adhd",
+      "en": "Martial Arts for Kids with ADHD",
+      "es": "Artes Marciales para Niños con TDAH"
+    },
+    {
+      "key": "footer_contact_us",
+      "en": "Contact Us",
+      "es": "Contáctanos"
+    },
+    {
+      "key": "footer_connect",
+      "en": "Connect",
+      "es": "Conectar"
+    },
+    {
+      "key": "footer_areas",
+      "en": "Serving Cooper City, Pembroke Pines, Davie, Plantation, Hollywood, FL, Weston",
+      "es": "Sirviendo a Cooper City, Pembroke Pines, Davie, Plantation, Hollywood, FL, Weston"
+    },
+    {
+      "key": "footer_review",
+      "en": "Leave Us a Review",
+      "es": "Déjanos una Reseña"
+    },
+    {
+      "key": "footer_copyright",
+      "en": "© 2026 Master Baez Martial Arts. All rights reserved.",
+      "es": "© 2026 Master Baez Martial Arts. Todos los derechos reservados."
+    },
+    {
+      "key": "footer_privacy",
+      "en": "Privacy Policy",
+      "es": "Política de Privacidad"
+    },
+    {
+      "key": "footer_terms",
+      "en": "Terms & Agreements",
+      "es": "Términos y Acuerdos"
+    },
+    {
+      "key": "belt_title",
+      "en": "FROM NERVOUS BEGINNER TO BLACK BELT LEADER",
+      "es": "DE PRINCIPIANTE NERVIOSO A LÍDER CINTURÓN NEGRO"
+    },
+    {
+      "key": "belt_stripe_desc",
+      "en": "Students earn <strong>3 black tape stripes</strong> as they progress through the curriculum. When they earn the <strong>4th stripe (red)</strong>, they are ready for their belt test.",
+      "es": "Los estudiantes ganan <strong>3 franjas de cinta negra</strong> mientras avanzan en el currículo. Cuando ganan la <strong>4ta franja (roja)</strong>, están listos para su examen de cinturón."
+    },
+    {
+      "key": "belt_detail_1",
+      "en": "Belt tests every <strong>2-3 months</strong>",
+      "es": "Exámenes de cinturón cada <strong>2-3 meses</strong>"
+    },
+    {
+      "key": "belt_detail_2",
+      "en": "Evaluation system with <strong>progressive stripes</strong>",
+      "es": "Sistema de evaluación con <strong>franjas progresivas</strong>"
+    },
+    {
+      "key": "belt_detail_3",
+      "en": "Minimum <strong>2 days per week</strong> to be recommended for exam",
+      "es": "Mínimo <strong>2 días por semana</strong> para ser recomendado para examen"
+    },
+    {
+      "key": "belt_1_level",
+      "en": "Level 1",
+      "es": "Nivel 1"
+    },
+    {
+      "key": "belt_1_time",
+      "en": "Month 1",
+      "es": "Mes 1"
+    },
+    {
+      "key": "belt_1_title",
+      "en": "The Spark",
+      "es": "La Chispa"
+    },
+    {
+      "key": "belt_1_desc",
+      "en": "Your child makes their first friend. They high-five a coach. They smile after class. You see it. The spark is there.",
+      "es": "Tu hijo hace su primer amigo. Chocan las manos con un entrenador. Sonríen después de clase. Lo ves. La chispa está ahí."
+    },
+    {
+      "key": "belt_2_level",
+      "en": "Level 2",
+      "es": "Nivel 2"
+    },
+    {
+      "key": "belt_2_time",
+      "en": "Month 4",
+      "es": "Mes 4"
+    },
+    {
+      "key": "belt_2_title",
+      "en": "The First Belt Earned",
+      "es": "El Primer Cinturón"
+    },
+    {
+      "key": "belt_2_desc",
+      "en": "Your child earns their first belt. Not because it was easy. Because they worked for it. They set a goal. They achieved it. They believe now.",
+      "es": "Tu hijo gana su primer cinturón. No porque fue fácil. Porque trabajaron para ello. Establecieron una meta. La lograron. Ahora creen."
+    },
+    {
+      "key": "belt_3_level",
+      "en": "Level 3",
+      "es": "Nivel 3"
+    },
+    {
+      "key": "belt_3_time",
+      "en": "Month 6",
+      "es": "Mes 6"
+    },
+    {
+      "key": "belt_3_title",
+      "en": "The First Real Challenge",
+      "es": "El Primer Desafío Real"
+    },
+    {
+      "key": "belt_3_desc",
+      "en": "Your child faces something hard. A technique that doesn't click right away. A board that won't break. But they don't quit. They discover they're stronger than they thought.",
+      "es": "Tu hijo enfrenta algo difícil. Una técnica que no sale de inmediato. Una tabla que no se rompe. Pero no se rinden. Descubren que son más fuertes de lo que pensaban."
+    },
+    {
+      "key": "belt_4_level",
+      "en": "Level 5",
+      "es": "Nivel 5"
+    },
+    {
+      "key": "belt_4_time",
+      "en": "Year 1",
+      "es": "Año 1"
+    },
+    {
+      "key": "belt_4_title",
+      "en": "The Leader Emerges",
+      "es": "El Líder Emerge"
+    },
+    {
+      "key": "belt_4_desc",
+      "en": "Your child helps younger students. They demonstrate techniques. They encourage teammates who are struggling. This is a leader.",
+      "es": "Tu hijo ayuda a estudiantes más jóvenes. Demuestran técnicas. Animan a compañeros que están luchando. Esto es un líder."
+    },
+    {
+      "key": "belt_5_level",
+      "en": "Level 9",
+      "es": "Nivel 9"
+    },
+    {
+      "key": "belt_5_time",
+      "en": "Year 2",
+      "es": "Año 2"
+    },
+    {
+      "key": "belt_5_title",
+      "en": "The Challenge Master",
+      "es": "El Maestro de Desafíos"
+    },
+    {
+      "key": "belt_5_desc",
+      "en": "Your child has learned the skill of overcoming challenges. When things get hard now, they don't crumble. They breathe. They refocus. They push through.",
+      "es": "Tu hijo ha aprendido la habilidad de superar desafíos. Cuando las cosas se ponen difíciles, no se desmoronan. Respiran. Se reenfocan. Siguen adelante."
+    },
+    {
+      "key": "belt_6_level",
+      "en": "Level 12",
+      "es": "Nivel 12"
+    },
+    {
+      "key": "belt_6_time",
+      "en": "Year 3",
+      "es": "Año 3"
+    },
+    {
+      "key": "belt_6_title",
+      "en": "The Mentor",
+      "es": "El Mentor"
+    },
+    {
+      "key": "belt_6_desc",
+      "en": "Your child becomes someone others look up to. They're patient with beginners. They celebrate teammates' wins.",
+      "es": "Tu hijo se convierte en alguien a quien otros admiran. Son pacientes con los principiantes. Celebran los logros de sus compañeros."
+    },
+    {
+      "key": "belt_btn",
+      "en": "Begin Their Journey Today",
+      "es": "Comienza Su Viaje Hoy"
+    },
+    {
+      "key": "cta_tag",
+      "en": "JOIN THE MOVEMENT",
+      "es": "ÚNETE AL MOVIMIENTO"
+    },
+    {
+      "key": "cta_title",
+      "en": "At Master Baez, you're not just signing your child up for classes. You're partnering with the gold standard. You're joining a movement of parents who refuse to raise fragile kids.",
+      "es": "En Master Baez, no solo estás inscribiendo a tu hijo en clases. Te estás asociando con el estándar de oro. Te unes a un movimiento de padres que se niegan a criar hijos frágiles."
+    },
+    {
+      "key": "cta_sub",
+      "en": "This is your moment. Make your move.",
+      "es": "Este es tu momento. Da el paso."
+    },
+    {
+      "key": "so_desc",
+      "en": "Includes uniform, evaluation & 100% money-back guarantee",
+      "es": "Incluye uniforme, evaluación y garantía de devolución del 100%"
+    },
+    {
+      "key": "so_timer",
+      "en": "⏱ Offer ends in: <span id=\"soTimer\">2d 03:43:01</span>",
+      "es": "⏱ Oferta termina en: <span id=\"soTimer\">2d 03:43:01</span>"
+    },
+    {
+      "key": "so_btn",
+      "en": "Claim Your Spot",
+      "es": "Reserva tu Lugar"
+    },
+    {
+      "key": "vb_label",
+      "en": "parents viewing now",
+      "es": "padres viendo ahora"
+    },
+    {
+      "key": "modal_title",
+      "en": "Find Your Perfect Program",
+      "es": "Encuentra el Programa Perfecto"
+    },
+    {
+      "key": "modal_desc",
+      "en": "We don't believe in one-size-fits-all. Different ages need different approaches.",
+      "es": "No creemos en talla única. Diferentes edades necesitan diferentes enfoques."
+    },
+    {
+      "key": "modal_click",
+      "en": "(Click an age group to continue)",
+      "es": "(Haz clic en un grupo de edad para continuar)"
+    },
+    {
+      "key": "back_programs",
+      "en": "← Back to Programs",
+      "es": "← Volver a Programas"
+    },
+    {
+      "key": "child_title",
+      "en": "Tell Us About Your Child",
+      "es": "Cuéntanos Sobre Tu Hijo"
+    },
+    {
+      "key": "child_sub",
+      "en": "So we can personalize their experience from day one.",
+      "es": "Para personalizar su experiencia desde el primer día."
+    },
+    {
+      "key": "ages",
+      "en": "Ages",
+      "es": "Edades"
+    },
+    {
+      "key": "parent_name",
+      "en": "Parent's Name",
+      "es": "Nombre del Padre/Madre"
+    },
+    {
+      "key": "parent_placeholder",
+      "en": "Enter your first name",
+      "es": "Ingresa tu nombre"
+    },
+    {
+      "key": "athlete_name",
+      "en": "Athlete's Name",
+      "es": "Nombre del Atleta"
+    },
+    {
+      "key": "athlete_placeholder",
+      "en": "Enter athlete's first name",
+      "es": "Ingresa el nombre del atleta"
+    },
+    {
+      "key": "gender",
+      "en": "Gender",
+      "es": "Género"
+    },
+    {
+      "key": "boy",
+      "en": "Boy",
+      "es": "Niño"
+    },
+    {
+      "key": "girl",
+      "en": "Girl",
+      "es": "Niña"
+    },
+    {
+      "key": "skills_label",
+      "en": "Top 3 skills you want your child to develop",
+      "es": "Las 3 habilidades principales que deseas desarrollar en tu hijo"
+    },
+    {
+      "key": "skills_rank",
+      "en": "Ranked by importance",
+      "es": "Clasificadas por importancia"
+    },
+    {
+      "key": "most_important",
+      "en": "Most Important",
+      "es": "Más Importante"
+    },
+    {
+      "key": "second_important",
+      "en": "2nd Most Important",
+      "es": "2do Más Importante"
+    },
+    {
+      "key": "third_important",
+      "en": "3rd Most Important",
+      "es": "3ro Más Importante"
+    },
+    {
+      "key": "continue",
+      "en": "Continue",
+      "es": "Continuar"
+    },
+    {
+      "key": "thank_you",
+      "en": "Thank you! We will contact you shortly.",
+      "es": "¡Gracias! Te contactaremos pronto."
+    },
+    {
+      "key": "whos_training",
+      "en": "Who's Training?",
+      "es": "¿Quién Entrena?"
+    },
+    {
+      "key": "adult_sub",
+      "en": "So we can personalize the experience from day one.",
+      "es": "Para personalizar la experiencia desde el primer día."
+    },
+    {
+      "key": "teen",
+      "en": "Teen (Ages 13-17)",
+      "es": "Adolescente (13-17 años)"
+    },
+    {
+      "key": "tell_child",
+      "en": "Tell Us About Your Child",
+      "es": "Cuéntanos Sobre Tu Hijo"
+    },
+    {
+      "key": "or",
+      "en": "— or —",
+      "es": "— o —"
+    },
+    {
+      "key": "adult",
+      "en": "Adult (18+)",
+      "es": "Adulto (18+)"
+    },
+    {
+      "key": "tell_you",
+      "en": "Tell Us About You",
+      "es": "Cuéntanos Sobre Ti"
+    },
+    {
+      "key": "back",
+      "en": "← Back",
+      "es": "← Atrás"
+    },
+    {
+      "key": "tell_about_you",
+      "en": "Tell Us About You",
+      "es": "Cuéntanos Sobre Ti"
+    },
+    {
+      "key": "adult_form_sub",
+      "en": "So we can personalize your experience from day one.",
+      "es": "Para personalizar tu experiencia desde el primer día."
+    },
+    {
+      "key": "your_name",
+      "en": "Your Name",
+      "es": "Tu Nombre"
+    },
+    {
+      "key": "name_placeholder",
+      "en": "Enter your first name",
+      "es": "Ingresa tu nombre"
+    },
+    {
+      "key": "your_skills",
+      "en": "Top 3 skills you want to develop",
+      "es": "Las 3 habilidades principales que deseas desarrollar"
+    },
+    {
+      "key": "trans_title",
+      "en": "WHAT YOUR CHILD WILL ACTUALLY BECOME",
+      "es": "EN LO QUE TU HIJO REALMENTE SE CONVERTIRÁ"
+    },
+    {
+      "key": "trans_sub",
+      "en": "Forget the belt for a second. Here's what transformation actually looks like at Master Baez.",
+      "es": "Olvida el cinturón por un segundo. Así es como se ve la transformación en Master Baez."
+    },
+    {
+      "key": "trans_oliver_label",
+      "en": "Oliver's Story",
+      "es": "La Historia de Oliver"
+    },
+    {
+      "key": "trans_oliver_name",
+      "en": "The Child Who Leads With Kindness",
+      "es": "El Niño que Lidera con Bondad"
+    },
+    {
+      "key": "trans_oliver_p1",
+      "en": "Oliver learned about random acts of kindness at Master Baez. But he didn't just learn about it. He lived it.",
+      "es": "Oliver aprendió sobre actos de bondad al azar en Master Baez. Pero no solo aprendió sobre ello. Lo vivió."
+    },
+    {
+      "key": "trans_oliver_p2",
+      "en": "One day at school, Oliver noticed a classmate with a learning disability sitting alone at recess. While other kids walked by, Oliver walked over. He played with him. He talked to him. He treated him with kindness and respect.",
+      "es": "Un día en la escuela, Oliver notó a un compañero con discapacidad de aprendizaje sentado solo en el recreo. Mientras otros niños pasaban, Oliver se acercó. Jugó con él. Habló con él. Lo trató con amabilidad y respeto."
+    },
+    {
+      "key": "trans_oliver_p3",
+      "en": "The boy's para noticed. She was so moved by Oliver's compassion that she reached out to his mom: \"I wanted to tell you what a para told me yesterday about Oliver. There is a little boy in 2nd grade with Down Syndrome. His para told me at recess yesterday, that Oliver has been playing with him and is so kind and gentle with him. I think that is such a huge compliment. Your boys are such great kids!\"",
+      "es": "La asistente del niño lo notó. Estaba tan conmovida por la compasión de Oliver que contactó a su mamá: \"Quería contarte lo que una asistente me dijo ayer sobre Oliver. Hay un niño en segundo grado con Síndrome de Down. Su asistente me dijo ayer en el recreo que Oliver ha estado jugando con él y es muy amable y gentil con él. Creo que es un cumplido enorme. ¡Tus hijos son unos grandes niños!\""
+    },
+    {
+      "key": "trans_oliver_p4",
+      "en": "Before Master Baez, Oliver hesitated. He stayed quiet. He held back. At Master Baez, Oliver learned that real strength isn't just physical. It's how you treat people when no one's watching. It's standing up for others. It's leading with your heart.",
+      "es": "Antes de Master Baez, Oliver dudaba. Se quedaba callado. Se contenía. En Master Baez, Oliver aprendió que la fuerza real no es solo física. Es cómo tratas a las personas cuando nadie te ve. Es defender a los demás. Es liderar con el corazón."
+    },
+    {
+      "key": "trans_oliver_p5",
+      "en": "Now? Oliver doesn't just raise his hand in class. He raises the bar for what it means to be a leader.",
+      "es": "¿Ahora? Oliver no solo levanta la mano en clase. Eleva el estándar de lo que significa ser un líder."
+    },
+    {
+      "key": "trans_ryder_label",
+      "en": "Ryder's Story",
+      "es": "La Historia de Ryder"
+    },
+    {
+      "key": "trans_ryder_name",
+      "en": "The Champion Who Leads With Gratitude",
+      "es": "El Campeón que Lidera con Gratitud"
+    },
+    {
+      "key": "trans_ryder_p1",
+      "en": "At Master Baez, we teach more than just punches and kicks. We teach champion-level character. And a true champion knows that gratitude is a superpower.",
+      "es": "En Master Baez, enseñamos más que solo golpes y patadas. Enseñamos carácter de nivel campeón. Y un verdadero campeón sabe que la gratitud es un superpoder."
+    },
+    {
+      "key": "trans_ryder_p2",
+      "en": "In our Champion Mindset Workshop, we challenged our athletes to express real, heartfelt gratitude to those who matter most. Ryder took it to another level, telling his mom and brother exactly what they mean to him.",
+      "es": "En nuestro Taller de Mentalidad de Campeón, desafiamos a nuestros atletas a expresar gratitud sincera a quienes más importan. Ryder lo llevó a otro nivel, diciéndole a su mamá y hermano exactamente lo que significan para él."
+    },
+    {
+      "key": "trans_ryder_p3",
+      "en": "Champions don't just train hard. They appreciate harder. They lift up the people around them. They know that strength comes from the heart as much as from the body.",
+      "es": "Los campeones no solo entrenan duro. Aprecian más duro. Elevan a las personas a su alrededor. Saben que la fuerza viene del corazón tanto como del cuerpo."
+    },
+    {
+      "key": "trans_intro",
+      "en": "Your child won't just learn martial arts. They'll become the kind of person who:",
+      "es": "Tu hijo no solo aprenderá artes marciales. Se convertirá en el tipo de persona que:"
+    },
+    {
+      "key": "trans_trait_1",
+      "en": "Raises their hand when they have something to say",
+      "es": "Levanta la mano cuando tiene algo que decir"
+    },
+    {
+      "key": "trans_trait_2",
+      "en": "Stands up for others when it matters",
+      "es": "Defiende a otros cuando importa"
+    },
+    {
+      "key": "trans_trait_3",
+      "en": "Bounces back from setbacks instead of giving up",
+      "es": "Se recupera de los contratiempos en lugar de rendirse"
+    },
+    {
+      "key": "trans_trait_4",
+      "en": "Treats people with respect, even when no one's watching",
+      "es": "Trata a las personas con respeto, incluso cuando nadie mira"
+    },
+    {
+      "key": "trans_trait_5",
+      "en": "Takes initiative instead of waiting to be told what to do",
+      "es": "Toma iniciativa en lugar de esperar que le digan qué hacer"
+    },
+    {
+      "key": "trans_trait_6",
+      "en": "Shows up for the people they love",
+      "es": "Está presente para las personas que ama"
+    },
+    {
+      "key": "trans_btn",
+      "en": "Start Their Transformation",
+      "es": "Comienza Su Transformación"
+    },
+    {
+      "key": "faq_q1",
+      "en": "Is martial arts good for shy kids? <span class=\"arrow\">▼</span>",
+      "es": "¿Las artes marciales son buenas para niños tímidos? <span class=\"arrow\">▼</span>"
+    },
+    {
+      "key": "faq_a1",
+      "en": "Absolutely! Martial arts is one of the best activities for shy children. Our structured, supportive environment helps them come out of their shell at their own pace. Many of our most confident students started as shy kids who barely wanted to make eye contact.",
+      "es": "¡Absolutamente! Las artes marciales son una de las mejores actividades para niños tímidos. Nuestro ambiente estructurado y de apoyo les ayuda a salir de su caparazón a su propio ritmo. Muchos de nuestros estudiantes más seguros comenzaron como niños tímidos que apenas querían hacer contacto visual."
+    },
+    {
+      "key": "faq_q2",
+      "en": "Can martial arts help kids with ADHD or focus issues? <span class=\"arrow\">▼</span>",
+      "es": "¿Pueden las artes marciales ayudar a niños con TDAH o problemas de enfoque? <span class=\"arrow\">▼</span>"
+    },
+    {
+      "key": "faq_a2",
+      "en": "Yes! Martial arts is highly effective for kids with ADHD. The structured environment, clear expectations, and physical activity help channel energy productively while building focus and self-regulation skills.",
+      "es": "¡Sí! Las artes marciales son altamente efectivas para niños con TDAH. El ambiente estructurado, las expectativas claras y la actividad física ayudan a canalizar la energía productivamente mientras desarrollan enfoque y habilidades de autorregulación."
+    },
+    {
+      "key": "faq_q3",
+      "en": "What age should my child start martial arts? <span class=\"arrow\">▼</span>",
+      "es": "¿A qué edad debería mi hijo comenzar artes marciales? <span class=\"arrow\">▼</span>"
+    },
+    {
+      "key": "faq_a3",
+      "en": "We offer programs starting at age 4 with our Tiny Tigers program. Every age group has a curriculum designed specifically for their developmental stage.",
+      "es": "Ofrecemos programas desde los 4 años con nuestro programa Tigres Pequeños. Cada grupo de edad tiene un currículo diseñado específicamente para su etapa de desarrollo."
+    },
+    {
+      "key": "faq_q4",
+      "en": "How is Master Baez different from other martial arts schools in Cooper City? <span class=\"arrow\">▼</span>",
+      "es": "¿Cómo es Master Baez diferente de otras escuelas de artes marciales en Cooper City? <span class=\"arrow\">▼</span>"
+    },
+    {
+      "key": "faq_a4",
+      "en": "Master Baez combines elite athletic training with character development in a way no other school does. We use modern, gamified approaches, neuroscience-backed methods, and we truly partner with parents to develop confident leaders.",
+      "es": "Master Baez combina entrenamiento atlético de élite con desarrollo de carácter de una manera que ninguna otra escuela lo hace. Usamos enfoques modernos y dinámicos, métodos respaldados por la neurociencia, y realmente nos asociamos con los padres para desarrollar líderes seguros."
+    },
+    {
+      "key": "faq_q5",
+      "en": "What if my child doesn't like it? <span class=\"arrow\">▼</span>",
+      "es": "¿Qué pasa si a mi hijo no le gusta? <span class=\"arrow\">▼</span>"
+    },
+    {
+      "key": "faq_a5",
+      "en": "We offer a 100% money-back guarantee. If your child doesn't love their first week, we'll refund every penny. No questions asked. We're that confident in what we do.",
+      "es": "Ofrecemos una garantía de devolución del 100%. Si tu hijo no ama su primera semana, devolvemos cada centavo. Sin preguntas. Tenemos esa confianza en lo que hacemos."
+    },
+    {
+      "key": "faq_q6",
+      "en": "How long until I see results? <span class=\"arrow\">▼</span>",
+      "es": "¿Cuánto tiempo hasta que vea resultados? <span class=\"arrow\">▼</span>"
+    },
+    {
+      "key": "faq_a6",
+      "en": "Many parents notice changes in confidence and attitude within the first few weeks. The real transformation builds over months as your child progresses through our system.",
+      "es": "Muchos padres notan cambios en confianza y actitud dentro de las primeras semanas. La transformación real se construye a lo largo de meses a medida que tu hijo progresa en nuestro sistema."
+    },
+    {
+      "key": "faq_q7",
+      "en": "My child has never done martial arts before. Will they feel behind? <span class=\"arrow\">▼</span>",
+      "es": "Mi hijo nunca ha hecho artes marciales antes. ¿Se sentirá atrás? <span class=\"arrow\">▼</span>"
+    },
+    {
+      "key": "faq_a7",
+      "en": "Not at all! Every champion starts as a beginner. Our coaches are experts at welcoming new students and meeting them where they are. Everyone progresses at their own pace.",
+      "es": "¡Para nada! Todo campeón comienza como principiante. Nuestros entrenadores son expertos en dar la bienvenida a nuevos estudiantes y encontrarlos donde están. Cada uno progresa a su propio ritmo."
+    },
+    {
+      "key": "faq_q8",
+      "en": "Is martial arts violent? I don't want my child becoming aggressive. <span class=\"arrow\">▼</span>",
+      "es": "¿Son violentas las artes marciales? No quiero que mi hijo se vuelva agresivo. <span class=\"arrow\">▼</span>"
+    },
+    {
+      "key": "faq_a8",
+      "en": "Martial arts teaches self-control, discipline, and respect. Our students learn that violence is never the answer. In fact, martial arts builds confidence in a way that reduces the likelihood of bullying or aggressive behavior.",
+      "es": "Las artes marciales enseñan autocontrol, disciplina y respeto. Nuestros estudiantes aprenden que la violencia nunca es la respuesta. De hecho, las artes marciales desarrollan confianza de una manera que reduce la probabilidad de acoso o comportamiento agresivo."
+    },
+    {
+      "key": "stat_years",
+      "en": "Years Serving Cooper City",
+      "es": "Años Sirviendo a Cooper City"
+    },
+    {
+      "key": "stat_stars",
+      "en": "Stars (100+ Reviews)",
+      "es": "Estrellas (100+ Reseñas)"
+    },
+    {
+      "key": "stat_money",
+      "en": "Money-Back Guarantee",
+      "es": "Garantía de Devolución"
+    },
+    {
+      "key": "timer_days",
+      "en": "Days",
+      "es": "Días"
+    },
+    {
+      "key": "timer_hours",
+      "en": "Hours",
+      "es": "Horas"
+    },
+    {
+      "key": "timer_mins",
+      "en": "Mins",
+      "es": "Min"
+    },
+    {
+      "key": "timer_secs",
+      "en": "Secs",
+      "es": "Seg"
+    },
+    {
+      "key": "nav_phone",
+      "en": "954-380-1340",
+      "es": "954-380-1340"
+    },
+    {
+      "key": "hero_phone",
+      "en": "954-380-1340",
+      "es": "954-380-1340"
+    },
+    {
+      "key": "hero_address",
+      "en": "9450 Griffin Rd. Cooper City, FL 33328",
+      "es": "9450 Griffin Rd. Cooper City, FL 33328"
+    },
+    {
+      "key": "footer_address",
+      "en": "9450 Griffin Rd. Cooper City, FL 33328",
+      "es": "9450 Griffin Rd. Cooper City, FL 33328"
+    },
+    {
+      "key": "footer_phone",
+      "en": "954-380-1340",
+      "es": "954-380-1340"
+    },
+    {
+      "key": "ath_label",
+      "en": "ATHLETIC TRAINING THAT BUILDS CHARACTER",
+      "es": "ENTRENAMIENTO ATLÉTICO QUE FORMA EL CARÁCTER"
+    },
+    {
+      "key": "ath_title",
+      "en": "Most martial arts schools teach kicks and punches.<br>We engineer champions.",
+      "es": "La mayoría de las escuelas enseñan patadas y golpes.<br>Nosotros formamos campeones."
+    },
+    {
+      "key": "ath_desc",
+      "en": "We're not just a martial arts school. We're an athletic training lab disguised as a martial arts school. A place where fitness intersects with identity development and kids become the leaders everyone else looks up to.",
+      "es": "No somos solo una escuela de artes marciales. Somos un laboratorio de entrenamiento atlético disfrazado de escuela de artes marciales. Un lugar donde el fitness se cruza con el desarrollo de identidad y los niños se convierten en los líderes a quienes todos admiran."
+    },
+    {
+      "key": "ath_feat1_title",
+      "en": "Neuroscience-Backed Athletic Training",
+      "es": "Entrenamiento Atlético Basado en Neurociencia"
+    },
+    {
+      "key": "ath_feat1_desc",
+      "en": "We don't guess. We know. Real confidence comes from neuroplasticity (rewiring the brain through consistent challenge and success). The confidence they build here shows up everywhere: school, home, life.",
+      "es": "No adivinamos. Sabemos. La confianza real viene de la neuroplasticidad (reconectar el cerebro a través del desafío constante y el éxito). La confianza que construyen aquí se manifiesta en todas partes: escuela, hogar, vida."
+    },
+    {
+      "key": "ath_feat2_title",
+      "en": "Forged Through Action",
+      "es": "Forjado a Través de la Acción"
+    },
+    {
+      "key": "ath_feat2_desc",
+      "en": "We challenge your child in ways that feel impossible until they do it. Breaking boards isn't about strength. It's about believing you can do hard things. That's the mindset shift that changes everything.",
+      "es": "Desafiamos a tu hijo de maneras que parecen imposibles hasta que lo hacen. Romper tablas no se trata de fuerza. Se trata de creer que puedes hacer cosas difíciles. Ese es el cambio de mentalidad que lo cambia todo."
+    },
+    {
+      "key": "ath_feat3_title",
+      "en": "Environment Matters",
+      "es": "El Entorno Importa"
+    },
+    {
+      "key": "ath_feat3_desc",
+      "en": "Your child can't grow in an environment that protects them from discomfort. We create a culture where effort is celebrated, mistakes are expected, and growth is the only goal. The teammates beside them aren't competitors. They're family.",
+      "es": "Tu hijo no puede crecer en un entorno que lo protege de la incomodidad. Creamos una cultura donde el esfuerzo se celebra, los errores se esperan y el crecimiento es el único objetivo. Los compañeros a su lado no son competidores. Son familia."
+    },
+    {
+      "key": "ath_btn1",
+      "en": "Start Your Trial",
+      "es": "Comienza Tu Prueba"
+    },
+    {
+      "key": "ath_btn2",
+      "en": "View Programs",
+      "es": "Ver Programas"
+    },
+    {
+      "key": "ath_img_label",
+      "en": "Kids martial arts training",
+      "es": "Entrenamiento de artes marciales para niños"
+    },
+    {
+      "key": "ath_img_sub",
+      "en": "Cooper City, FL",
+      "es": "Cooper City, FL"
+    },
+    {
+      "key": "award_since",
+      "en": "Since 1991",
+      "es": "Desde 1991"
+    },
+    {
+      "key": "award_years",
+      "en": "Over 30 Years<br>Cooper City, FL",
+      "es": "Más de 30 Años<br>Cooper City, FL"
+    },
+    {
+      "key": "award_rating",
+      "en": "4.9 Star Rating",
+      "es": "Calificación 4.9 Estrellas"
+    },
+    {
+      "key": "award_reviews",
+      "en": "100+ Google Reviews",
+      "es": "100+ Reseñas de Google"
+    },
+    {
+      "key": "award_bgcheck",
+      "en": "Background Checked",
+      "es": "Verificación de Antecedentes"
+    },
+    {
+      "key": "award_verified",
+      "en": "All Coaches Verified",
+      "es": "Todos los Entrenadores Verificados"
+    },
+    {
+      "key": "award_families",
+      "en": "500+ Families",
+      "es": "500+ Familias"
+    },
+    {
+      "key": "award_trust",
+      "en": "Trust Master Baez",
+      "es": "Confían en Master Baez"
+    },
+    {
+      "key": "award_cpr",
+      "en": "CPR &amp; First Aid",
+      "es": "RCP &amp; Primeros Auxilios"
+    },
+    {
+      "key": "award_certified",
+      "en": "All Coaches Certified",
+      "es": "Todos los Entrenadores Certificados"
+    },
+    {
+      "key": "google_review",
+      "en": "Google Review",
+      "es": "Reseña de Google"
+    },
+    {
+      "key": "testimonial_1",
+      "en": "\"My child loves Master Baez Martial Arts! The instructors are amazing — patient, professional, and great with kids. We've seen big improvements in confidence, focus, and discipline.\"",
+      "es": "\"¡A mi hijo le encanta Master Baez! Los instructores son increíbles: pacientes, profesionales y excelentes con los niños. Hemos visto grandes mejoras en confianza, enfoque y disciplina.\""
+    },
+    {
+      "key": "testimonial_2",
+      "en": "\"We absolutely love this place! Master Baez is a GREAT school! Not only did we see results within a short time, the coaches all have great interaction with the kids. Definitely recommend Master Baez 10/10 💪\"",
+      "es": "\"¡Nos encanta este lugar! Master Baez es una GRAN escuela! No solo vimos resultados en poco tiempo, los entrenadores tienen una gran interacción con los niños. Definitivamente recomiendo Master Baez 10/10 💪\""
+    },
+    {
+      "key": "testimonial_3",
+      "en": "\"Always a great experience and awesome coaches and staff! My kids absolutely love it and beg to constantly keep going back for more classes and training!\"",
+      "es": "\"Siempre una gran experiencia y entrenadores y personal increíbles. ¡A mis hijos les encanta y ruegan por volver a más clases y entrenamiento!\""
+    },
+    {
+      "key": "testimonial_4",
+      "en": "\"Classes at Master Baez are an awesome workout, not just for my body but also for my brain. The coaches are super helpful, supportive, and push us to excellence.\"",
+      "es": "\"Las clases en Master Baez son un entrenamiento increíble, no solo para mi cuerpo sino también para mi mente. Los entrenadores son muy útiles, solidarios y nos impulsan a la excelencia.\""
+    },
+    {
+      "key": "testimonial_5",
+      "en": "\"The growth we've seen in his confidence, discipline, and skills is amazing. The instructors are top-notch—super knowledgeable, patient, and great with kids.\"",
+      "es": "\"El crecimiento que hemos visto en su confianza, disciplina y habilidades es asombroso. Los instructores son de primera categoría: muy conocedores, pacientes y excelentes con los niños.\""
+    },
+    {
+      "key": "testimonial_6",
+      "en": "\"Master Baez Martial Arts is absolutely amazing! The professionalism is top-notch, and the place is incredibly clean with a great atmosphere. The instructors have fantastic energy!\"",
+      "es": "\"Master Baez es absolutamente increíble. El profesionalismo es de primera, el lugar está increíblemente limpio con un gran ambiente. ¡Los instructores tienen una energía fantástica!\""
+    },
+    {
+      "key": "testimonial_7",
+      "en": "\"The coaches are absolutely incredible. They are knowledgeable and supportive of each and every student. At Master Baez they teach leadership, teamwork and accountability.\"",
+      "es": "\"Los entrenadores son absolutamente increíbles. Son conocedores y apoyan a cada estudiante. En Master Baez enseñan liderazgo, trabajo en equipo y responsabilidad.\""
+    },
+    {
+      "key": "testimonial_8",
+      "en": "\"My son loves his Master Baez classes. The coaches are great and the environment is always positive and encouraging.\"",
+      "es": "\"A mi hijo le encantan sus clases de Master Baez. Los entrenadores son excelentes y el ambiente siempre es positivo y alentador.\""
+    },
+    {
+      "key": "testimonial_9",
+      "en": "\"The coaches here are great with the kiddos. We've seen a vast improvement in their martial arts athletic abilities very quickly. They even focus on life lessons, manners and respect.\"",
+      "es": "\"Los entrenadores aquí son excelentes con los niños. Hemos visto una gran mejora en sus habilidades atléticas de artes marciales muy rápidamente. También se enfocan en lecciones de vida, modales y respeto.\""
+    },
+    {
+      "key": "testimonial_10",
+      "en": "\"Called about a trial class, 3 of my kids are now fully dedicated and love the classes. The environment is friendly, my kids felt safe and comfortable from day 1.\"",
+      "es": "\"Llamé para una clase de prueba, ahora 3 de mis hijos están completamente dedicados y aman las clases. El ambiente es amigable, mis hijos se sintieron seguros y cómodos desde el día 1.\""
+    },
+    {
+      "key": "testimonial_11",
+      "en": "\"Master Baez helps not only develop athletic abilities but with coaching maturity and life skills, building great character in strong athletes.\"",
+      "es": "\"Master Baez ayuda no solo a desarrollar habilidades atléticas sino también madurez y habilidades para la vida, construyendo un gran carácter en atletas fuertes.\""
+    },
+    {
+      "key": "testimonial_12",
+      "en": "\"We love Master Baez Martial Arts! My son has been going for six weeks now — we actually drive 45 minutes each way! The coaches are highly engaging and keep the kids moving.\"",
+      "es": "\"Amamos Master Baez. Mi hijo ha estado yendo por seis semanas, ¡manejamos 45 minutos cada trayecto! Los entrenadores son muy dinámicos y mantienen a los niños en movimiento.\""
+    },
+    {
+      "key": "testimonial_13",
+      "en": "\"The team at Master Baez are incredibly fun and dynamic. They truly care about their clients. Great school, great staff and an amazing community.\"",
+      "es": "\"El equipo de Master Baez es increíblemente divertido y dinámico. Realmente se preocupan por sus clientes. Gran escuela, gran personal y una comunidad increíble.\""
+    },
+    {
+      "key": "testimonial_14",
+      "en": "\"Adam and the team at Master Baez Martial Arts is more than a martial arts school. They are LIFE CHANGING coaches and LEADERS in the community.\"",
+      "es": "\"Adam y el equipo de Master Baez es más que una escuela de artes marciales. Son entrenadores que CAMBIAN VIDAS y LÍDERES en la comunidad.\""
+    },
+    {
+      "key": "testimonial_15",
+      "en": "\"I've never met a more dedicated group of mentors that genuinely care for their students. It's not another place to go.. it's a family.\"",
+      "es": "\"Nunca he conocido un grupo de mentores más dedicados que realmente se preocupen por sus estudiantes. No es otro lugar al que ir... es una familia.\""
+    },
+    {
+      "key": "testimonial_16",
+      "en": "\"Our son just leveled up on his belt and is over the moon! The coaches really care about the students and want to see them succeed.\"",
+      "es": "\"Nuestro hijo acaba de subir de nivel en su cinturón y está en la luna. Los entrenadores realmente se preocupan por los estudiantes y quieren verlos triunfar.\""
+    },
+    {
+      "key": "testimonial_17",
+      "en": "\"Master Baez is a wonderful program. I love how it has helped my son gain confidence and deal with everyday challenges. Master Baez is the best around!\"",
+      "es": "\"Master Baez es un programa maravilloso. Me encanta cómo ha ayudado a mi hijo a ganar confianza y enfrentar desafíos diarios. ¡Master Baez es el mejor!\""
+    },
+    {
+      "key": "testimonial_18",
+      "en": "\"Her new found confidence, emotional strength and listening skills have helped her so much. Their mission of empowering children with emotional growth definitely shows thru our child.\"",
+      "es": "\"Su nueva confianza, fortaleza emocional y habilidades de escucha la han ayudado mucho. Su misión de empoderar niños con crecimiento emocional definitivamente se refleja en nuestra hija.\""
+    },
+    {
+      "key": "testimonial_19",
+      "en": "\"Super clean, organized, friendly — kids have fun and learn a lot. My son has been doing karate for over a year and the coaches love what they do!\"",
+      "es": "\"Súper limpio, organizado, amigable: los niños se divierten y aprenden mucho. Mi hijo ha estado haciendo karate por más de un año y los entrenadores aman lo que hacen.\""
+    },
+    {
+      "key": "testimonial_20",
+      "en": "\"My daughter loves going to Master Baez. The coaches are wonderful with her. They not only teach karate here, but also valuable life skills.\"",
+      "es": "\"A mi hija le encanta ir a Master Baez. Los entrenadores son maravillosos con ella. No solo enseñan karate aquí, sino también valiosas habilidades para la vida.\""
+    },
+    {
+      "key": "testimonial_21",
+      "en": "\"Best studio in the Valley if not the entire USA. They transformed our son into a black belt from low self esteem and no direction. We are forever indebted.\"",
+      "es": "\"El mejor estudio del Valle, si no de todo EE.UU. Transformaron a nuestro hijo en un cinturón negro partiendo de baja autoestima y sin dirección. Estaremos eternamente agradecidos.\""
+    },
+    {
+      "key": "testimonial_22",
+      "en": "\"This is my kids' favorite place! The coaches are very kind, patient and supportive. They provide guidance that could benefit the kids life time long!\"",
+      "es": "\"¡Este es el lugar favorito de mis hijos! Los entrenadores son muy amables, pacientes y solidarios. Brindan orientación que podría beneficiar a los niños de por vida.\""
+    },
+    {
+      "key": "testimonial_23",
+      "en": "\"My son has learned so much martial arts skills but most of all has learned to be more confident in himself. Such an amazing place!\"",
+      "es": "\"Mi hijo ha aprendido muchas habilidades de artes marciales, pero sobre todo ha aprendido a tener más confianza en sí mismo. ¡Un lugar increíble!\""
+    },
+    {
+      "key": "testimonial_24",
+      "en": "\"They don't just teach martial arts — they teach discipline, self awareness, manners and how to enhance their emotional intelligence. The coaches are amazing!\"",
+      "es": "\"No solo enseñan artes marciales: enseñan disciplina, autoconciencia, modales y cómo mejorar la inteligencia emocional. ¡Los entrenadores son increíbles!\""
+    },
+    {
+      "key": "testimonial_25",
+      "en": "\"The teachers are the best people you will ever meet, they care about the kids, but are stern when needed. Trust me, I go to Master Baez.\"",
+      "es": "\"Los maestros son las mejores personas que conocerás, se preocupan por los niños, pero son firmes cuando es necesario. Créanme, yo voy a Master Baez.\""
+    },
+    {
+      "key": "testimonial_26",
+      "en": "\"This is the best martial arts experience in Cooper City! The character development program features dedicated trainers committed to helping your child become safe, confident, and strong.\"",
+      "es": "\"¡Esta es la mejor experiencia de artes marciales en Cooper City! El programa de desarrollo de carácter cuenta con entrenadores dedicados comprometidos a ayudar a tu hijo a estar seguro, confiado y fuerte.\""
+    },
+    {
+      "key": "testimonial_27",
+      "en": "\"My son joined in February and he absolutely loves it! The coaches are amazing and truly take the time to work with your child!\"",
+      "es": "\"Mi hijo se unió en febrero y le encanta. Los entrenadores son increíbles y realmente se toman el tiempo para trabajar con tu hijo.\""
+    },
+    {
+      "key": "testimonial_28",
+      "en": "\"My son has ADHD and struggles with focus but Coach Rudy has been amazing in keeping him engaged while he's learning. He absolutely loves this place!\"",
+      "es": "\"Mi hijo tiene TDAH y lucha con el enfoque, pero el entrenador Rudy ha sido increíble manteniéndolo comprometido mientras aprende. ¡A él le encanta este lugar!\""
+    },
+    {
+      "key": "testimonial_29",
+      "en": "\"Love Master Baez Martial Arts! They have taught our child so much. All of the coaches are amazing! Such a great program. Highly recommend.\"",
+      "es": "\"Amamos Master Baez. Le han enseñado mucho a nuestro hijo. Todos los entrenadores son increíbles. Un gran programa. Muy recomendado.\""
+    },
+    {
+      "key": "blog_subtitle",
+      "en": "Insights, tips, and stories for families in Cooper City, FL who want to raise confident, resilient kids.",
+      "es": "Consejos e historias para familias en Cooper City, FL que quieren criar hijos seguros y resilientes."
+    },
+    {
+      "key": "blog_cta_title",
+      "en": "The Gold Standard in Martial Arts",
+      "es": "El Estándar de Oro en Artes Marciales"
+    },
+    {
+      "key": "blog_cta_text",
+      "en": "At Master Baez Martial Arts, you're not just signing your child up for classes. You're partnering with the gold standard.",
+      "es": "En Master Baez Martial Arts, no solo estás inscribiendo a tu hijo en clases. Te estás asociando con el estándar de oro."
+    },
+    {
+      "key": "blog_cta_btn",
+      "en": "Start With 2 Free Classes →",
+      "es": "Empieza Con 2 Clases Gratis →"
+    },
+    {
+      "key": "blog_cat_featured",
+      "en": "Featured Article",
+      "es": "Artículo Destacado"
+    },
+    {
+      "key": "blog_featured",
+      "en": "Featured",
+      "es": "Destacado"
+    },
+    {
+      "key": "blog_cat_resilience",
+      "en": "Resilience",
+      "es": "Resiliencia"
+    },
+    {
+      "key": "blog_cat_bullying",
+      "en": "Bullying Prevention",
+      "es": "Prevención del Acoso"
+    },
+    {
+      "key": "blog_cat_confidence",
+      "en": "Confidence",
+      "es": "Confianza"
+    },
+    {
+      "key": "blog_cat_awards",
+      "en": "Awards",
+      "es": "Premios"
+    },
+    {
+      "key": "blog_article1_title",
+      "en": "5 Ways to Raise a Resilient Child (And Why Most Parents Are Getting It Backwards)",
+      "es": "5 Formas de Criar un Niño Resiliente (Y Por Qué La Mayoría De Los Padres Lo Están Haciendo Al Revés)"
+    },
+    {
+      "key": "blog_article1_desc",
+      "en": "Resilience isn't about shielding kids from failure — it's about teaching them how to bounce back.",
+      "es": "La resiliencia no se trata de proteger a los niños del fracaso — se trata de enseñarles cómo recuperarse."
+    },
+    {
+      "key": "blog_article2_title",
+      "en": "How Master Baez Martial Arts Teaches Kids to Recognize, Avoid, and Respond to Bullying",
+      "es": "Cómo Master Baez Martial Arts Enseña a los Niños a Reconocer, Evitar y Responder al Acoso"
+    },
+    {
+      "key": "blog_article2_desc",
+      "en": "Bullying is a reality for too many kids. We teach them how to handle it with confidence, awareness, and respect.",
+      "es": "El acoso es una realidad para demasiados niños. Les enseñamos cómo manejarlo con confianza, conciencia y respeto."
+    },
+    {
+      "key": "blog_article3_title",
+      "en": "Why Martial Arts Builds Confidence in Kids",
+      "es": "Por Qué Las Artes Marciales Construyen Confianza en Los Niños"
+    },
+    {
+      "key": "blog_article3_desc",
+      "en": "Confidence isn't something kids are born with. It's forged through challenge, achievement, and the right environment.",
+      "es": "La confianza no es algo con lo que nazcan los niños. Se forja a través del desafío, el logro y el ambiente adecuado."
+    },
+    {
+      "key": "blog_article4_title",
+      "en": "Master Baez Martial Arts Voted Best Martial Arts School in Cooper City, FL",
+      "es": "Master Baez Martial Arts Votada Mejor Escuela de Artes Marciales en Cooper City, FL"
+    },
+    {
+      "key": "blog_article4_desc",
+      "en": "By community vote, Master Baez Martial Arts has been named the best martial arts school in Cooper City.",
+      "es": "Por voto comunitario, Master Baez Martial Arts ha sido nombrada la mejor escuela de artes marciales en Cooper City."
+    },
+    {
+      "key": "read_story",
+      "en": "Read the Story →",
+      "es": "Leer la Historia →"
+    },
+    {
+      "key": "back_to_blog",
+      "en": "← Back to Blog",
+      "es": "← Volver al Blog"
+    },
+    {
+      "key": "article_author",
+      "en": "Master Baez Martial Arts",
+      "es": "Master Baez Martial Arts"
+    },
+    {
+      "key": "article1_title",
+      "en": "5 Ways to Raise a Resilient Child (And Why Most Parents Are Getting It Backwards)",
+      "es": "5 Formas de Criar un Niño Resiliente (Y Por Qué La Mayoría De Los Padres Lo Están Haciendo Al Revés)"
+    },
+    {
+      "key": "article1_category",
+      "en": "Resilience",
+      "es": "Resiliencia"
+    },
+    {
+      "key": "article1_hero_title",
+      "en": "Resilience Isn't Taught. It's Forged.",
+      "es": "La Resiliencia No Se Enseña. Se Forja."
+    },
+    {
+      "key": "article1_hero_text",
+      "en": "And most parents are accidentally undermining it every single day.",
+      "es": "Y la mayoría de los padres la están minando accidentalmente todos los días."
+    },
+    {
+      "key": "article1_p1",
+      "en": "Let's start with a hard truth: your job as a parent is not to make your child happy. It's to prepare them for a world that won't always go their way.",
+      "es": "Empecemos con una dura verdad: tu trabajo como padre no es hacer feliz a tu hijo. Es prepararlo para un mundo que no siempre irá a su manera."
+    },
+    {
+      "key": "article1_p2",
+      "en": "Resilience — the ability to bounce back from setbacks, adapt to change, and keep going when things get hard — is the single most important skill you can give your child.",
+      "es": "La resiliencia — la capacidad de recuperarse de los reveses, adaptarse al cambio y seguir adelante — es la habilidad más importante que puedes darle a tu hijo."
+    },
+    {
+      "key": "article1_p3",
+      "en": "We rush in at the first sign of struggle. We solve their problems. We cushion every fall. We mean well. But we're doing it backwards.",
+      "es": "Nos precipitamos al primer signo de lucha. Resolvemos sus problemas. Lo hacemos con buena intención. Pero lo estamos haciendo al revés."
+    },
+    {
+      "key": "article1_cta_title",
+      "en": "Ready to Build Your Child's Resilience?",
+      "es": "¿Listo Para Construir La Resiliencia De Tu Hijo?"
+    },
+    {
+      "key": "article1_cta_text",
+      "en": "Give your child the gift of confidence, discipline, and grit. Try 2 classes free at Master Baez Martial Arts in Cooper City, FL.",
+      "es": "Dale a tu hijo el regalo de la confianza, la disciplina y la determinación. Prueba 2 clases gratis."
+    },
+    {
+      "key": "article2_title",
+      "en": "How Master Baez Martial Arts Teaches Kids to Recognize, Avoid, and Respond to Bullying",
+      "es": "Cómo Master Baez Martial Arts Enseña a los Niños a Reconocer, Evitar y Responder al Acoso"
+    },
+    {
+      "key": "article2_category",
+      "en": "Bullying Prevention",
+      "es": "Prevención del Acoso"
+    },
+    {
+      "key": "article2_hero_title",
+      "en": "Bullying is a reality for too many kids. But it doesn't have to define them.",
+      "es": "El acoso es una realidad para demasiados niños. Pero no tiene que definirlos."
+    },
+    {
+      "key": "article2_hero_text",
+      "en": "We teach children how to recognize, avoid, and respond to bullying with confidence and respect.",
+      "es": "Enseñamos a los niños cómo reconocer, evitar y responder al acoso con confianza y respeto."
+    },
+    {
+      "key": "article2_cta_title",
+      "en": "Give Your Child the Tools to Handle Bullying",
+      "es": "Dale A Tu Hijo Las Herramientas Para Enfrentar El Acoso"
+    },
+    {
+      "key": "article2_cta_text",
+      "en": "Two free classes. No strings attached. Let us show you how we build confident, resilient kids.",
+      "es": "Dos clases gratis. Sin compromiso. Déjanos mostrarte cómo construimos niños confiados y resilientes."
+    },
+    {
+      "key": "article3_title",
+      "en": "Why Martial Arts Builds Confidence in Kids",
+      "es": "Por Qué Las Artes Marciales Construyen Confianza en Los Niños"
+    },
+    {
+      "key": "article3_category",
+      "en": "Confidence",
+      "es": "Confianza"
+    },
+    {
+      "key": "article3_hero_title",
+      "en": "Confidence isn't something kids are born with. It's built — one step, one class, one breakthrough at a time.",
+      "es": "La confianza no es algo con lo que nazcan los niños. Se construye — un paso, una clase, un avance a la vez."
+    },
+    {
+      "key": "article3_hero_text",
+      "en": "Here's how martial arts creates kids who believe in themselves.",
+      "es": "Aquí está cómo las artes marciales crean niños que creen en sí mismos."
+    },
+    {
+      "key": "article3_cta_title",
+      "en": "Give Your Child the Gift of Confidence",
+      "es": "Dale A Tu Hijo El Regalo De La Confianza"
+    },
+    {
+      "key": "article3_cta_text",
+      "en": "Two free classes. No pressure. Just see the difference for yourself.",
+      "es": "Dos clases gratis. Sin presión. Solo comprueba la diferencia por ti mismo."
+    },
+    {
+      "key": "article4_title",
+      "en": "Master Baez Martial Arts Voted Best Martial Arts School in Cooper City, FL",
+      "es": "Master Baez Martial Arts Votada Mejor Escuela de Artes Marciales en Cooper City, FL"
+    },
+    {
+      "key": "article4_category",
+      "en": "Awards",
+      "es": "Premios"
+    },
+    {
+      "key": "article4_hero_title",
+      "en": "Cooper City Voted. The Community Decided. Master Baez Martial Arts Is the Best Martial Arts School in Cooper City, FL.",
+      "es": "Cooper City Votó. La Comunidad Decidió. Master Baez Martial Arts Es la Mejor Escuela de Artes Marciales en Cooper City, FL."
+    },
+    {
+      "key": "article4_hero_text",
+      "en": "Let's be real.",
+      "es": "Seamos realistas."
+    },
+    {
+      "key": "article4_cta_title",
+      "en": "Join the Best Martial Arts School in Cooper City",
+      "es": "Únete A La Mejor Escuela De Artes Marciales En Cooper City"
+    },
+    {
+      "key": "article4_cta_text",
+      "en": "See why the community voted us #1. Try 2 free classes today.",
+      "es": "Mira por qué la comunidad nos votó #1. Prueba 2 clases gratis hoy."
+    },
+    {
+      "key": "article_cta_btn",
+      "en": "Start With 2 Free Classes →",
+      "es": "Empieza Con 2 Clases Gratis →"
+    }
+  ]
+}

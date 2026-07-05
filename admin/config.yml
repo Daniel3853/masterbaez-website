@@ -1,0 +1,133 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site-texts"
+    label: "✏️ Textos del Sitio"
+    files:
+      - label: "Todos los Textos (Inicio, Programas, Precios, Testimonios, FAQ, Footer)"
+        name: "content"
+        file: "data/content.json"
+        fields:
+          - label: "Textos (no borres ni cambies la columna 'Clave', solo edita Inglés/Español)"
+            name: "texts"
+            widget: "list"
+            summary: "{{fields.key}}"
+            fields:
+              - { label: "Clave (no tocar)", name: "key", widget: "string", required: true }
+              - { label: "Texto en Inglés", name: "en", widget: "text", required: false }
+              - { label: "Texto en Español", name: "es", widget: "text", required: false }
+
+  - name: "gallery"
+    label: "Fotos y Videos del Sitio"
+    files:
+      - label: "Galería Principal (Home)"
+        name: "gallery"
+        file: "data/gallery.json"
+        fields:
+          - label: "Foto/Video Principal del Hero (portada, foto grande de fondo)"
+            name: "hero-main"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
+              - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
+              - { label: "Texto alternativo (describe la foto)", name: "alt", widget: "string", required: false }
+          - label: "Foto de Entrenamiento Atlético"
+            name: "athletic-1"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Foto — Historia de Oliver"
+            name: "trans-oliver"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Foto — Historia de Ryder"
+            name: "trans-ryder"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Galería de Fotos (agrega las que quieras, sin límite)"
+            name: "gallery_photos"
+            widget: "list"
+            required: false
+            label_singular: "Foto"
+            fields:
+              - { label: "Foto", name: "src", widget: "image" }
+              - { label: "Descripción (alt, para SEO)", name: "alt", widget: "string", required: false }
+              - { label: "Pie de foto (opcional)", name: "caption", widget: "string", required: false }
+          - label: "Galería de Videos (agrega los que quieras, sin límite)"
+            name: "gallery_videos"
+            widget: "list"
+            required: false
+            label_singular: "Video"
+            fields:
+              - { label: "Video (MP4)", name: "src", widget: "file" }
+              - { label: "Descripción", name: "alt", widget: "string", required: false }
+              - { label: "Pie de foto (opcional)", name: "caption", widget: "string", required: false }
+          - label: "Foto del Blog Artículo 1"
+            name: "blog-article-1"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Foto del Blog Artículo 2"
+            name: "blog-article-2"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Foto del Blog Artículo 3"
+            name: "blog-article-3"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Foto del Blog Artículo 4"
+            name: "blog-article-4"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Foto/Video de Programas — Tiny Tigers"
+            name: "program-tiny_tigers"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
+              - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Foto/Video de Programas — Kids Martial Arts"
+            name: "program-kids"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
+              - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Foto/Video de Programas — Adultos"
+            name: "program-adults"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
+              - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+          - label: "Foto/Video de Programas — After School"
+            name: "program-after_school"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
+              - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }

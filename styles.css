@@ -522,7 +522,7 @@
 
     /* Social Proof Toast */
     .social-toast {
-      position: fixed; bottom: 80px; right: 20px;
+      position: fixed; bottom: 276px; right: 20px;
       background: #13132a; border-radius: 16px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4);
       padding: 14px 20px;
@@ -549,7 +549,7 @@
     .social-toast .st-text strong { display: block; font-size: 14px; }
     .social-toast .st-text span { display: block; font-size: 11px; color: #6b6b80; }
     @media (max-width: 860px) {
-      .social-toast { bottom: 90px; right: 10px; max-width: 260px; padding: 10px 14px; }
+      .social-toast { bottom: 256px; right: 10px; max-width: 260px; padding: 10px 14px; }
     }
 
     /* WhatsApp Button */

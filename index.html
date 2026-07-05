@@ -507,6 +507,13 @@
           <p class="section-sub" style="max-width:600px;color:rgba(255,255,255,0.7);" data-i18n="programs_sub">We don't believe in one-size-fits-all. Different ages need different approaches.</p>
           <p style="font-size:14px;color:rgba(255,255,255,0.4);margin-top:4px;" data-i18n="programs_click">Click on a program to learn more</p>
         </div>
+        <div class="programs-video" data-media-slot="programs-welcome">
+          <div class="programs-video-placeholder" onclick="this.style.display='none';this.nextElementSibling.play()">
+            <span>▶</span>
+            <p>Welcome Video</p>
+          </div>
+          <video muted loop playsinline preload="metadata"></video>
+        </div>
         <div class="programs-grid">
           <div class="program-card">
             <div class="program-age" data-i18n="prog_1_age">Ages 4-6</div>

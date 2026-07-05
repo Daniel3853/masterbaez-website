@@ -6,10 +6,26 @@
     var item = gallery[key];
     if (!item || !item.src) return;
 
-    if (slot.querySelector('.se-upload-label') || slot.querySelector('img, video')) return;
+    if (slot.querySelector('.se-upload-label')) return;
+
+    var existingVideo = slot.querySelector('video');
+    var placeholder = slot.querySelector('.programs-video-placeholder');
 
     var el;
     if (item.type === 'video') {
+      if (existingVideo) {
+        el = existingVideo;
+        el.src = item.src;
+        el.muted = true;
+        el.playsInline = true;
+        el.loop = true;
+        el.autoplay = true;
+        el.style.width = '100%';
+        el.style.height = '100%';
+        el.style.objectFit = 'cover';
+        if (placeholder) placeholder.style.display = 'none';
+        return;
+      }
       el = document.createElement('video');
       el.src = item.src;
       el.muted = true;

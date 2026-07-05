@@ -11,6 +11,7 @@
   "program-kids": { "type": "image", "src": "", "alt": "Kids Martial Arts program" },
   "program-adults": { "type": "image", "src": "", "alt": "Adult Fitness program" },
   "program-after_school": { "type": "image", "src": "", "alt": "After School program" },
+  "programs-welcome": { "type": "video", "src": "", "alt": "Welcome to Master Baez Programs" },
   "gallery_photos": [],
   "gallery_videos": []
 }

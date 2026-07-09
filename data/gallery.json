@@ -36,22 +36,42 @@
     "alt": "Niños entrenando artes marciales en Master Baez, Cooper City FL"
   },
   "gallery_photos": [],
-  "blog-article-1": {
+  "blog-article-1-en": {
+    "type": "image",
+    "src": "/images/uploads/001a-bl.jpg",
+    "alt": "Blog article - Raising a Resilient Child"
+  },
+  "blog-article-1-es": {
     "type": "image",
     "src": "/images/uploads/001a-bl.jpg",
     "alt": "Artículo del blog - Raising a Resilient Child"
   },
-  "blog-article-2": {
+  "blog-article-2-en": {
+    "type": "image",
+    "src": "https://masterbaez.com/wp-content/uploads/2026/07/002-b-BL.jpg",
+    "alt": "Blog article - Bullying Prevention"
+  },
+  "blog-article-2-es": {
     "type": "image",
     "src": "https://masterbaez.com/wp-content/uploads/2026/07/002-b-BL.jpg",
     "alt": "Artículo del blog - Bullying Prevention"
   },
-  "blog-article-3": {
+  "blog-article-3-en": {
+    "type": "image",
+    "src": "",
+    "alt": "Blog article - Confidence Building"
+  },
+  "blog-article-3-es": {
     "type": "image",
     "src": "https://masterbaez.com/wp-content/uploads/2026/07/003-A-BL.jpg",
     "alt": "Artículo del blog - Confidence Building"
   },
-  "blog-article-4": {
+  "blog-article-4-en": {
+    "type": "image",
+    "src": "",
+    "alt": "Blog article - Best Martial Arts School"
+  },
+  "blog-article-4-es": {
     "type": "image",
     "src": "https://masterbaez.com/wp-content/uploads/2026/07/004-B-BL.jpg",
     "alt": "Artículo del blog - Best Martial Arts School"

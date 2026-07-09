@@ -76,34 +76,62 @@ collections:
               - { label: "Video (MP4)", name: "src", widget: "file" }
               - { label: "Descripción", name: "alt", widget: "string", required: false }
               - { label: "Pie de foto (opcional)", name: "caption", widget: "string", required: false }
-          - label: "Foto del Blog Artículo 1"
-            name: "blog-article-1"
+          - label: "✏️ BLOG — Artículo 1 (Inglés)"
+            name: "blog-article-1-en"
             widget: "object"
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
-              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
-          - label: "Foto del Blog Artículo 2"
-            name: "blog-article-2"
+              - { label: "Texto alternativo (Inglés)", name: "alt", widget: "string", required: false }
+          - label: "✏️ BLOG — Artículo 1 (Español)"
+            name: "blog-article-1-es"
             widget: "object"
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
-              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
-          - label: "Foto del Blog Artículo 3"
-            name: "blog-article-3"
+              - { label: "Texto alternativo (Español)", name: "alt", widget: "string", required: false }
+          - label: "✏️ BLOG — Artículo 2 (Inglés)"
+            name: "blog-article-2-en"
             widget: "object"
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
-              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
-          - label: "Foto del Blog Artículo 4"
-            name: "blog-article-4"
+              - { label: "Texto alternativo (Inglés)", name: "alt", widget: "string", required: false }
+          - label: "✏️ BLOG — Artículo 2 (Español)"
+            name: "blog-article-2-es"
             widget: "object"
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
-              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+              - { label: "Texto alternativo (Español)", name: "alt", widget: "string", required: false }
+          - label: "✏️ BLOG — Artículo 3 (Inglés)"
+            name: "blog-article-3-en"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
+              - { label: "Texto alternativo (Inglés)", name: "alt", widget: "string", required: false }
+          - label: "✏️ BLOG — Artículo 3 (Español)"
+            name: "blog-article-3-es"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
+              - { label: "Texto alternativo (Español)", name: "alt", widget: "string", required: false }
+          - label: "✏️ BLOG — Artículo 4 (Inglés)"
+            name: "blog-article-4-en"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
+              - { label: "Texto alternativo (Inglés)", name: "alt", widget: "string", required: false }
+          - label: "✏️ BLOG — Artículo 4 (Español)"
+            name: "blog-article-4-es"
+            widget: "object"
+            fields:
+              - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
+              - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
+              - { label: "Texto alternativo (Español)", name: "alt", widget: "string", required: false }
           - label: "Foto/Video de Programas — Tiny Tigers"
             name: "program-tiny_tigers"
             widget: "object"

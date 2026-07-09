@@ -22,8 +22,12 @@
           Object.keys(jsonData).forEach(function (key) {
             if (jsonData[key] && jsonData[key].src) {
               gallery[key] = jsonData[key];
-              gallery[key + '-en'] = jsonData[key];
-              gallery[key + '-es'] = jsonData[key];
+              if (!jsonData[key + '-en'] || !jsonData[key + '-en'].src) {
+                gallery[key + '-en'] = jsonData[key];
+              }
+              if (!jsonData[key + '-es'] || !jsonData[key + '-es'].src) {
+                gallery[key + '-es'] = jsonData[key];
+              }
             }
           });
         }

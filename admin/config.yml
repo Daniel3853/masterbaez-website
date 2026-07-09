@@ -2,7 +2,6 @@ backend:
   name: github
   repo: Daniel3853/masterbaez-website
   branch: main
-  site_domain: charming-phoenix-3cf00c.netlify.app
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"

@@ -2,7 +2,6 @@ backend:
   name: github
   repo: Daniel3853/masterbaez-website
   branch: main
-  base_url: https://oauth.decapcms.tech
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"

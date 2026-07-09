@@ -67,6 +67,12 @@
     <div class="section-label">Blog</div>
     <div id="blogFields"></div>
 
+    <div class="section-label" style="margin-top:32px;">Textos del Sitio</div>
+    <p style="font-size:13px;color:#666;margin-bottom:12px;">
+      Edita todos los textos del sitio (hero, navegación, programas, blog, FAQ, etc.)
+    </p>
+    <div id="textsFields"></div>
+
     <div class="section-label" style="margin-top:32px;">Enlaces de Programas (video / lead page / checkout)</div>
     <p style="font-size:13px;color:#666;margin-bottom:12px;">
       Aquí puedes cambiar los videos y links de cada programa. El video se reproduce en el modal,
@@ -87,11 +93,13 @@
   <script>
     var GALLERY = {};
     var PROGRAM_LINKS = {};
+    var CONTENT = { texts: [] };
     var TOKEN = '';
     var REPO = 'Daniel3853/masterbaez-website';
     var BRANCH = 'main';
     var FILE_PATH = 'data/gallery.json';
     var PL_FILE_PATH = 'data/program-links.json';
+    var CT_FILE_PATH = 'data/content.json';
 
     function connect() {
       TOKEN = document.getElementById('tokenInput').value.trim();
@@ -110,19 +118,26 @@
         }).then(function(r) { if (!r.ok) throw new Error('Error ' + r.status); return r.json(); }),
         fetch('https://api.github.com/repos/' + REPO + '/contents/' + PL_FILE_PATH + '?ref=' + BRANCH, {
           headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+        }).then(function(r) { if (!r.ok) throw new Error('Error ' + r.status); return r.json(); }),
+        fetch('https://api.github.com/repos/' + REPO + '/contents/' + CT_FILE_PATH + '?ref=' + BRANCH, {
+          headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json' }
         }).then(function(r) { if (!r.ok) throw new Error('Error ' + r.status); return r.json(); })
       ])
       .then(function(results) {
         var galleryData = results[0];
         var plData = results[1];
+        var ctData = results[2];
         GALLERY = JSON.parse(atob(galleryData.content.replace(/\n/g, '')));
         GALLERY._sha = galleryData.sha;
         PROGRAM_LINKS = JSON.parse(atob(plData.content.replace(/\n/g, '')));
         PROGRAM_LINKS._sha = plData.sha;
+        CONTENT = JSON.parse(atob(ctData.content.replace(/\n/g, '')));
+        CONTENT._sha = ctData.sha;
         document.getElementById('editor').style.display = 'block';
         document.querySelector('.token-section').style.display = 'none';
         render();
         renderProgramLinks();
+        renderTexts();
         showStatus('Listo, edita y guarda', 'done');
       })
       .catch(function(e) { showStatus('Error al cargar: ' + e.message, 'error'); });
@@ -224,6 +239,50 @@
       document.getElementById('programLinksFields').innerHTML = html;
     }
 
+    function renderTexts() {
+      if (!CONTENT.texts || !CONTENT.texts.length) {
+        document.getElementById('textsFields').innerHTML = '<p style="color:#666;font-size:13px;">Sin textos cargados</p>';
+        return;
+      }
+      var sectionLabels = {
+        nav: 'Navegación', hero: 'Hero', section: 'Secciones',
+        pillar: 'Pilares', prog: 'Programas', inside: 'Inside Lab',
+        belt: 'Viaje del Cinturón', trans: 'Transformaciones',
+        testimonial: 'Testimonios', offer: 'Oferta', comp: 'Comparación',
+        faq: 'FAQ', footer: 'Footer', modal: 'Modal', child: 'Formulario',
+        adult: 'Formulario Adulto', article: 'Blog Artículos',
+        so_: 'Oferta Flotante', vb_: 'Viewer Badge',
+        ath_: 'Sección Atlética', stat: 'Estadísticas',
+        timer: 'Temporizador', tell: 'Formulario',
+        cta: 'CTA', back: 'Navegación'
+      };
+      var html = '';
+      var currentSection = '';
+      CONTENT.texts.forEach(function(t) {
+        if (!t || !t.key) return;
+        var prefix = t.key.split('_')[0];
+        var sectionLabel = sectionLabels[prefix] || 'Otros';
+        if (prefix === 'so') sectionLabel = 'Oferta Flotante';
+        if (prefix === 'vb') sectionLabel = 'Viewer Badge';
+        if (t.key.indexOf('article') === 0) sectionLabel = 'Blog Artículos';
+        if (sectionLabel !== currentSection) {
+          if (currentSection) html += '</div>';
+          currentSection = sectionLabel;
+          html += '<div class="section-label" style="margin-top:24px;">' + sectionLabel + '</div>';
+          html += '<div class="blog-section">';
+        }
+        var enId = 'txt-' + t.key + '-en';
+        var esId = 'txt-' + t.key + '-es';
+        html += '<div class="field">' +
+          '<label style="font-size:11px;color:#777;word-break:break-all;">' + esc(t.key) + '</label>' +
+          '<input type="text" id="' + enId + '" value="' + esc(t.en || '') + '" placeholder="English" style="margin-bottom:4px;" />' +
+          '<input type="text" id="' + esId + '" value="' + esc(t.es || '') + '" placeholder="Español" />' +
+          '</div>';
+      });
+      if (currentSection) html += '</div>';
+      document.getElementById('textsFields').innerHTML = html;
+    }
+
     function save() {
       showStatus('Guardando...', 'saving');
       var updatedGallery = JSON.parse(JSON.stringify(GALLERY));
@@ -249,8 +308,21 @@
         });
       });
 
+      var updatedCT = JSON.parse(JSON.stringify(CONTENT));
+      delete updatedCT._sha;
+      if (updatedCT.texts) {
+        updatedCT.texts.forEach(function(t) {
+          if (!t || !t.key) return;
+          var enEl = document.getElementById('txt-' + t.key + '-en');
+          var esEl = document.getElementById('txt-' + t.key + '-es');
+          if (enEl) t.en = enEl.value.trim();
+          if (esEl) t.es = esEl.value.trim();
+        });
+      }
+
       var galleryContent = btoa(unescape(encodeURIComponent(JSON.stringify(updatedGallery, null, 2))));
       var plContent = btoa(unescape(encodeURIComponent(JSON.stringify(updatedPL, null, 2))));
+      var ctContent = btoa(unescape(encodeURIComponent(JSON.stringify(updatedCT, null, 2))));
 
       Promise.all([
         fetch('https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH, {
@@ -272,14 +344,26 @@
             branch: BRANCH,
             sha: PROGRAM_LINKS._sha
           })
-        }).then(function(r) { if (!r.ok) throw new Error('Error al guardar enlaces: ' + r.status); return r.json(); })
+        }).then(function(r) { if (!r.ok) throw new Error('Error al guardar enlaces: ' + r.status); return r.json(); }),
+        fetch('https://api.github.com/repos/' + REPO + '/contents/' + CT_FILE_PATH, {
+          method: 'PUT',
+          headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: 'Update site texts via editor',
+            content: ctContent,
+            branch: BRANCH,
+            sha: CONTENT._sha
+          })
+        }).then(function(r) { if (!r.ok) throw new Error('Error al guardar textos: ' + r.status); return r.json(); })
       ])
       .then(function(results) {
         GALLERY._sha = results[0].content.sha;
         PROGRAM_LINKS._sha = results[1].content.sha;
+        CONTENT._sha = results[2].content.sha;
         showStatus('Guardado. GitHub Pages lo publica en 1-2 min.', 'done');
         render();
         renderProgramLinks();
+        renderTexts();
       })
       .catch(function(e) { showStatus(e.message, 'error'); });
     }
@@ -297,6 +381,15 @@
     var savedToken = localStorage.getItem('mb-token');
     if (savedToken) {
       document.getElementById('tokenInput').value = savedToken;
+      connect();
+    }
+
+    // Support ?token= in URL for one-click access
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlToken = urlParams.get('token');
+    if (urlToken && urlToken.length > 10) {
+      document.getElementById('tokenInput').value = urlToken;
+      try { localStorage.setItem('mb-token', urlToken); } catch(e) {}
       connect();
     }
 

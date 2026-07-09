@@ -3,28 +3,17 @@
    Este bot LEE AUTOMÁTICAMENTE el texto de tu página y busca
    ahí la respuesta a cada pregunta. No usa ninguna IA de pago,
    no necesita API key, no necesita servidor ni función serverless.
-   (Si algún día quieres respuestas más naturales con IA, existe
-   la opción de activar netlify/functions/chat.js, pero eso tiene
-   costo por uso — ver aiEnabled más abajo.)
    ============================================================ */
 
 /* ============================================================
    CONFIGURACIÓN - Edita esto según tu despliegue
    ============================================================ */
 var MB_CONFIG = {
-  // Cambia esto por la URL de tu función serverless una vez
-  // que la despliegues en Netlify (ver chat.js e instrucciones).
-  // Ejemplo si está en el mismo sitio de Netlify:
-  //   "/.netlify/functions/chat"
-  // Ejemplo si está en OTRO dominio (ej: GitHub Pages llamando
-  // a una función en Netlify):
-  //   "https://tu-sitio.netlify.app/.netlify/functions/chat"
-  apiEndpoint: "/.netlify/functions/chat",
+  // Solo se usa si aiEnabled = true (requiere backend propio)
+  apiEndpoint: "/api/chat",
 
   // GRATIS: el bot SOLO usa la búsqueda local dentro del texto de
   // tu página (sin IA, sin costo, sin necesidad de backend ni API key).
-  // Si en el futuro quieres respuestas más naturales con IA (de pago),
-  // despliega netlify/functions/chat.js y pon esto en true.
   aiEnabled: false,
 
   // Cuántos caracteres del texto de la página se envían como

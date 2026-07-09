@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Editor | Master Baez</title>
   <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: system-ui, -apple-system, sans-serif; background: #0f0f1a; color: #e0e0e0; padding: 20px; }
@@ -186,6 +189,7 @@
         var f = fieldHTML(key, item, label);
 
         if (key === 'hero-main') heroHTML += f;
+        else if (key === 'programs-welcome') programHTML += f;
         else if (key.indexOf('program-') === 0) programHTML += f;
         else if (key === 'athletic-1' || key === 'trans-oliver' || key === 'trans-ryder') sectionHTML += f;
       });

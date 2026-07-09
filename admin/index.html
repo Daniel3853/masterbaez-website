@@ -283,6 +283,13 @@
       document.getElementById('textsFields').innerHTML = html;
     }
 
+    function getFreshSha(path) {
+      return fetch('https://api.github.com/repos/' + REPO + '/contents/' + path + '?ref=' + BRANCH, {
+        headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+      }).then(function(r) { if (!r.ok) throw new Error('Error al obtener SHA: ' + r.status); return r.json(); })
+      .then(function(d) { return d.sha; });
+    }
+
     function save() {
       showStatus('Guardando...', 'saving');
       var updatedGallery = JSON.parse(JSON.stringify(GALLERY));
@@ -324,38 +331,31 @@
       var plContent = btoa(unescape(encodeURIComponent(JSON.stringify(updatedPL, null, 2))));
       var ctContent = btoa(unescape(encodeURIComponent(JSON.stringify(updatedCT, null, 2))));
 
+      // Obtener SHA frescos antes de guardar (evita 409 Conflict)
       Promise.all([
-        fetch('https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH, {
-          method: 'PUT',
-          headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            message: 'Update gallery photos via editor',
-            content: galleryContent,
-            branch: BRANCH,
-            sha: GALLERY._sha
-          })
-        }).then(function(r) { if (!r.ok) throw new Error('Error al guardar fotos: ' + r.status); return r.json(); }),
-        fetch('https://api.github.com/repos/' + REPO + '/contents/' + PL_FILE_PATH, {
-          method: 'PUT',
-          headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            message: 'Update program links via editor',
-            content: plContent,
-            branch: BRANCH,
-            sha: PROGRAM_LINKS._sha
-          })
-        }).then(function(r) { if (!r.ok) throw new Error('Error al guardar enlaces: ' + r.status); return r.json(); }),
-        fetch('https://api.github.com/repos/' + REPO + '/contents/' + CT_FILE_PATH, {
-          method: 'PUT',
-          headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            message: 'Update site texts via editor',
-            content: ctContent,
-            branch: BRANCH,
-            sha: CONTENT._sha
-          })
-        }).then(function(r) { if (!r.ok) throw new Error('Error al guardar textos: ' + r.status); return r.json(); })
+        getFreshSha(FILE_PATH),
+        getFreshSha(PL_FILE_PATH),
+        getFreshSha(CT_FILE_PATH)
       ])
+      .then(function(shas) {
+        return Promise.all([
+          fetch('https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH, {
+            method: 'PUT',
+            headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: 'Update gallery photos via editor', content: galleryContent, branch: BRANCH, sha: shas[0] })
+          }).then(function(r) { if (!r.ok) throw new Error('Error al guardar fotos: ' + r.status); return r.json(); }),
+          fetch('https://api.github.com/repos/' + REPO + '/contents/' + PL_FILE_PATH, {
+            method: 'PUT',
+            headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: 'Update program links via editor', content: plContent, branch: BRANCH, sha: shas[1] })
+          }).then(function(r) { if (!r.ok) throw new Error('Error al guardar enlaces: ' + r.status); return r.json(); }),
+          fetch('https://api.github.com/repos/' + REPO + '/contents/' + CT_FILE_PATH, {
+            method: 'PUT',
+            headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: 'Update site texts via editor', content: ctContent, branch: BRANCH, sha: shas[2] })
+          }).then(function(r) { if (!r.ok) throw new Error('Error al guardar textos: ' + r.status); return r.json(); })
+        ]);
+      })
       .then(function(results) {
         GALLERY._sha = results[0].content.sha;
         PROGRAM_LINKS._sha = results[1].content.sha;

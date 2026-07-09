@@ -1,17 +1,69 @@
 {
-  "hero-main": { "type": "image", "src": "", "alt": "Niños entrenando artes marciales en Master Baez, Cooper City FL" },
-  "athletic-1": { "type": "image", "src": "", "alt": "Entrenamiento atlético para niños en Cooper City, FL" },
-  "trans-oliver": { "type": "image", "src": "", "alt": "Oliver entrenando en Master Baez Martial Arts" },
-  "trans-ryder": { "type": "image", "src": "", "alt": "Ryder entrenando en Master Baez Martial Arts" },
-  "blog-article-1": { "type": "image", "src": "", "alt": "Artículo del blog - Raising a Resilient Child" },
-  "blog-article-2": { "type": "image", "src": "", "alt": "Artículo del blog - Bullying Prevention" },
-  "blog-article-3": { "type": "image", "src": "", "alt": "Artículo del blog - Confidence Building" },
-  "blog-article-4": { "type": "image", "src": "", "alt": "Artículo del blog - Best Martial Arts School" },
-  "program-tiny_tigers": { "type": "image", "src": "", "alt": "Tiny Tigers program" },
-  "program-kids": { "type": "image", "src": "", "alt": "Kids Martial Arts program" },
-  "program-adults": { "type": "image", "src": "", "alt": "Adult Fitness program" },
-  "program-after_school": { "type": "image", "src": "", "alt": "After School program" },
-  "programs-welcome": { "type": "video", "src": "", "alt": "Welcome to Master Baez Programs" },
+  "program-after_school": {
+    "type": "image",
+    "src": "",
+    "alt": "After School program"
+  },
+  "program-adults": {
+    "type": "image",
+    "src": "",
+    "alt": "Adult Fitness program"
+  },
+  "athletic-1": {
+    "type": "image",
+    "src": "",
+    "alt": "Entrenamiento atlético para niños en Cooper City, FL"
+  },
+  "programs-welcome": {
+    "type": "video",
+    "src": "",
+    "alt": "Welcome to Master Baez Programs"
+  },
+  "gallery_videos": [],
+  "trans-ryder": {
+    "type": "image",
+    "src": "",
+    "alt": "Ryder entrenando en Master Baez Martial Arts"
+  },
+  "program-tiny_tigers": {
+    "type": "image",
+    "src": "",
+    "alt": "Tiny Tigers program"
+  },
+  "hero-main": {
+    "type": "image",
+    "src": "/images/uploads/001.jpg",
+    "alt": "Niños entrenando artes marciales en Master Baez, Cooper City FL"
+  },
   "gallery_photos": [],
-  "gallery_videos": []
+  "blog-article-1": {
+    "type": "image",
+    "src": "",
+    "alt": "Artículo del blog - Raising a Resilient Child"
+  },
+  "blog-article-2": {
+    "type": "image",
+    "src": "",
+    "alt": "Artículo del blog - Bullying Prevention"
+  },
+  "blog-article-3": {
+    "type": "image",
+    "src": "",
+    "alt": "Artículo del blog - Confidence Building"
+  },
+  "blog-article-4": {
+    "type": "image",
+    "src": "",
+    "alt": "Artículo del blog - Best Martial Arts School"
+  },
+  "program-kids": {
+    "type": "image",
+    "src": "",
+    "alt": "Kids Martial Arts program"
+  },
+  "trans-oliver": {
+    "type": "image",
+    "src": "",
+    "alt": "Oliver entrenando en Master Baez Martial Arts"
+  }
 }

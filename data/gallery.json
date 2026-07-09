@@ -39,27 +39,27 @@
   "blog-article-1": {
     "type": "image",
     "src": "/images/uploads/001a-bl.jpg",
-    "alt": "Artículo del blog - Raising a Resilient Child",
-    "photos": []
+    "alt": "Artículo del blog - Raising a Resilient Child"
   },
+  "blog-article-1-photos": [],
   "blog-article-2": {
     "type": "image",
     "src": "/images/uploads/002-b-bl.jpg",
-    "alt": "Artículo del blog - Bullying Prevention",
-    "photos": []
+    "alt": "Artículo del blog - Bullying Prevention"
   },
+  "blog-article-2-photos": [],
   "blog-article-3": {
     "type": "image",
     "src": "",
-    "alt": "Artículo del blog - Confidence Building",
-    "photos": []
+    "alt": "Artículo del blog - Confidence Building"
   },
+  "blog-article-3-photos": [],
   "blog-article-4": {
     "type": "image",
     "src": "",
-    "alt": "Artículo del blog - Best Martial Arts School",
-    "photos": []
+    "alt": "Artículo del blog - Best Martial Arts School"
   },
+  "blog-article-4-photos": [],
   "program-kids": {
     "type": "image",
     "src": "",

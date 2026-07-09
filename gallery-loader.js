@@ -17,9 +17,11 @@
             var val = jsonData[key];
             if (!val) return;
             if (Array.isArray(val)) {
-              gallery[key] = val;
-              gallery[key + '-en'] = val;
-              gallery[key + '-es'] = val;
+              if (val.length) {
+                gallery[key] = val;
+                gallery[key + '-en'] = val;
+                gallery[key + '-es'] = val;
+              }
             } else if (val.src) {
               gallery[key] = val;
               gallery[key + '-en'] = val;

@@ -1,6 +1,30 @@
 (function () {
   var gallery = window.__gallery || {};
 
+  // Cargar datos actualizados desde gallery.json (lo que edita el /admin)
+  function loadGalleryJson() {
+    if (window.location.protocol === 'file:') return Promise.resolve();
+    var baseUrl = function() {
+      var scripts = document.getElementsByTagName('script');
+      var src = scripts[scripts.length - 1].src;
+      return src.substring(0, src.lastIndexOf('/') + 1);
+    }();
+    return fetch(baseUrl + 'data/gallery.json', { cache: 'no-store' })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (jsonData) {
+        if (jsonData) {
+          Object.keys(jsonData).forEach(function (key) {
+            if (jsonData[key] && jsonData[key].src) {
+              gallery[key] = jsonData[key];
+            }
+          });
+        }
+        renderGallery();
+      })
+      .catch(function () { renderGallery(); });
+  }
+
+  function renderGallery() {
   document.querySelectorAll('[data-media-slot]').forEach(function (slot) {
     var key = slot.getAttribute('data-media-slot');
     var item = gallery[key];
@@ -130,4 +154,7 @@
 
   renderFlexGrid('gallery-photos-grid', gallery.gallery_photos, 'image');
   renderFlexGrid('gallery-videos-grid', gallery.gallery_videos, 'video');
+  }
+
+  loadGalleryJson();
 })();

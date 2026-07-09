@@ -3,10 +3,243 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Administrar Fotos y Videos | Master Baez Martial Arts</title>
+  <title>Editar Fotos | Master Baez</title>
   <meta name="robots" content="noindex, nofollow" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #0f0f1a; color: #e0e0e0; padding: 20px; }
+    h1 { color: #a855f7; margin-bottom: 20px; font-size: 24px; }
+    h2 { color: #c084fc; font-size: 16px; margin: 24px 0 12px; border-bottom: 1px solid #2a2a3a; padding-bottom: 6px; }
+    .field { margin-bottom: 16px; }
+    label { display: block; font-size: 13px; color: #999; margin-bottom: 4px; }
+    input[type="text"], input[type="url"] { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #333; background: #1a1a2e; color: #e0e0e0; font-size: 14px; }
+    input:focus { outline: none; border-color: #a855f7; }
+    .token-section { background: #1a1a2e; padding: 16px; border-radius: 12px; margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-end; }
+    .token-section input { flex: 1; }
+    .btn { padding: 10px 24px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .btn-primary { background: #a855f7; color: #fff; }
+    .btn-primary:hover { background: #9333ea; }
+    .btn-success { background: #22c55e; color: #fff; }
+    .btn-success:hover { background: #16a34a; }
+    .btn-danger { background: #ef4444; color: #fff; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    .card { background: #1a1a2e; border-radius: 12px; padding: 16px; }
+    .status { padding: 12px; border-radius: 8px; margin-top: 16px; display: none; }
+    .status.success { display: block; background: #052e16; color: #22c55e; border: 1px solid #22c55e; }
+    .status.error { display: block; background: #2e0505; color: #ef4444; border: 1px solid #ef4444; }
+    .preview { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; margin-top: 4px; border: 1px solid #333; }
+    .section-label { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; margin-bottom: 8px; }
+    .inline-flex { display: flex; gap: 8px; align-items: center; }
+    .blog-section { background: #1e1e32; border-radius: 12px; padding: 16px; margin-top: 12px; }
+    .blog-section h3 { color: #a78bfa; font-size: 14px; margin-bottom: 12px; }
+    .lang-tabs { display: flex; gap: 4px; margin-bottom: 12px; }
+    .lang-tab { padding: 6px 16px; border-radius: 6px; border: 1px solid #333; background: transparent; color: #999; cursor: pointer; font-size: 13px; }
+    .lang-tab.active { background: #a855f7; color: #fff; border-color: #a855f7; }
+    .save-btn-wrap { text-align: center; margin-top: 24px; }
+    .status-bar { position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 20px; text-align: center; font-size: 13px; display: none; }
+    .status-bar.show { display: block; }
+    .status-bar.saving { background: #1a1a2e; color: #a855f7; border-top: 1px solid #333; }
+    .status-bar.done { background: #052e16; color: #22c55e; border-top: 1px solid #22c55e; }
+    .status-bar.error { background: #2e0505; color: #ef4444; border-top: 1px solid #ef4444; }
+  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <h1>Editar Fotos del Sitio</h1>
+
+  <div class="token-section">
+    <input type="password" id="tokenInput" placeholder="GitHub Personal Access Token (classic, scope: repo)" />
+    <button class="btn btn-primary" onclick="connect()">Conectar</button>
+    <a href="https://github.com/settings/tokens/new?description=masterbaez-editor&scopes=repo" target="_blank" style="color:#a855f7;font-size:13px;">¿Cómo crear un token?</a>
+  </div>
+
+  <div id="editor" style="display:none;">
+    <div class="section-label">Hero — Foto Principal</div>
+    <div class="grid" id="heroFields"></div>
+
+    <div class="section-label">Sección Atlética / Transformaciones</div>
+    <div class="grid" id="sectionFields"></div>
+
+    <div class="section-label">Programas</div>
+    <div class="grid" id="programFields"></div>
+
+    <div class="section-label">Blog</div>
+    <div id="blogFields"></div>
+
+    <div class="save-btn-wrap">
+      <button class="btn btn-success" onclick="save()" id="saveBtn" style="font-size:18px;padding:14px 48px;">
+        Guardar Cambios
+      </button>
+    </div>
+  </div>
+
+  <div id="statusBar" class="status-bar"></div>
+
+  <script>
+    var GALLERY = {};
+    var TOKEN = '';
+    var REPO = 'Daniel3853/masterbaez-website';
+    var BRANCH = 'main';
+    var FILE_PATH = 'data/gallery.json';
+
+    function connect() {
+      TOKEN = document.getElementById('tokenInput').value.trim();
+      if (!TOKEN || TOKEN.length < 10) {
+        showStatus('Ingresa un token válido', 'error');
+        return;
+      }
+      loadGallery();
+    }
+
+    function loadGallery() {
+      showStatus('Cargando galería...', 'saving');
+      fetch('https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH + '?ref=' + BRANCH, {
+        headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+      })
+      .then(function(r) { if (!r.ok) throw new Error('Error ' + r.status + ': verifica tu token'); return r.json(); })
+      .then(function(data) {
+        GALLERY = JSON.parse(atob(data.content.replace(/\n/g, '')));
+        GALLERY._sha = data.sha;
+        document.getElementById('editor').style.display = 'block';
+        document.querySelector('.token-section').style.display = 'none';
+        render();
+        showStatus('Listo, edita las fotos y guarda', 'done');
+      })
+      .catch(function(e) { showStatus(e.message, 'error'); });
+    }
+
+    function fieldHTML(key, val, label) {
+      var displayLabel = label || key;
+      var src = (val && val.src) || '';
+      return '<div class="field">' +
+        '<label>' + displayLabel + '</label>' +
+        '<div class="inline-flex">' +
+        '<input type="text" id="f-' + key + '" value="' + esc(src) + '" placeholder="URL de la imagen" style="flex:1" />' +
+        (src ? '<img class="preview" src="' + esc(resolveSrc(src)) + '" onerror="this.style.display=\'none\'" />' : '') +
+        '</div></div>';
+    }
+
+    function esc(s) { return String(s).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    function resolveSrc(s) {
+      if (!s) return '';
+      if (s.indexOf('://') !== -1 || s.indexOf('//') === 0) return s;
+      if (s.indexOf('/') === 0) return 'https://daniel3853.github.io/masterbaez-website' + s;
+      return 'https://daniel3853.github.io/masterbaez-website/' + s;
+    }
+
+    function render() {
+      var heroHTML = '';
+      var sectionHTML = '';
+      var programHTML = '';
+      var blogHTML = '';
+
+      Object.keys(GALLERY).forEach(function(key) {
+        if (key === '_sha') return;
+        var item = GALLERY[key];
+        if (!item || typeof item !== 'object' || Array.isArray(item)) return;
+
+        var label = key;
+        var lblMap = {
+          'hero-main': 'Hero Principal', 'athletic-1': 'Entrenamiento Atlético',
+          'trans-oliver': 'Historia Oliver', 'trans-ryder': 'Historia Ryder',
+          'program-tiny_tigers': 'Tiny Tigers', 'program-kids': 'Kids',
+          'program-adults': 'Adultos', 'program-after_school': 'After School',
+          'programs-welcome': 'Video Bienvenida'
+        };
+        if (lblMap[key]) label = lblMap[key];
+
+        var f = fieldHTML(key, item, label);
+
+        if (key === 'hero-main') heroHTML += f;
+        else if (key.indexOf('program-') === 0) programHTML += f;
+        else if (key === 'athletic-1' || key === 'trans-oliver' || key === 'trans-ryder') sectionHTML += f;
+      });
+
+      document.getElementById('heroFields').innerHTML = heroHTML || '<p style="color:#666;font-size:13px;">Sin datos</p>';
+      document.getElementById('sectionFields').innerHTML = sectionHTML || '<p style="color:#666;font-size:13px;">Sin datos</p>';
+      document.getElementById('programFields').innerHTML = programHTML || '<p style="color:#666;font-size:13px;">Sin datos</p>';
+
+      // Blog: grouped by article
+      var blogKeys = ['blog-article-1', 'blog-article-2', 'blog-article-3', 'blog-article-4'];
+      blogHTML = '';
+      blogKeys.forEach(function(base) {
+        var enKey = base + '-en';
+        var esKey = base + '-es';
+        var enItem = GALLERY[enKey];
+        var esItem = GALLERY[esKey];
+        if (!enItem && !esItem) return;
+        var num = base.replace('blog-article-', '');
+        blogHTML += '<div class="blog-section">';
+        blogHTML += '<h3>Artículo ' + num + '</h3>';
+        blogHTML += '<div class="grid">';
+        if (enItem) blogHTML += fieldHTML(enKey, enItem, 'Inglés');
+        if (esItem) blogHTML += fieldHTML(esKey, esItem, 'Español');
+        blogHTML += '</div></div>';
+      });
+      document.getElementById('blogFields').innerHTML = blogHTML || '<p style="color:#666;font-size:13px;">Sin artículos de blog</p>';
+    }
+
+    function save() {
+      showStatus('Guardando...', 'saving');
+      var updated = JSON.parse(JSON.stringify(GALLERY));
+      delete updated._sha;
+
+      Object.keys(GALLERY).forEach(function(key) {
+        if (key === '_sha') return;
+        var el = document.getElementById('f-' + key);
+        if (el && updated[key]) {
+          updated[key].src = el.value.trim();
+        }
+      });
+
+      var content = btoa(unescape(encodeURIComponent(JSON.stringify(updated, null, 2))));
+
+      fetch('https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH, {
+        method: 'PUT',
+        headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: 'Update gallery photos via editor',
+          content: content,
+          branch: BRANCH,
+          sha: GALLERY._sha
+        })
+      })
+      .then(function(r) {
+        if (!r.ok) throw new Error('Error al guardar: ' + r.status);
+        return r.json();
+      })
+      .then(function(data) {
+        GALLERY._sha = data.content.sha;
+        showStatus('Guardado. GitHub Pages lo publica en 1-2 min.', 'done');
+        render();
+      })
+      .catch(function(e) { showStatus(e.message, 'error'); });
+    }
+
+    function showStatus(msg, type) {
+      var bar = document.getElementById('statusBar');
+      bar.textContent = msg;
+      bar.className = 'status-bar show ' + type;
+      if (type === 'done' || type === 'error') {
+        setTimeout(function() { bar.className = 'status-bar'; }, 6000);
+      }
+    }
+
+    // If token was previously saved
+    var savedToken = localStorage.getItem('mb-token');
+    if (savedToken) {
+      document.getElementById('tokenInput').value = savedToken;
+      connect();
+    }
+
+    // Save token on connect
+    var origConnect = connect;
+    connect = function() {
+      var token = document.getElementById('tokenInput').value.trim();
+      try { localStorage.setItem('mb-token', token); } catch(e) {}
+      origConnect();
+    };
+  </script>
 </body>
 </html>

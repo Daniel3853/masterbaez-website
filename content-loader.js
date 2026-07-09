@@ -14,6 +14,7 @@
   function applyLocalDraft() {
     try {
       var ov = JSON.parse(localStorage.getItem(OVERRIDES_KEY) || '{}');
+      if (!window.translations) window.translations = {};
       Object.keys(ov).forEach(function (key) {
         if (!window.translations[key]) window.translations[key] = {};
         Object.assign(window.translations[key], ov[key]);
@@ -23,7 +24,22 @@
 
   function refresh() {
     applyLocalDraft();
-    if (window.applyLang) window.applyLang();
+    if (!window.applyLang) {
+      window.applyLang = function () {
+        var lang = document.documentElement.lang || 'en';
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (window.translations && window.translations[key] && window.translations[key][lang])
+            el.textContent = window.translations[key][lang];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-html');
+          if (window.translations && window.translations[key] && window.translations[key][lang])
+            el.innerHTML = window.translations[key][lang];
+        });
+      };
+    }
+    window.applyLang();
   }
 
   // Cargar desde data/content.js si existe, o fetch para sitios desplegados

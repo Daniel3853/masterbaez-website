@@ -1,166 +1,149 @@
+/* ============================================================
+   local-media-preview.js
+   Sube fotos/videos a Firebase Storage y guarda la URL en
+   Firebase Realtime Database, para que se vean en CUALQUIER
+   navegador y CUALQUIER dispositivo (no solo en el tuyo).
+
+   ANTES de usar este archivo:
+   1. Agrega el SDK de Firebase en el <head> de tu index.html,
+      ARRIBA de la línea donde cargas este archivo:
+
+      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+
+   2. Rellena FIREBASE_CONFIG abajo con los datos de tu proyecto
+      "crm-leads-baez" (Firebase console > ícono de engranaje >
+      Configuración del proyecto > "Tus apps" > Config del SDK).
+
+   3. En Firebase console, activa "Storage" (menú lateral) si
+      todavía no lo has hecho.
+   ============================================================ */
 (function () {
-  var LS_PREFIX = 'mb_media_';
+  // ==== 1) CONFIGURA AQUÍ TU FIREBASE (copia/pega desde la consola) ====
+  var FIREBASE_CONFIG = {
+    apiKey: "PON_AQUI_TU_API_KEY",
+    authDomain: "crm-leads-baez.firebaseapp.com",
+    databaseURL: "https://crm-leads-baez-default-rtdb.firebaseio.com",
+    projectId: "crm-leads-baez",
+    storageBucket: "crm-leads-baez.appspot.com",
+    messagingSenderId: "PON_AQUI_TU_SENDER_ID",
+    appId: "PON_AQUI_TU_APP_ID"
+  };
+  // ======================================================================
 
-  function lsKey(k) { return LS_PREFIX + k; }
+  var _initialized = false;
+  var _mediaCache = null; // cache local de siteContent/media
 
-  function lsSave(key, value) {
-    try { localStorage.setItem(lsKey(key), JSON.stringify(value)); return true; } catch(e) { return false; }
-  }
-
-  function lsGet(key) {
-    try {
-      var raw = localStorage.getItem(lsKey(key));
-      return raw ? JSON.parse(raw) : null;
-    } catch(e) { return null; }
-  }
-
-  function lsDelete(key) {
-    try { localStorage.removeItem(lsKey(key)); } catch(e) {}
-  }
-
-  function blobToDataUrl(blob) {
-    return new Promise(function (resolve) {
-      if (typeof blob === 'string') return resolve(blob);
-      var r = new FileReader();
-      r.onload = function () { resolve(r.result); };
-      r.readAsDataURL(blob);
+  function ensureFirebase() {
+    if (_initialized) return Promise.resolve();
+    return new Promise(function (resolve, reject) {
+      if (typeof firebase === "undefined") {
+        reject(new Error("Firebase SDK no está cargado. Revisa los <script> en el <head> del HTML."));
+        return;
+      }
+      try {
+        if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+        _initialized = true;
+        resolve();
+      } catch (e) {
+        reject(e);
+      }
     });
   }
 
-  function renderInSlot(slot, item) {
-    var isVideo = item.type && item.type.indexOf('video') === 0;
-    var el = document.createElement(isVideo ? 'video' : 'img');
-    if (isVideo) { el.controls = true; el.muted = true; el.playsInline = true; }
-    if (item.dataUrl) {
-      el.src = item.dataUrl;
-    } else if (item.blob && typeof item.blob !== 'string') {
-      el.src = URL.createObjectURL(item.blob);
-    } else {
-      el.src = item.src || '';
-    }
-    var posY = (item.posY === undefined) ? 50 : item.posY;
-    el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;' +
-      'object-fit:cover;object-position:center ' + posY + '%;';
-    el.setAttribute('data-pos-y', posY);
-    slot.style.overflow = 'hidden';
-    var old = slot.querySelector('img, video');
-    if (old) old.remove();
-    slot.insertBefore(el, slot.firstChild);
-    var label = slot.querySelector('.se-upload-label');
-    if (label) {
-      var span = label.querySelector('span');
-      if (span) span.textContent = '📷 Cambiar foto/video';
-      label.style.cssText = 'position:absolute;bottom:8px;left:8px;right:8px;' +
-        'text-align:center;background:#a855f7;color:#fff;font-size:11px;font-weight:700;' +
-        'padding:8px 6px;border-radius:6px;cursor:pointer;z-index:20;' +
-        'font-family:Inter,Arial,sans-serif;';
-    }
-  }
+  // Sube un archivo (foto o video) al slot indicado
+  function saveSlot(slotKey, file, maxSizeMB) {
+    return ensureFirebase()
+      .then(function () {
+        var maxBytes = (maxSizeMB || 50) * 1024 * 1024;
+        if (file.size > maxBytes) {
+          alert("El archivo pesa demasiado. Máximo permitido: " + maxSizeMB + "MB.");
+          return Promise.reject(new Error("Archivo muy pesado"));
+        }
 
-  function renderFlexCard(grid, item, group, index, editable) {
-    var card = document.createElement('div');
-    card.className = 'gallery-item local-preview-item';
-    card.style.position = 'relative';
-    var isVideo = item.type && item.type.indexOf('video') === 0;
-    var el = document.createElement(isVideo ? 'video' : 'img');
-    if (isVideo) { el.controls = true; el.muted = true; el.playsInline = true; }
-    if (item.dataUrl) {
-      el.src = item.dataUrl;
-    } else if (item.blob && typeof item.blob !== 'string') {
-      el.src = URL.createObjectURL(item.blob);
-    } else {
-      el.src = item.src || '';
-    }
-    el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;' +
-      'object-fit:cover;object-position:center;';
-    card.appendChild(el);
-    if (editable) {
-      var delBtn = document.createElement('button');
-      delBtn.type = 'button';
-      delBtn.className = 'se-media-btn';
-      delBtn.textContent = '🗑️';
-      delBtn.title = 'Borrar solo esta foto/video';
-      delBtn.style.cssText = 'display:none;position:absolute;bottom:8px;right:8px;z-index:20;' +
-        'background:#ef4444;color:#fff;border:none;width:30px;height:30px;border-radius:6px;cursor:pointer;font-size:13px;';
-      delBtn.onclick = function () {
-        if (!confirm('¿Borrar esta foto/video de prueba?')) return;
-        window.LocalMedia.removeFromFlexGroup(group, index).then(function () {
-          renderFlexGroup(group, grid.id);
+        var safeName = Date.now() + "_" + file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_");
+        var path = "siteMedia/" + slotKey + "/" + safeName;
+        var storageRef = firebase.storage().ref(path);
+
+        return storageRef.put(file).then(function (snapshot) {
+          return snapshot.ref.getDownloadURL();
         });
-      };
-      card.appendChild(delBtn);
+      })
+      .then(function (url) {
+        var type = file.type.indexOf("video") === 0 ? "video" : "image";
+        var entry = { url: url, type: type, uploadedAt: Date.now() };
+        return firebase
+          .database()
+          .ref("siteContent/media/" + slotKey)
+          .set(entry)
+          .then(function () {
+            if (_mediaCache) _mediaCache[slotKey] = entry;
+            return url;
+          });
+      })
+      .catch(function (err) {
+        console.error("Error subiendo a Firebase:", err);
+        alert("No se pudo subir el archivo. Revisa tu conexión a internet o la configuración de Firebase (mira la consola del navegador con F12 para más detalle).");
+        throw err;
+      });
+  }
+
+  // Trae TODOS los medios guardados desde Firebase
+  function loadAllMedia() {
+    return ensureFirebase()
+      .then(function () {
+        return firebase.database().ref("siteContent/media").once("value");
+      })
+      .then(function (snap) {
+        _mediaCache = snap.val() || {};
+        return _mediaCache;
+      })
+      .catch(function (err) {
+        console.error("Error leyendo medios de Firebase:", err);
+        _mediaCache = _mediaCache || {};
+        return _mediaCache;
+      });
+  }
+
+  function renderSlot(el, entry) {
+    if (!entry || !entry.url) return;
+    el.innerHTML = "";
+    if (entry.type === "video") {
+      var v = document.createElement("video");
+      v.src = entry.url;
+      v.controls = true;
+      v.playsInline = true;
+      v.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;";
+      el.appendChild(v);
+    } else {
+      var img = document.createElement("img");
+      img.src = entry.url;
+      img.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;";
+      el.appendChild(img);
     }
-    grid.appendChild(card);
   }
 
-  function renderFlexGroup(group, gridId) {
-    var grid = document.getElementById(gridId);
-    if (!grid) return;
-    var list = lsGet('flex:' + group);
-    grid.querySelectorAll('.local-preview-item').forEach(function (el) { el.remove(); });
-    if (!list || !list.length) return;
-    grid.style.display = '';
-    list.forEach(function (item, i) { renderFlexCard(grid, item, group, i, true); });
-  }
-
+  // Aplica todos los medios guardados a los elementos [data-media-slot] en la página
   function applyAll() {
-    document.querySelectorAll('[data-media-slot]').forEach(function (slot) {
-      var key = 'slot:' + slot.getAttribute('data-media-slot');
-      var item = lsGet(key);
-      if (item) renderInSlot(slot, item);
+    var run = _mediaCache ? Promise.resolve(_mediaCache) : loadAllMedia();
+    return run.then(function (media) {
+      var slots = document.querySelectorAll("[data-media-slot]");
+      slots.forEach(function (el) {
+        var key = el.getAttribute("data-media-slot");
+        if (media[key]) renderSlot(el, media[key]);
+      });
+      return media;
     });
-    [['gallery_photos', 'gallery-photos-grid'], ['gallery_videos', 'gallery-videos-grid']]
-      .forEach(function (pair) { renderFlexGroup(pair[0], pair[1]); });
   }
 
   window.LocalMedia = {
-    saveSlot: function (slotKey, file, posY) {
-      var value = { type: file.type, posY: (posY === undefined ? 50 : posY) };
-      return blobToDataUrl(file).then(function (dataUrl) {
-        value.dataUrl = dataUrl;
-        var ok = lsSave('slot:' + slotKey, value);
-        if (!ok) alert('La foto es muy grande. Usa una imagen más pequeña (menos de 5MB).');
-        return value;
-      });
-    },
-    setSlotPosition: function (slotKey, posY) {
-      var item = lsGet('slot:' + slotKey);
-      if (!item) return Promise.resolve(null);
-      item.posY = posY;
-      lsSave('slot:' + slotKey, item);
-      return Promise.resolve(item);
-    },
-    addToFlexGroup: function (group, file) {
-      var item = { type: file.type };
-      return blobToDataUrl(file).then(function (dataUrl) {
-        item.dataUrl = dataUrl;
-        var list = lsGet('flex:' + group) || [];
-        list.push(item);
-        lsSave('flex:' + group, list);
-      });
-    },
-    removeFromFlexGroup: function (group, index) {
-      var list = lsGet('flex:' + group) || [];
-      list.splice(index, 1);
-      lsSave('flex:' + group, list);
-      return Promise.resolve();
-    },
-    renderFlexGroup: renderFlexGroup,
-    clearSlot: function (slotKey) {
-      lsDelete('slot:' + slotKey);
-      return Promise.resolve();
-    },
-    clearAll: function () {
-      for (var i = localStorage.length - 1; i >= 0; i--) {
-        var k = localStorage.key(i);
-        if (k.indexOf(LS_PREFIX) === 0) localStorage.removeItem(k);
-      }
-      return Promise.resolve();
-    },
-    applyAll: applyAll
+    saveSlot: saveSlot,
+    applyAll: applyAll,
+    loadAllMedia: loadAllMedia
   };
 
-  document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(applyAll, 300);
+  document.addEventListener("DOMContentLoaded", function () {
+    applyAll();
   });
 })();

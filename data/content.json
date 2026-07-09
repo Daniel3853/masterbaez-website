@@ -1662,8 +1662,13 @@
     },
     {
       "key": "blog_article1_desc",
-      "en": "Resilience isn't about shielding kids from failure — it's about teaching them how to bounce back.",
-      "es": "La resiliencia no se trata de proteger a los niños del fracaso — se trata de enseñarles cómo recuperarse."
+      "en": "Resilience isn't about shielding kids from failure — it's about teaching them how to bounce back. Here's what actually works.",
+      "es": "La resiliencia no se trata de proteger a los niños del fracaso — se trata de enseñarles cómo recuperarse. Aquí está lo que realmente funciona."
+    },
+    {
+      "key": "blog_listing_subtitle",
+      "en": "Real advice for raising resilient, confident kids — from the team behind Cooper City's #1 martial arts school.",
+      "es": "Consejos reales para criar niños resilientes y seguros de sí mismos — del equipo detrás de la escuela de artes marciales #1 de Cooper City."
     },
     {
       "key": "blog_article2_title",
@@ -1694,6 +1699,91 @@
       "key": "blog_article4_desc",
       "en": "By community vote, Master Baez Martial Arts has been named the best martial arts school in Cooper City.",
       "es": "Por voto comunitario, Master Baez Martial Arts ha sido nombrada la mejor escuela de artes marciales en Cooper City."
+    },
+    {
+      "key": "blog_article1_featured",
+      "en": "Featured",
+      "es": "Destacado"
+    },
+    {
+      "key": "blog_article1_tag",
+      "en": "Resilience",
+      "es": "Resiliencia"
+    },
+    {
+      "key": "blog_article1_date",
+      "en": "May 19, 2026",
+      "es": "19 de mayo, 2026"
+    },
+    {
+      "key": "blog_article2_tag",
+      "en": "Bullying Prevention",
+      "es": "Prevención del Acoso"
+    },
+    {
+      "key": "blog_article2_date",
+      "en": "Feb 27, 2026",
+      "es": "27 de feb, 2026"
+    },
+    {
+      "key": "blog_article3_tag",
+      "en": "Confidence",
+      "es": "Confianza"
+    },
+    {
+      "key": "blog_article3_date",
+      "en": "Feb 26, 2026",
+      "es": "26 de feb, 2026"
+    },
+    {
+      "key": "blog_article4_tag",
+      "en": "Awards",
+      "es": "Premios"
+    },
+    {
+      "key": "blog_article4_date",
+      "en": "Feb 26, 2026",
+      "es": "26 de feb, 2026"
+    },
+    {
+      "key": "blog_article1_author",
+      "en": "Master Baez Martial Arts",
+      "es": "Master Baez Martial Arts"
+    },
+    {
+      "key": "blog_article1_category",
+      "en": "Resilience",
+      "es": "Resiliencia"
+    },
+    {
+      "key": "blog_article2_author",
+      "en": "Master Baez Martial Arts",
+      "es": "Master Baez Martial Arts"
+    },
+    {
+      "key": "blog_article2_category",
+      "en": "Bullying Prevention",
+      "es": "Prevención del Acoso"
+    },
+    {
+      "key": "blog_article3_author",
+      "en": "Master Baez Martial Arts",
+      "es": "Master Baez Martial Arts"
+    },
+    {
+      "key": "blog_article3_category",
+      "en": "Confidence",
+      "es": "Confianza"
+    },
+    {
+      "key": "blog_article4_author",
+      "en": "Master Baez Martial Arts",
+      "es": "Master Baez Martial Arts"
+    },
+    {
+      "key": "blog_article4_category",
+      "en": "Awards",
+      "es": "Premios"
     },
     {
       "key": "read_story",
@@ -1747,13 +1837,13 @@
     },
     {
       "key": "article1_cta_title",
-      "en": "Ready to Build Your Child's Resilience?",
-      "es": "¿Listo Para Construir La Resiliencia De Tu Hijo?"
+      "en": "",
+      "es": ""
     },
     {
       "key": "article1_cta_text",
-      "en": "Give your child the gift of confidence, discipline, and grit. Try 2 classes free at Master Baez Martial Arts in Cooper City, FL.",
-      "es": "Dale a tu hijo el regalo de la confianza, la disciplina y la determinación. Prueba 2 clases gratis."
+      "en": "",
+      "es": ""
     },
     {
       "key": "article2_title",
@@ -1777,13 +1867,13 @@
     },
     {
       "key": "article2_cta_title",
-      "en": "Give Your Child the Tools to Handle Bullying",
-      "es": "Dale A Tu Hijo Las Herramientas Para Enfrentar El Acoso"
+      "en": "",
+      "es": ""
     },
     {
       "key": "article2_cta_text",
-      "en": "Two free classes. No strings attached. Let us show you how we build confident, resilient kids.",
-      "es": "Dos clases gratis. Sin compromiso. Déjanos mostrarte cómo construimos niños confiados y resilientes."
+      "en": "",
+      "es": ""
     },
     {
       "key": "article3_title",
@@ -1807,13 +1897,13 @@
     },
     {
       "key": "article3_cta_title",
-      "en": "Give Your Child the Gift of Confidence",
-      "es": "Dale A Tu Hijo El Regalo De La Confianza"
+      "en": "",
+      "es": ""
     },
     {
       "key": "article3_cta_text",
-      "en": "Two free classes. No pressure. Just see the difference for yourself.",
-      "es": "Dos clases gratis. Sin presión. Solo comprueba la diferencia por ti mismo."
+      "en": "",
+      "es": ""
     },
     {
       "key": "article4_title",
@@ -1837,13 +1927,13 @@
     },
     {
       "key": "article4_cta_title",
-      "en": "Join the Best Martial Arts School in Cooper City",
-      "es": "Únete A La Mejor Escuela De Artes Marciales En Cooper City"
+      "en": "",
+      "es": ""
     },
     {
       "key": "article4_cta_text",
-      "en": "See why the community voted us #1. Try 2 free classes today.",
-      "es": "Mira por qué la comunidad nos votó #1. Prueba 2 clases gratis hoy."
+      "en": "",
+      "es": ""
     },
     {
       "key": "article_cta_btn",

@@ -765,12 +765,12 @@
     .article-content .article-hero {
       background: linear-gradient(135deg, #13132a, #1a1a2e);
       border: 1px solid #2a2a50;
-      border-radius: 20px; padding: 48px 40px;
+      border-radius: 20px;
       margin-bottom: 32px;
       text-align: center;
       position: relative;
       overflow: hidden;
-      min-height: 200px;
+      min-height: 350px;
     }
     .article-content .article-hero .media-slot {
       position: absolute;
@@ -778,6 +778,7 @@
       z-index: 1;
     }
     .article-content .article-hero .icon { font-size: 48px; margin-bottom: 12px; display: block; }
+    .article-content .article-hero .media-caption-overlay { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 40px; }
     .article-content .article-hero h2 { font-size: 22px; font-weight: 700; color: #e0e0f0; }
     .article-content .article-hero p { color: #8a8aaa; font-size: 15px; margin-top: 8px; max-width: 500px; margin-left: auto; margin-right: auto; }
     .article-content h2 { font-size: 24px; font-weight: 700; margin: 32px 0 12px; color: #e0e0f0; }

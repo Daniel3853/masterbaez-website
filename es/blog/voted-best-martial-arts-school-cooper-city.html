@@ -53,6 +53,7 @@
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
+<script>try { localStorage.removeItem('mb_blog_overrides'); } catch(e){}</script>
 
 <header>
 <nav class="nav">
@@ -83,14 +84,38 @@
 <article class="article-content"><div class="article-container">
   <h1>Master Baez Martial Arts Votada Mejor Escuela de Artes Marciales en Cooper City, FL</h1>
   <div class="article-meta">
-    <span>Master Baez Martial Arts</span><span class="dot"></span>
-    <span>26 de feb, 2026</span><span class="dot"></span><span>Premios</span>
+    <span data-i18n="blog_article4_author">Master Baez Martial Arts</span><span class="dot"></span><span data-i18n="blog_article4_category">Premios</span>
   </div>
   <div class="article-hero" style="position:relative;overflow:hidden;">
-    <div class="media-slot" data-media-slot="blog-article-4" style="position:absolute;inset:0;z-index:1;"></div>
-    <h2>Cooper City votó. La comunidad decidió. Master Baez Martial Arts es la mejor escuela de artes marciales en Cooper City, FL.</h2>
-    <p>Seamos honestos.</p>
+    <div class="media-slot" data-media-slot="blog-article-4-es" style="position:absolute;inset:0;z-index:1;"></div>
+    <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption4')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
+    <div class="media-caption-overlay" id="heroCaption4" style="z-index:2;">
+      <h2>Cooper City votó. La comunidad decidió. Master Baez Martial Arts es la mejor escuela de artes marciales en Cooper City, FL.</h2>
+      <p>Seamos honestos.</p>
+    </div>
   </div>
+  <script>
+    function toggleHeroCaption(btn, captionId) {
+      var caption = document.getElementById(captionId);
+      if (!caption) return;
+      caption.style.display = 'none';
+      btn.style.display = 'none';
+      try { localStorage.setItem('mb_caption_hidden_' + captionId, '1'); } catch(e) {}
+    }
+    (function(){
+      try {
+        var btn = document.querySelector('.hero-caption-toggle');
+        if (btn) {
+          var m = btn.getAttribute('onclick').match(/'([^']+)'/);
+          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) === '1') {
+            var c = document.getElementById(m[1]);
+            if (c) c.style.display = 'none';
+            btn.style.display = 'none';
+          }
+        }
+      } catch(e) {}
+    })();
+  </script>
   <p>Hay muchas escuelas de artes marciales en Cooper City, FL. Así que cuando la comunidad habla, escuchas. Master Baez Martial Arts fue votada la mejor escuela de artes marciales en Cooper City, FL por voto comunitario. No por un panel de jueces. No por un equipo de marketing. Por la gente real que vive aquí, entrena aquí y envía a sus hijos aquí.</p>
   <h2>¿Qué Hace a Master Baez la Mejor Escuela de Artes Marciales en Cooper City, FL?</h2>
   <p>Somos un centro de desarrollo infantil disfrazado de escuela de artes marciales. Nuestro programa híbrido cruza el fitness con el desarrollo de la identidad, dando a los atletas una base de entrenamiento que a la vez construye habilidades prácticas para la vida.</p>
@@ -118,12 +143,8 @@
     <div class="name">Rebecca M.</div><div class="source">Reseña de Google</div>
     <p>"En Master Baez no solo enseñan artes marciales, también enseñan habilidades valiosas para la vida."</p>
   </div>
-  <div class="cta-box">
-    <h3>Únete a la Mejor Escuela de Artes Marciales en Cooper City</h3>
-    <p>Descubre por qué la comunidad nos votó #1. Prueba 2 clases gratis hoy.</p>
-    <a href="../../index.html#trial" onclick="try{localStorage.setItem('mb-lang','es')}catch(e){}" class="btn-primary">Empieza Con 2 Clases Gratis →</a>
-  </div>
-</article>
+   <p>Descubre por qué Cooper City nos eligió. <a href="../../index.html#trial" onclick="try{localStorage.setItem('mb-lang','es')}catch(e){}">Prueba dos clases gratis hoy.</a></p>
+ </div></article>
 </main>
 
 <footer class="footer" id="contact">
@@ -166,6 +187,7 @@
 <script src="../../gallery-loader.js"></script>
 <script src="../../content-loader.js"></script>
 <script src="../../local-media-preview.js"></script>
+<script src="../../admin-config.js"></script>
 <script src="../../site-editor.js"></script>
 </body>
 </html>

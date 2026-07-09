@@ -22,6 +22,21 @@
         el.style.width = '100%';
         el.style.height = '100%';
         el.style.objectFit = 'cover';
+        el.play().catch(function () {});
+        if (!slot.querySelector('.hero-video-btn')) {
+          var btn2 = document.createElement('button');
+          btn2.className = 'hero-video-btn';
+          btn2.textContent = '🔇';
+          btn2.title = 'Activar sonido';
+          btn2.style.cssText = 'position:absolute;bottom:16px;right:16px;z-index:5;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;';
+          btn2.addEventListener('click', function (e) {
+            e.stopPropagation();
+            el.muted = !el.muted;
+            btn2.textContent = el.muted ? '🔇' : '🔊';
+            btn2.title = el.muted ? 'Activar sonido' : 'Silenciar';
+          });
+          slot.appendChild(btn2);
+        }
         return;
       }
       el = document.createElement('video');
@@ -33,34 +48,34 @@
       el.style.width = '100%';
       el.style.height = '100%';
       el.style.objectFit = 'cover';
-      if (key === 'hero-main') {
-        el.controls = false;
-        el.style.position = 'absolute';
-        el.style.top = '0';
-        el.style.left = '0';
-        el.style.width = '100%';
-        el.style.height = '100%';
-        el.style.objectFit = 'cover';
+      el.controls = false;
+      el.style.position = 'absolute';
+      el.style.top = '0';
+      el.style.left = '0';
+      el.style.width = '100%';
+      el.style.height = '100%';
+      el.style.objectFit = 'cover';
+      if (key === 'hero-main-en' || key === 'hero-main-es') {
         slot.style.background = '#13132a';
-        slot.innerHTML = '';
-        slot.appendChild(el);
-        el.play().catch(function () {});
-        if (!slot.querySelector('.hero-video-btn')) {
-          var btn = document.createElement('button');
-          btn.className = 'hero-video-btn';
-          btn.textContent = '🔇';
-          btn.title = 'Activar sonido';
-          btn.style.cssText = 'position:absolute;bottom:16px;right:16px;z-index:5;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;';
-          btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            el.muted = !el.muted;
-            btn.textContent = el.muted ? '🔇' : '🔊';
-            btn.title = el.muted ? 'Activar sonido' : 'Silenciar';
-          });
-          slot.appendChild(btn);
-        }
-        return;
       }
+      slot.innerHTML = '';
+      slot.appendChild(el);
+      el.play().catch(function () {});
+      if (!slot.querySelector('.hero-video-btn')) {
+        var btn = document.createElement('button');
+        btn.className = 'hero-video-btn';
+        btn.textContent = '🔇';
+        btn.title = 'Activar sonido';
+        btn.style.cssText = 'position:absolute;bottom:16px;right:16px;z-index:5;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;';
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          el.muted = !el.muted;
+          btn.textContent = el.muted ? '🔇' : '🔊';
+          btn.title = el.muted ? 'Activar sonido' : 'Silenciar';
+        });
+        slot.appendChild(btn);
+      }
+      return;
     } else {
       el = document.createElement('img');
       el.src = item.src;

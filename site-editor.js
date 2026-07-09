@@ -30,7 +30,7 @@
     adminLink.href = '#';
     adminLink.textContent = '⚙ Admin';
     adminLink.title = 'Acceder al editor del sitio';
-    adminLink.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9999;' +
+    adminLink.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999999;' +
       'background:#fbbf24;color:#1a1a2e;' +
       'padding:6px 12px;border-radius:8px;font-size:12px;font-weight:700;' +
       'text-decoration:none;font-family:Inter,Arial,sans-serif;' +
@@ -56,7 +56,15 @@
     document.body.appendChild(adminLink);
   }
 
-  // También soporta ?edit=1 como acceso directo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!authorized) crearBotonAdmin();
+    });
+  } else {
+    if (!authorized) crearBotonAdmin();
+  }
+
+  // Soporte para ?edit=1 como acceso directo
   var params = new URLSearchParams(window.location.search);
   if (params.get('edit') === '1') {
     var pwd = prompt('Ingresa la contraseña para editar el sitio:');
@@ -69,18 +77,6 @@
     } else if (pwd !== null) {
       alert('Contraseña incorrecta.');
     }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', crearBotonAdmin);
-  } else {
-    crearBotonAdmin();
-  }
-
-  // También soporta ?edit=1 como acceso directo
-  var params = new URLSearchParams(window.location.search);
-  if (params.get('edit') === '1') {
-    accessBtn.click();
   }
 
   function getOverrides() {
@@ -132,12 +128,19 @@
 
   var BLOG_OVERRIDES_KEY = 'mb_blog_overrides';
 
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('.blog-card');
+    if (card && editMode) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+  }, true);
+
   function editableEls() {
-    var els = document.querySelectorAll('[data-i18n], [data-i18n-html]');
-    // Also make blog article text editable
+    var els = Array.from(document.querySelectorAll('[data-i18n], [data-i18n-html]'));
     var article = document.querySelector('article.article-content');
     if (article) {
-      article.querySelectorAll('h1, h2, h3, p, li, blockquote, .highlight-box').forEach(function (el) {
+      article.querySelectorAll('h1, h2, h3, p, li, blockquote, .highlight-box, .article-meta span, .tag, .date, .featured, .category').forEach(function (el) {
         els.push(el);
       });
     }
@@ -266,7 +269,7 @@
   // esté en línea (GitHub + Netlify conectados).
   function buildMediaPreviewButtons() {
     document.querySelectorAll('[data-media-slot]').forEach(function (slot) {
-      if (slot.querySelector('.se-media-btn')) return; // ya tiene botón
+      if (slot.querySelector('.se-upload-label')) return; // ya tiene botón de subir
       if (getComputedStyle(slot).position === 'static') slot.style.position = 'relative';
       var slotKey = slot.getAttribute('data-media-slot');
 
@@ -334,9 +337,7 @@
       };
       slot.appendChild(delBtn);
 
-      // Ocultar/mostrar el texto escrito encima de la foto — funciona en
-      // CUALQUIER cuadro que tenga un ".media-caption-overlay" cerca (hero,
-      // entrenamiento atlético, y los que se agreguen después).
+      // Botón para ocultar/mostrar el texto del caption
       var overlay = findCaptionOverlay(slot);
       if (overlay) {
         var overlayKey = 'mb_caption_hidden_' + slotKey;
@@ -507,6 +508,7 @@
         Object.assign(window.PROGRAM_LINKS, saved);
       }
     } catch(e) {}
+
   });
 
   // Enganchar la vista previa de medios al mismo botón EDITAR

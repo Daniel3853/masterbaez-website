@@ -53,6 +53,7 @@
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
+<script>try { localStorage.removeItem('mb_blog_overrides'); } catch(e){}</script>
 
 <header>
 <nav class="nav">
@@ -83,14 +84,38 @@
 <article class="article-content"><div class="article-container">
   <h1>5 Formas de Criar un Niño Resiliente (Y Por Qué La Mayoría De Los Padres Lo Están Haciendo Al Revés)</h1>
   <div class="article-meta">
-    <span>Master Baez Martial Arts</span><span class="dot"></span>
-    <span>19 de mayo, 2026</span><span class="dot"></span><span>Resiliencia</span>
+    <span data-i18n="blog_article1_author">Master Baez Martial Arts</span><span class="dot"></span><span data-i18n="blog_article1_category">Resiliencia</span>
   </div>
   <div class="article-hero" style="position:relative;overflow:hidden;">
-    <div class="media-slot" data-media-slot="blog-article-1" style="position:absolute;inset:0;z-index:1;"></div>
-    <h2>La Resiliencia No Se Enseña. Se Forja.</h2>
-    <p>Y la mayoría de los padres la están debilitando accidentalmente todos los días.</p>
+    <div class="media-slot" data-media-slot="blog-article-1-es" style="position:absolute;inset:0;z-index:1;"></div>
+    <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption1')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
+    <div class="media-caption-overlay" id="heroCaption1" style="z-index:2;">
+      <h2>La Resiliencia No Se Enseña. Se Forja.</h2>
+      <p>Y la mayoría de los padres la están debilitando accidentalmente todos los días.</p>
+    </div>
   </div>
+  <script>
+    function toggleHeroCaption(btn, captionId) {
+      var caption = document.getElementById(captionId);
+      if (!caption) return;
+      caption.style.display = 'none';
+      btn.style.display = 'none';
+      try { localStorage.setItem('mb_caption_hidden_' + captionId, '1'); } catch(e) {}
+    }
+    (function(){
+      try {
+        var btn = document.querySelector('.hero-caption-toggle');
+        if (btn) {
+          var m = btn.getAttribute('onclick').match(/'([^']+)'/);
+          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) === '1') {
+            var c = document.getElementById(m[1]);
+            if (c) c.style.display = 'none';
+            btn.style.display = 'none';
+          }
+        }
+      } catch(e) {}
+    })();
+  </script>
   <p>Empecemos con una verdad dura: tu trabajo como padre no es hacer feliz a tu hijo. Es prepararlo para un mundo que no siempre saldrá a su favor.</p>
   <p>La resiliencia — la capacidad de recuperarse de los tropiezos, adaptarse al cambio y seguir adelante cuando las cosas se ponen difíciles — es la habilidad más importante que le puedes dar a tu hijo. Y sin embargo, la mayoría de nosotros estamos criando a nuestros hijos de una forma que la destruye sistemáticamente.</p>
   <p>Corremos a ayudar ante la primera señal de dificultad. Resolvemos sus problemas. Amortiguamos cada caída. Lo hacemos con buena intención. Pero lo estamos haciendo al revés.</p>
@@ -117,12 +142,7 @@
   <p><strong>La solución:</strong> narra tu propia resiliencia. "Hoy cometí un error, pero hice un plan para arreglarlo y voy a intentarlo de nuevo mañana." Déjalos verte luchar y recuperarte.</p>
   <p><strong>Cómo ayudan las artes marciales:</strong> nuestros instructores modelan resiliencia todos los días. Los niños ven adultos que siguen intentando, siguen creciendo y siguen presentándose. Ese ejemplo es contagioso.</p>
   <h2>La Conclusión</h2>
-  <p>La resiliencia no es un rasgo de personalidad — es una habilidad. Y como cualquier habilidad, debe enseñarse, practicarse y reforzarse. En Master Baez Martial Arts, hemos construido todo nuestro programa alrededor de estos principios.</p>
-  <div class="cta-box">
-    <h3>¿Listo para Construir la Resiliencia de tu Hijo?</h3>
-    <p>Dale a tu hijo el regalo de la confianza, la disciplina y la determinación. Prueba 2 clases gratis en Master Baez Martial Arts en Cooper City, FL.</p>
-    <a href="../../index.html#trial" onclick="try{localStorage.setItem('mb-lang','es')}catch(e){}" class="btn-primary">Empieza Con 2 Clases Gratis →</a>
-  </div>
+  <p>La resiliencia no es un rasgo de personalidad — es una habilidad. Y como cualquier habilidad, debe enseñarse, practicarse y reforzarse. En Master Baez Martial Arts, hemos construido todo nuestro programa alrededor de estos principios. <a href="../../index.html#trial" onclick="try{localStorage.setItem('mb-lang','es')}catch(e){}">Comienza el viaje de tu hijo hoy.</a></p>
 </article>
 </main>
 
@@ -166,6 +186,7 @@
 <script src="../../gallery-loader.js"></script>
 <script src="../../content-loader.js"></script>
 <script src="../../local-media-preview.js"></script>
+<script src="../../admin-config.js"></script>
 <script src="../../site-editor.js"></script>
 </body>
 </html>

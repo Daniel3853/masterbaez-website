@@ -53,6 +53,7 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+<script>try { localStorage.removeItem('mb_blog_overrides'); } catch(e){}</script>
 
 <header>
 <nav class="nav">
@@ -77,20 +78,45 @@
 </header>
 
 <main>
+
 <div class="article-top"><div class="article-container">
   <a class="back-link" href="index.html">← Back to Blog</a>
 </div></div>
 <article class="article-content"><div class="article-container">
   <h1>5 Ways to Raise a Resilient Child (And Why Most Parents Are Getting It Backwards)</h1>
   <div class="article-meta">
-    <span>Master Baez Martial Arts</span><span class="dot"></span>
-    <span>May 19, 2026</span><span class="dot"></span><span>Resilience</span>
+    <span data-i18n="blog_article1_author">Master Baez Martial Arts</span><span class="dot"></span><span data-i18n="blog_article1_category">Resilience</span>
   </div>
   <div class="article-hero" style="position:relative;overflow:hidden;">
-    <div class="media-slot" data-media-slot="blog-article-1" style="position:absolute;inset:0;z-index:1;"></div>
-    <h2>Resilience Isn't Taught. It's Forged.</h2>
-    <p>And most parents are accidentally undermining it every single day.</p>
+    <div class="media-slot" data-media-slot="blog-article-1-en" style="position:absolute;inset:0;z-index:1;"></div>
+    <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption1')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
+    <div class="media-caption-overlay" id="heroCaption1" style="z-index:2;">
+      <h2>Resilience Isn't Taught. It's Forged.</h2>
+      <p>And most parents are accidentally undermining it every single day.</p>
+    </div>
   </div>
+  <script>
+    function toggleHeroCaption(btn, captionId) {
+      var caption = document.getElementById(captionId);
+      if (!caption) return;
+      caption.style.display = 'none';
+      btn.style.display = 'none';
+      try { localStorage.setItem('mb_caption_hidden_' + captionId, '1'); } catch(e) {}
+    }
+    (function(){
+      try {
+        var btn = document.querySelector('.hero-caption-toggle');
+        if (btn) {
+          var m = btn.getAttribute('onclick').match(/'([^']+)'/);
+          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) === '1') {
+            var c = document.getElementById(m[1]);
+            if (c) c.style.display = 'none';
+            btn.style.display = 'none';
+          }
+        }
+      } catch(e) {}
+    })();
+  </script>
   <p>Let's start with a hard truth: your job as a parent is not to make your child happy. It's to prepare them for a world that won't always go their way.</p>
   <p>Resilience — the ability to bounce back from setbacks, adapt to change, and keep going when things get hard — is the single most important skill you can give your child. And yet, most of us are raising our kids in a way that systematically destroys it.</p>
   <p>We rush in at the first sign of struggle. We solve their problems. We cushion every fall. We mean well. But we're doing it backwards.</p>
@@ -116,7 +142,8 @@
   <p><strong>The Mistake:</strong> Hiding every struggle from your kids. They see you fail, get frustrated — but if you never show them how you handle it, they don't learn the skill of bouncing back.</p>
   <p><strong>The Fix:</strong> Narrate your own resilience. "I made a mistake today but I made a plan to fix it and I'm going to try again tomorrow." Let them see you struggle and recover.</p>
   <p><strong>How martial arts helps:</strong> Our instructors model resilience every day. Kids see adults who keep trying, keep growing, and keep showing up. That example is contagious.</p>
-  <p>Ready to start building your child's resilience? <a href="../index.html#trial">Try two free classes at Master Baez Martial Arts.</a> No pressure. Just results.</p>
+  <h2>The Bottom Line</h2>
+  <p>Resilience isn't a personality trait — it's a skill. And like any skill, it must be taught, practiced, and reinforced. At Master Baez Martial Arts, we've built our entire program around these principles. <a href="../index.html#trial">Start your child's journey today.</a></p>
 </div></article>
 </main>
 
@@ -160,6 +187,7 @@
 <script src="../gallery-loader.js"></script>
 <script src="../content-loader.js"></script>
 <script src="../local-media-preview.js"></script>
+<script src="../admin-config.js"></script>
 <script src="../site-editor.js"></script>
 </body>
 </html>

@@ -327,7 +327,7 @@
             </div>
           </div>
           <div class="hero-image" style="background:#13132a;overflow:hidden;position:relative;">
-            <div class="media-slot hero-single-slot" data-media-slot="hero-main" style="position:absolute;inset:0;background:#13132a;">
+            <div class="media-slot hero-single-slot" data-media-slot="hero-main-es" style="position:absolute;inset:0;background:#13132a;">
             </div>
           </div>
         </div>
@@ -403,7 +403,7 @@
           </div>
         </div>
         <div class="ath-image" style="position:relative;overflow:hidden;">
-          <div class="media-slot" data-media-slot="athletic-1" style="position:absolute;inset:0;">
+          <div class="media-slot" data-media-slot="athletic-1-es" style="position:absolute;inset:0;">
             <div class="upload-hint">+ Add photo/video</div>
           </div>
           <div class="media-caption-overlay" style="position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px;background:linear-gradient(transparent, rgba(13,13,26,0.85) 70%);">
@@ -425,7 +425,7 @@
       </div>
       <div class="transform-grid">
         <div class="trans-card">
-          <div class="media-slot photo-slot" data-media-slot="trans-oliver"><div class="upload-hint">+ Add photo</div></div>
+          <div class="media-slot photo-slot" data-media-slot="trans-oliver-es"><div class="upload-hint">+ Add photo</div></div>
           <div class="trans-label" data-i18n="trans_oliver_label">Oliver's Story</div>
           <div class="trans-name" data-i18n="trans_oliver_name">The Child Who Leads With Kindness</div>
           <p data-i18n="trans_oliver_p1">Oliver learned about random acts of kindness at Master Baez. But he didn't just learn about it. He lived it.</p>
@@ -435,7 +435,7 @@
           <p style="margin-top:12px;font-weight:600;" data-i18n="trans_oliver_p5">Now? Oliver doesn't just raise his hand in class. He raises the bar for what it means to be a leader.</p>
         </div>
         <div class="trans-card">
-          <div class="media-slot photo-slot" data-media-slot="trans-ryder"><div class="upload-hint">+ Add photo</div></div>
+          <div class="media-slot photo-slot" data-media-slot="trans-ryder-es"><div class="upload-hint">+ Add photo</div></div>
           <div class="trans-label" data-i18n="trans_ryder_label">Ryder's Story</div>
           <div class="trans-name" data-i18n="trans_ryder_name">The Champion Who Leads With Gratitude</div>
           <p data-i18n="trans_ryder_p1">At Master Baez, we teach more than just punches and kicks. We teach champion-level character. And a true champion knows that gratitude is a superpower.</p>
@@ -506,7 +506,7 @@
           <p class="section-sub" style="max-width:600px;color:rgba(255,255,255,0.7);" data-i18n="programs_sub">We don't believe in one-size-fits-all. Different ages need different approaches.</p>
           <p style="font-size:14px;color:rgba(255,255,255,0.4);margin-top:4px;" data-i18n="programs_click">Click on a program to learn more</p>
         </div>
-        <div class="programs-video" data-media-slot="programs-welcome"></div>
+        <div class="programs-video" data-media-slot="programs-welcome-es"></div>
         <div class="programs-grid">
           <div class="program-card">
             <div class="program-age" data-i18n="prog_1_age">Ages 4-6</div>
@@ -1076,7 +1076,7 @@
       } catch(e) {}
       var cfg = PROGRAM_LINKS[key] || { video: '', link: '', checkout: '', imagen: '' };
       var c = document.getElementById('modalContent');
-      var mediaBoxHtml = '<div class="media-slot" data-media-slot="program-' + key + '" ' +
+      var mediaBoxHtml = '<div class="media-slot" data-media-slot="program-' + key + '-es" ' +
         'style="position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;' +
         'background:#f0eeff;margin-bottom:12px;">' +
         (cfg.video ? '<video src="' + cfg.video + '" controls playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>' : '') +
@@ -1099,7 +1099,7 @@
     function uploadProgramMedia(key, inputEl) {
       var file = inputEl.files[0];
       if (!file || !window.LocalMedia) return;
-      window.LocalMedia.saveSlot('program-' + key, file, 50).then(function () {
+      window.LocalMedia.saveSlot('program-' + key + '-es', file, 50).then(function () {
         window.LocalMedia.applyAll();
       });
     }
@@ -1689,8 +1689,8 @@
       article1_p1: { en: 'Let\'s start with a hard truth: your job as a parent is not to make your child happy. It\'s to prepare them for a world that won\'t always go their way.', es: 'Empecemos con una dura verdad: tu trabajo como padre no es hacer feliz a tu hijo. Es prepararlo para un mundo que no siempre irá a su manera.' },
       article1_p2: { en: 'Resilience — the ability to bounce back from setbacks, adapt to change, and keep going when things get hard — is the single most important skill you can give your child.', es: 'La resiliencia — la capacidad de recuperarse de los reveses, adaptarse al cambio y seguir adelante — es la habilidad más importante que puedes darle a tu hijo.' },
       article1_p3: { en: 'We rush in at the first sign of struggle. We solve their problems. We cushion every fall. We mean well. But we\'re doing it backwards.', es: 'Nos precipitamos al primer signo de lucha. Resolvemos sus problemas. Lo hacemos con buena intención. Pero lo estamos haciendo al revés.' },
-      article1_cta_title: { en: 'Ready to Build Your Child\'s Resilience?', es: '¿Listo Para Construir La Resiliencia De Tu Hijo?' },
-      article1_cta_text: { en: 'Give your child the gift of confidence, discipline, and grit. Try 2 classes free at Master Baez Martial Arts in Cooper City, FL.', es: 'Dale a tu hijo el regalo de la confianza, la disciplina y la determinación. Prueba 2 clases gratis.' },
+      article1_cta_title: { en: '', es: '' },
+      article1_cta_text: { en: '', es: '' },
       article2_title: { en: 'How Master Baez Martial Arts Teaches Kids to Recognize, Avoid, and Respond to Bullying', es: 'Cómo Master Baez Martial Arts Enseña a los Niños a Reconocer, Evitar y Responder al Acoso' },
       article2_category: { en: 'Bullying Prevention', es: 'Prevención del Acoso' },
       article2_hero_title: { en: 'Bullying is a reality for too many kids. But it doesn\'t have to define them.', es: 'El acoso es una realidad para demasiados niños. Pero no tiene que definirlos.' },

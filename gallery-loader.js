@@ -58,6 +58,8 @@
         el.style.width = '100%';
         el.style.height = '100%';
         el.style.objectFit = 'cover';
+        slot.style.position = 'relative';
+        slot.style.overflow = 'hidden';
         el.play().catch(function () {});
         if (!slot.querySelector('.hero-video-btn')) {
           var btn2 = document.createElement('button');
@@ -81,9 +83,6 @@
       el.playsInline = true;
       el.loop = true;
       el.autoplay = true;
-      el.style.width = '100%';
-      el.style.height = '100%';
-      el.style.objectFit = 'cover';
       el.controls = false;
       el.style.position = 'absolute';
       el.style.top = '0';
@@ -91,6 +90,8 @@
       el.style.width = '100%';
       el.style.height = '100%';
       el.style.objectFit = 'cover';
+      slot.style.position = 'relative';
+      slot.style.overflow = 'hidden';
       if (key === 'hero-main-en' || key === 'hero-main-es') {
         slot.style.background = '#13132a';
       }

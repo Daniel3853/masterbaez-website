@@ -3,19 +3,21 @@
 
   // Cargar datos actualizados desde gallery.json (lo que edita el /admin)
   function loadGalleryJson() {
-    if (window.location.protocol === 'file:') return Promise.resolve();
+    if (window.location.protocol === 'file:') return;
     var baseUrl = function() {
       var scripts = document.getElementsByTagName('script');
       var src = scripts[scripts.length - 1].src;
       return src.substring(0, src.lastIndexOf('/') + 1);
     }();
-    return fetch(baseUrl + 'data/gallery.json', { cache: 'no-store' })
+    fetch(baseUrl + 'data/gallery.json', { cache: 'no-store' })
       .then(function (res) { return res.ok ? res.json() : null; })
       .then(function (jsonData) {
         if (jsonData) {
           Object.keys(jsonData).forEach(function (key) {
             if (jsonData[key] && jsonData[key].src) {
               gallery[key] = jsonData[key];
+              gallery[key + '-en'] = jsonData[key];
+              gallery[key + '-es'] = jsonData[key];
             }
           });
         }
@@ -156,5 +158,6 @@
   renderFlexGrid('gallery-videos-grid', gallery.gallery_videos, 'video');
   }
 
+  renderGallery();
   loadGalleryJson();
 })();

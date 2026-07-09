@@ -36,14 +36,30 @@
     "alt": "Niños entrenando artes marciales en Master Baez, Cooper City FL"
   },
   "gallery_photos": [],
-  "blog-article-1": [
-    { "src": "/images/uploads/001a-bl.jpg", "alt": "Artículo del blog - Raising a Resilient Child" }
-  ],
-  "blog-article-2": [
-    { "src": "/images/uploads/002-b-bl.jpg", "alt": "Artículo del blog - Bullying Prevention" }
-  ],
-  "blog-article-3": [],
-  "blog-article-4": [],
+  "blog-article-1": {
+    "type": "image",
+    "src": "/images/uploads/001a-bl.jpg",
+    "alt": "Artículo del blog - Raising a Resilient Child",
+    "photos": []
+  },
+  "blog-article-2": {
+    "type": "image",
+    "src": "/images/uploads/002-b-bl.jpg",
+    "alt": "Artículo del blog - Bullying Prevention",
+    "photos": []
+  },
+  "blog-article-3": {
+    "type": "image",
+    "src": "",
+    "alt": "Artículo del blog - Confidence Building",
+    "photos": []
+  },
+  "blog-article-4": {
+    "type": "image",
+    "src": "",
+    "alt": "Artículo del blog - Best Martial Arts School",
+    "photos": []
+  },
   "program-kids": {
     "type": "image",
     "src": "",

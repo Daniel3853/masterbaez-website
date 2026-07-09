@@ -168,8 +168,14 @@
 
   document.querySelectorAll('[data-blog-gallery]').forEach(function (container) {
     var key = container.getAttribute('data-blog-gallery');
-    var items = gallery[key] || gallery[key + '-en'] || gallery[key + '-es'];
-    if (!items || !Array.isArray(items) || items.length < 2) return;
+    var data = gallery[key] || gallery[key + '-en'] || gallery[key + '-es'];
+    var items;
+    if (Array.isArray(data)) {
+      items = data;
+    } else if (data && data.photos) {
+      items = data.photos;
+    }
+    if (!items || !items.length) return;
     container.innerHTML = '';
     items.forEach(function (img) {
       if (!img || !img.src) return;

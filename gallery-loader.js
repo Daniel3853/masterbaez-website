@@ -14,18 +14,10 @@
       .then(function (jsonData) {
         if (jsonData) {
           Object.keys(jsonData).forEach(function (key) {
-            var val = jsonData[key];
-            if (!val) return;
-            if (Array.isArray(val)) {
-              if (val.length) {
-                gallery[key] = val;
-                gallery[key + '-en'] = val;
-                gallery[key + '-es'] = val;
-              }
-            } else if (val.src) {
-              gallery[key] = val;
-              gallery[key + '-en'] = val;
-              gallery[key + '-es'] = val;
+            if (jsonData[key] && jsonData[key].src) {
+              gallery[key] = jsonData[key];
+              gallery[key + '-en'] = jsonData[key];
+              gallery[key + '-es'] = jsonData[key];
             }
           });
         }
@@ -38,7 +30,6 @@
   document.querySelectorAll('[data-media-slot]').forEach(function (slot) {
     var key = slot.getAttribute('data-media-slot');
     var item = gallery[key];
-    if (Array.isArray(item)) item = item[0];
     if (!item || !item.src) return;
 
     if (slot.querySelector('.se-upload-label')) return;
@@ -165,30 +156,6 @@
 
   renderFlexGrid('gallery-photos-grid', gallery.gallery_photos, 'image');
   renderFlexGrid('gallery-videos-grid', gallery.gallery_videos, 'video');
-
-  document.querySelectorAll('[data-blog-gallery]').forEach(function (container) {
-    var key = container.getAttribute('data-blog-gallery');
-    var items = gallery[key + '-photos'] || gallery[key + '-photos-en'] || gallery[key + '-photos-es'];
-    if (!items || !Array.isArray(items) || !items.length) return;
-    container.innerHTML = '';
-    items.forEach(function (img) {
-      if (!img || !img.src) return;
-      var wrapper = document.createElement('div');
-      wrapper.className = 'blog-gallery-item';
-      var el = document.createElement('img');
-      el.src = img.src;
-      el.alt = img.alt || '';
-      el.loading = 'lazy';
-      wrapper.appendChild(el);
-      if (img.caption) {
-        var cap = document.createElement('div');
-        cap.className = 'blog-gallery-caption';
-        cap.textContent = img.caption;
-        wrapper.appendChild(cap);
-      }
-      container.appendChild(wrapper);
-    });
-  });
   }
 
   renderGallery();

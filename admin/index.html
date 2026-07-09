@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Editar Fotos | Master Baez</title>
+  <title>Editor | Master Baez</title>
   <meta name="robots" content="noindex, nofollow" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,6 +67,14 @@
     <div class="section-label">Blog</div>
     <div id="blogFields"></div>
 
+    <div class="section-label" style="margin-top:32px;">Enlaces de Programas (video / lead page / checkout)</div>
+    <p style="font-size:13px;color:#666;margin-bottom:12px;">
+      Aquí puedes cambiar los videos y links de cada programa. El video se reproduce en el modal,
+      el "link" es la lead page a donde va la persona si hace clic en "Continuar",
+      el "checkout" es la página de pago después del formulario.
+    </p>
+    <div id="programLinksFields"></div>
+
     <div class="save-btn-wrap">
       <button class="btn btn-success" onclick="save()" id="saveBtn" style="font-size:18px;padding:14px 48px;">
         Guardar Cambios
@@ -78,10 +86,12 @@
 
   <script>
     var GALLERY = {};
+    var PROGRAM_LINKS = {};
     var TOKEN = '';
     var REPO = 'Daniel3853/masterbaez-website';
     var BRANCH = 'main';
     var FILE_PATH = 'data/gallery.json';
+    var PL_FILE_PATH = 'data/program-links.json';
 
     function connect() {
       TOKEN = document.getElementById('tokenInput').value.trim();
@@ -89,24 +99,33 @@
         showStatus('Ingresa un token válido', 'error');
         return;
       }
-      loadGallery();
+      loadAll();
     }
 
-    function loadGallery() {
-      showStatus('Cargando galería...', 'saving');
-      fetch('https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH + '?ref=' + BRANCH, {
-        headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json' }
-      })
-      .then(function(r) { if (!r.ok) throw new Error('Error ' + r.status + ': verifica tu token'); return r.json(); })
-      .then(function(data) {
-        GALLERY = JSON.parse(atob(data.content.replace(/\n/g, '')));
-        GALLERY._sha = data.sha;
+    function loadAll() {
+      showStatus('Cargando datos...', 'saving');
+      Promise.all([
+        fetch('https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH + '?ref=' + BRANCH, {
+          headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+        }).then(function(r) { if (!r.ok) throw new Error('Error ' + r.status); return r.json(); }),
+        fetch('https://api.github.com/repos/' + REPO + '/contents/' + PL_FILE_PATH + '?ref=' + BRANCH, {
+          headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+        }).then(function(r) { if (!r.ok) throw new Error('Error ' + r.status); return r.json(); })
+      ])
+      .then(function(results) {
+        var galleryData = results[0];
+        var plData = results[1];
+        GALLERY = JSON.parse(atob(galleryData.content.replace(/\n/g, '')));
+        GALLERY._sha = galleryData.sha;
+        PROGRAM_LINKS = JSON.parse(atob(plData.content.replace(/\n/g, '')));
+        PROGRAM_LINKS._sha = plData.sha;
         document.getElementById('editor').style.display = 'block';
         document.querySelector('.token-section').style.display = 'none';
         render();
-        showStatus('Listo, edita las fotos y guarda', 'done');
+        renderProgramLinks();
+        showStatus('Listo, edita y guarda', 'done');
       })
-      .catch(function(e) { showStatus(e.message, 'error'); });
+      .catch(function(e) { showStatus('Error al cargar: ' + e.message, 'error'); });
     }
 
     function fieldHTML(key, val, label) {
@@ -180,39 +199,87 @@
       document.getElementById('blogFields').innerHTML = blogHTML || '<p style="color:#666;font-size:13px;">Sin artículos de blog</p>';
     }
 
+    function plFieldHTML(key, field, val, label) {
+      var inputId = 'pl-' + key + '-' + field;
+      return '<div class="field">' +
+        '<label>' + label + '</label>' +
+        '<input type="text" id="' + inputId + '" value="' + esc(val || '') + '" placeholder="URL" />' +
+        '</div>';
+    }
+
+    function renderProgramLinks() {
+      var html = '';
+      var progMap = { tiny_tigers: 'Tiny Tigers', kids: 'Kids (7-12)', adults: 'Adultos (13+)', after_school: 'After School' };
+      var fieldMap = { video: 'Video URL', link: 'Lead Page URL', checkout: 'Checkout URL', imagen: 'Imagen URL' };
+      Object.keys(progMap).forEach(function(key) {
+        var item = PROGRAM_LINKS[key] || {};
+        html += '<div class="blog-section">';
+        html += '<h3>' + progMap[key] + '</h3>';
+        html += '<div class="grid">';
+        Object.keys(fieldMap).forEach(function(field) {
+          html += plFieldHTML(key, field, item[field], fieldMap[field]);
+        });
+        html += '</div></div>';
+      });
+      document.getElementById('programLinksFields').innerHTML = html;
+    }
+
     function save() {
       showStatus('Guardando...', 'saving');
-      var updated = JSON.parse(JSON.stringify(GALLERY));
-      delete updated._sha;
+      var updatedGallery = JSON.parse(JSON.stringify(GALLERY));
+      delete updatedGallery._sha;
 
       Object.keys(GALLERY).forEach(function(key) {
         if (key === '_sha') return;
         var el = document.getElementById('f-' + key);
-        if (el && updated[key]) {
-          updated[key].src = el.value.trim();
+        if (el && updatedGallery[key]) {
+          updatedGallery[key].src = el.value.trim();
         }
       });
 
-      var content = btoa(unescape(encodeURIComponent(JSON.stringify(updated, null, 2))));
+      var updatedPL = JSON.parse(JSON.stringify(PROGRAM_LINKS));
+      delete updatedPL._sha;
+      var progMap = { tiny_tigers: 'Tiny Tigers', kids: 'Kids (7-12)', adults: 'Adultos (13+)', after_school: 'After School' };
+      var fields = ['video', 'link', 'checkout', 'imagen'];
+      Object.keys(progMap).forEach(function(key) {
+        if (!updatedPL[key]) updatedPL[key] = {};
+        fields.forEach(function(field) {
+          var el = document.getElementById('pl-' + key + '-' + field);
+          if (el) updatedPL[key][field] = el.value.trim();
+        });
+      });
 
-      fetch('https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH, {
-        method: 'PUT',
-        headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: 'Update gallery photos via editor',
-          content: content,
-          branch: BRANCH,
-          sha: GALLERY._sha
-        })
-      })
-      .then(function(r) {
-        if (!r.ok) throw new Error('Error al guardar: ' + r.status);
-        return r.json();
-      })
-      .then(function(data) {
-        GALLERY._sha = data.content.sha;
+      var galleryContent = btoa(unescape(encodeURIComponent(JSON.stringify(updatedGallery, null, 2))));
+      var plContent = btoa(unescape(encodeURIComponent(JSON.stringify(updatedPL, null, 2))));
+
+      Promise.all([
+        fetch('https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH, {
+          method: 'PUT',
+          headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: 'Update gallery photos via editor',
+            content: galleryContent,
+            branch: BRANCH,
+            sha: GALLERY._sha
+          })
+        }).then(function(r) { if (!r.ok) throw new Error('Error al guardar fotos: ' + r.status); return r.json(); }),
+        fetch('https://api.github.com/repos/' + REPO + '/contents/' + PL_FILE_PATH, {
+          method: 'PUT',
+          headers: { 'Authorization': 'token ' + TOKEN, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: 'Update program links via editor',
+            content: plContent,
+            branch: BRANCH,
+            sha: PROGRAM_LINKS._sha
+          })
+        }).then(function(r) { if (!r.ok) throw new Error('Error al guardar enlaces: ' + r.status); return r.json(); })
+      ])
+      .then(function(results) {
+        GALLERY._sha = results[0].content.sha;
+        PROGRAM_LINKS._sha = results[1].content.sha;
         showStatus('Guardado. GitHub Pages lo publica en 1-2 min.', 'done');
         render();
+        renderProgramLinks();
       })
       .catch(function(e) { showStatus(e.message, 'error'); });
     }

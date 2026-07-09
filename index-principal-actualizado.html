@@ -1072,6 +1072,15 @@
       adults:        { video: 'https://afterschoolcoopercity.com/wp-content/uploads/2026/05/Adult-Martial-Arts.mp4', link: '', checkout: '', imagen: '' },
       after_school:  { video: 'https://afterschoolcoopercity.com/wp-content/uploads/2023/10/asp-cooper-city-Loking.mp4', link: '', checkout: '', imagen: '' }
     };
+    // Cargar enlaces desde program-links.json (se sobreescribe a lo guardado en el editor)
+    (function() {
+      var plURL = window.location.pathname.replace(/\/[^/]*$/, '') + '/data/program-links.json';
+      fetch(plURL).then(function(r) { if (r.ok) return r.json(); }).then(function(d) {
+        if (d) Object.keys(d).forEach(function(k) {
+          if (PROGRAM_LINKS[k]) Object.assign(PROGRAM_LINKS[k], d[k]);
+        });
+      }).catch(function(){});
+    })();
     // ===================== FIN — no tocar de aquí para abajo =====================
 
     function openProgramVideo(key, nextView, nextData) {

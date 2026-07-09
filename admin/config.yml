@@ -80,28 +80,28 @@ collections:
             widget: "object"
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
-              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
               - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
           - label: "Foto del Blog Artículo 2"
             name: "blog-article-2"
             widget: "object"
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
-              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
               - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
           - label: "Foto del Blog Artículo 3"
             name: "blog-article-3"
             widget: "object"
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
-              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
               - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
           - label: "Foto del Blog Artículo 4"
             name: "blog-article-4"
             widget: "object"
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
-              - { label: "Imagen", name: "src", widget: "image", required: false }
+              - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
               - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
           - label: "Foto/Video de Programas — Tiny Tigers"
             name: "program-tiny_tigers"

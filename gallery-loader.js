@@ -1,14 +1,20 @@
 (function () {
   var gallery = window.__gallery || {};
+  var baseUrl = function() {
+    var scripts = document.getElementsByTagName('script');
+    var src = scripts[scripts.length - 1].src;
+    return src.substring(0, src.lastIndexOf('/') + 1);
+  }();
+  function resolveSrc(path) {
+    if (!path) return path;
+    if (path.indexOf('://') !== -1 || path.indexOf('//') === 0) return path;
+    if (path.indexOf('/') === 0) return baseUrl + path.slice(1);
+    return baseUrl + path;
+  }
 
   // Cargar datos actualizados desde gallery.json (lo que edita el /admin)
   function loadGalleryJson() {
     if (window.location.protocol === 'file:') return;
-    var baseUrl = function() {
-      var scripts = document.getElementsByTagName('script');
-      var src = scripts[scripts.length - 1].src;
-      return src.substring(0, src.lastIndexOf('/') + 1);
-    }();
     fetch(baseUrl + 'data/gallery.json', { cache: 'no-store' })
       .then(function (res) { return res.ok ? res.json() : null; })
       .then(function (jsonData) {
@@ -40,7 +46,7 @@
     if (item.type === 'video') {
       if (existingVideo) {
         el = existingVideo;
-        el.src = item.src;
+        el.src = resolveSrc(item.src);
         el.muted = true;
         el.playsInline = true;
         el.loop = true;
@@ -66,7 +72,7 @@
         return;
       }
       el = document.createElement('video');
-      el.src = item.src;
+      el.src = resolveSrc(item.src);
       el.muted = true;
       el.playsInline = true;
       el.loop = true;
@@ -104,7 +110,7 @@
       return;
     } else {
       el = document.createElement('img');
-      el.src = item.src;
+      el.src = resolveSrc(item.src);
       el.alt = item.alt || '';
       el.loading = 'lazy';
       el.style.width = '100%';
@@ -130,13 +136,13 @@
       var media;
       if (type === 'video') {
         media = document.createElement('video');
-        media.src = item.src;
+        media.src = resolveSrc(item.src);
         media.controls = true;
         media.muted = true;
         media.playsInline = true;
       } else {
         media = document.createElement('img');
-        media.src = item.src;
+        media.src = resolveSrc(item.src);
         media.alt = item.alt || '';
         media.loading = 'lazy';
       }

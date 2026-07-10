@@ -40,12 +40,18 @@
     adminLink.onmouseout = function() { adminLink.style.background = '#fbbf24'; adminLink.style.color = '#1a1a2e'; };
     adminLink.onclick = function(e) {
       e.preventDefault();
-      // Ir al /admin
-      var depth = window.location.pathname.split('/').length - 2;
-      var adminPath = '';
-      for (var i = 1; i < depth; i++) adminPath += '../';
-      adminPath += 'admin/';
-      window.location.href = adminPath;
+      if (authorized) { toggleEditMode(); return; }
+      var pwd = prompt('Ingresa la contraseña para editar el sitio:');
+      if (pwd === EDITOR_PASSWORD) {
+        authorized = true;
+        buildUI();
+        buildMediaPreviewButtons();
+        addFlexGalleryButtons();
+        toggleEditMode();
+        adminLink.style.display = 'none';
+      } else if (pwd !== null) {
+        alert('Contraseña incorrecta.');
+      }
     };
     document.body.appendChild(adminLink);
   }
@@ -142,13 +148,22 @@
   }
 
   function toggleEditMode() {
-    editMode = !editMode;
-    document.getElementById('se-bar').style.display = editMode ? 'flex' : 'none';
-    document.getElementById('se-toggle').textContent = editMode ? '✅ SALIR' : '✏️ EDITAR';
+    if (editMode) {
+      // Exit → ir al /admin
+      var depth = window.location.pathname.split('/').length - 2;
+      var adminPath = '';
+      for (var i = 1; i < depth; i++) adminPath += '../';
+      adminPath += 'admin/';
+      window.location.href = adminPath;
+      return;
+    }
+    editMode = true;
+    document.getElementById('se-bar').style.display = 'flex';
+    document.getElementById('se-toggle').textContent = '✅ SALIR';
     editableEls().forEach(function (el) {
-      el.contentEditable = editMode ? 'true' : 'false';
-      el.style.outline = editMode ? '2px dashed #a855f7' : '';
-      el.style.cursor = editMode ? 'text' : '';
+      el.contentEditable = 'true';
+      el.style.outline = '2px dashed #a855f7';
+      el.style.cursor = 'text';
     });
   }
 

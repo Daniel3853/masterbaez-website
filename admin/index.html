@@ -64,11 +64,17 @@
     <div class="section-label">Sección Atlética / Transformaciones</div>
     <div class="grid" id="sectionFields"></div>
 
-    <div class="section-label">Programas (fotos + video bienvenida)</div>
+    <div class="section-label">Programas (fotos)</div>
     <div class="grid" id="programFields"></div>
 
     <div class="section-label">Blog — Fotos de artículos</div>
     <div id="blogFields"></div>
+
+    <div class="section-label" style="margin-top:32px;">Video Bienvenida</div>
+    <p style="font-size:13px;color:#666;margin-bottom:12px;">
+      Este video se muestra en la sección de Programas del sitio. Pon la URL del MP4 aquí.
+    </p>
+    <div class="grid" id="welcomeVideoFields"></div>
 
     <div class="section-label" style="margin-top:32px;">Enlaces de Programas (video / lead page / checkout)</div>
     <p style="font-size:13px;color:#666;margin-bottom:12px;">
@@ -149,11 +155,13 @@
     function fieldHTML(key, val, label) {
       var displayLabel = label || key;
       var src = (val && val.src) || '';
+      var isVideo = val && val.type === 'video';
+      var placeholder = isVideo ? 'URL del video (MP4)' : 'URL de la imagen';
       return '<div class="field">' +
         '<label>' + displayLabel + '</label>' +
         '<div class="inline-flex">' +
-        '<input type="text" id="f-' + key + '" value="' + esc(src) + '" placeholder="URL de la imagen" style="flex:1" />' +
-        (src ? '<img class="preview" src="' + esc(resolveSrc(src)) + '" onerror="this.style.display=\'none\'" />' : '') +
+        '<input type="text" id="f-' + key + '" value="' + esc(src) + '" placeholder="' + placeholder + '" style="flex:1" />' +
+        (src && !isVideo ? '<img class="preview" src="' + esc(resolveSrc(src)) + '" onerror="this.style.display=\'none\'" />' : '') +
         '</div></div>';
     }
 
@@ -189,7 +197,6 @@
         var f = fieldHTML(key, item, label);
 
         if (key === 'hero-main') heroHTML += f;
-        else if (key === 'programs-welcome') programHTML += f;
         else if (key.indexOf('program-') === 0) programHTML += f;
         else if (key === 'athletic-1' || key === 'trans-oliver' || key === 'trans-ryder') sectionHTML += f;
       });
@@ -197,6 +204,10 @@
       document.getElementById('heroFields').innerHTML = heroHTML || '<p style="color:#666;font-size:13px;">Sin datos</p>';
       document.getElementById('sectionFields').innerHTML = sectionHTML || '<p style="color:#666;font-size:13px;">Sin datos</p>';
       document.getElementById('programFields').innerHTML = programHTML || '<p style="color:#666;font-size:13px;">Sin datos</p>';
+
+      // Welcome video
+      var welItem = GALLERY['programs-welcome'];
+      document.getElementById('welcomeVideoFields').innerHTML = welItem ? fieldHTML('programs-welcome', welItem, 'Video Bienvenida') : '<p style="color:#666;font-size:13px;">Sin datos</p>';
 
       // Blog: grouped by article
       var blogKeys = ['blog-article-1', 'blog-article-2', 'blog-article-3', 'blog-article-4'];

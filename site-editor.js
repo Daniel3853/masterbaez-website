@@ -20,7 +20,8 @@
  */
 (function () {
   var OVERRIDES_KEY = 'mb_site_content_overrides';
-  var EDITOR_PASSWORD = window.__ADMIN_PASSWORD || 'admin123';
+  var PW_KEY = 'mb_admin_password';
+  var EDITOR_PASSWORD = localStorage.getItem(PW_KEY) || window.__ADMIN_PASSWORD || 'admin123';
   var authorized = false;
   var editMode = false;
 
@@ -113,7 +114,8 @@
       '<button id="se-reset" style="background:#ef4444;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;">↩️ Deshacer cambios</button>' +
       '<button id="se-reset-media" style="background:#f97316;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;">🗑️ Borrar fotos/videos</button>' +
       '<button id="se-config" style="background:#6c5ce7;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;">⚙️ Configurar Programas</button>' +
-      '<button id="se-copy-html" style="background:#a855f7;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;">📋 Copiar HTML del blog</button>';
+      '<button id="se-copy-html" style="background:#a855f7;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;">📋 Copiar HTML del blog</button>' +
+      '<button id="se-changepw" style="background:#f59e0b;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;">🔑 Cambiar contraseña</button>';
     document.body.appendChild(bar);
 
     btn.onclick = toggleEditMode;
@@ -123,6 +125,7 @@
     document.getElementById('se-reset-media').onclick = resetMediaPreview;
     document.getElementById('se-config').onclick = openProgramConfig;
     document.getElementById('se-copy-html').onclick = copyBlogHTML;
+    document.getElementById('se-changepw').onclick = changePassword;
   }
 
   var BLOG_OVERRIDES_KEY = 'mb_blog_overrides';
@@ -512,6 +515,18 @@
         }
       }
     } catch (e) {}
+  }
+
+  function changePassword() {
+    var current = prompt('Contraseña actual:');
+    if (current !== EDITOR_PASSWORD) { alert('Contraseña incorrecta.'); return; }
+    var newPw = prompt('Nueva contraseña (mínimo 4 caracteres):');
+    if (!newPw || newPw.length < 4) { alert('La contraseña debe tener al menos 4 caracteres.'); return; }
+    var confirmPw = prompt('Confirmar nueva contraseña:');
+    if (newPw !== confirmPw) { alert('Las contraseñas no coinciden.'); return; }
+    localStorage.setItem(PW_KEY, newPw);
+    EDITOR_PASSWORD = newPw;
+    alert('✅ Contraseña cambiada exitosamente.');
   }
 
   document.addEventListener('DOMContentLoaded', function () {

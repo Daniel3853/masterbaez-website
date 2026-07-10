@@ -1104,27 +1104,10 @@
         'background:#f0eeff;margin-bottom:12px;">' +
         (cfg.video ? '<video src="' + cfg.video + '" controls playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>' : '') +
         '</div>';
-      var uploadHtml =
-        '<label style="display:inline-block;margin-bottom:16px;padding:8px 14px;background:#a855f7;' +
-        'color:#fff;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;">' +
-        '📷 Subir foto/video para este programa' +
-        '<input type="file" accept="image/*,video/*" style="display:none;" onchange="uploadProgramMedia(\'' + key + '\', this)">' +
-        '</label>' +
-        '<span style="font-size:11px;color:#8a8aaa;margin-left:8px;">(vista previa local, sube la definitiva desde /admin)</span><br>';
       c.innerHTML =
         '<h2>' + (nextData && nextData.program ? nextData.program : '') + '</h2>' +
         mediaBoxHtml +
-        uploadHtml +
         '<button type="button" class="btn-primary" style="width:100%;" onclick="continueFromProgramVideo(\'' + key + '\',\'' + nextView + '\')">' + _t('continue') + '</button>';
-      if (window.LocalMedia) window.LocalMedia.applyAll();
-    }
-
-    function uploadProgramMedia(key, inputEl) {
-      var file = inputEl.files[0];
-      if (!file || !window.LocalMedia) return;
-      window.LocalMedia.saveSlot('program-' + key + '-en', file, 50).then(function () {
-        window.LocalMedia.applyAll();
-      });
     }
 
     function continueFromProgramVideo(key, nextView) {

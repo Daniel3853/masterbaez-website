@@ -24,12 +24,13 @@
   var authorized = false;
   var editMode = false;
 
+  var adminLink = null;
   // Botón de acceso al editor
   function crearBotonAdmin() {
-    var adminLink = document.createElement('a');
+    adminLink = document.createElement('a');
     adminLink.href = '#';
     adminLink.textContent = '⚙ Admin';
-    adminLink.title = 'Ir al panel de administración';
+    adminLink.title = 'Editar contenido del sitio';
     adminLink.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999999;' +
       'background:#fbbf24;color:#1a1a2e;' +
       'padding:6px 12px;border-radius:8px;font-size:12px;font-weight:700;' +
@@ -149,12 +150,13 @@
 
   function toggleEditMode() {
     if (editMode) {
-      // Exit → ir al /admin
-      var depth = window.location.pathname.split('/').length - 2;
-      var adminPath = '';
-      for (var i = 1; i < depth; i++) adminPath += '../';
-      adminPath += 'admin/';
-      window.location.href = adminPath;
+      // Exit → quitar editor y mostrar botón amarillo ⚙ Admin
+      editMode = false;
+      var toggleBtn = document.getElementById('se-toggle');
+      if (toggleBtn) toggleBtn.remove();
+      var bar = document.getElementById('se-bar');
+      if (bar) bar.remove();
+      if (adminLink) adminLink.style.display = '';
       return;
     }
     editMode = true;

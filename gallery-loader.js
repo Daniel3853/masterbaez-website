@@ -36,7 +36,39 @@
       .catch(function () { renderGallery(); });
   }
 
+  var allVideos = [];
+
+  function setupMuteBtn(slot, video, btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      btn.textContent = video.muted ? '🔇' : '🔊';
+      btn.title = video.muted ? 'Activar sonido' : 'Silenciar';
+    });
+    video.addEventListener('ended', function () {
+      video.muted = true;
+      if (btn) {
+        btn.textContent = '🔇';
+        btn.title = 'Activar sonido';
+      }
+      video.play().catch(function () {});
+    });
+    video.addEventListener('play', function () {
+      if (video.muted && btn) {
+        btn.textContent = '🔇';
+        btn.title = 'Activar sonido';
+      }
+    });
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      allVideos.forEach(function (v) { if (!v.paused) v.pause(); });
+    }
+  });
+
   function renderGallery() {
+  allVideos = [];
   document.querySelectorAll('[data-media-slot]').forEach(function (slot) {
     var key = slot.getAttribute('data-media-slot');
     var item = gallery[key];
@@ -53,7 +85,7 @@
         el.src = resolveSrc(item.src);
         el.muted = true;
         el.playsInline = true;
-        el.loop = true;
+        el.loop = false;
         el.autoplay = true;
         el.style.width = '100%';
         el.style.height = '100%';
@@ -61,18 +93,14 @@
         slot.style.position = 'relative';
         slot.style.overflow = 'hidden';
         el.play().catch(function () {});
+        allVideos.push(el);
         if (!slot.querySelector('.hero-video-btn')) {
           var btn2 = document.createElement('button');
           btn2.className = 'hero-video-btn';
           btn2.textContent = '🔇';
           btn2.title = 'Activar sonido';
           btn2.style.cssText = 'position:absolute;bottom:16px;right:16px;z-index:5;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;';
-          btn2.addEventListener('click', function (e) {
-            e.stopPropagation();
-            el.muted = !el.muted;
-            btn2.textContent = el.muted ? '🔇' : '🔊';
-            btn2.title = el.muted ? 'Activar sonido' : 'Silenciar';
-          });
+          setupMuteBtn(slot, el, btn2);
           slot.appendChild(btn2);
         }
         return;
@@ -81,7 +109,7 @@
       el.src = resolveSrc(item.src);
       el.muted = true;
       el.playsInline = true;
-      el.loop = true;
+      el.loop = false;
       el.autoplay = true;
       el.controls = false;
       el.style.position = 'absolute';
@@ -98,18 +126,14 @@
       slot.innerHTML = '';
       slot.appendChild(el);
       el.play().catch(function () {});
+      allVideos.push(el);
       if (!slot.querySelector('.hero-video-btn')) {
         var btn = document.createElement('button');
         btn.className = 'hero-video-btn';
         btn.textContent = '🔇';
         btn.title = 'Activar sonido';
         btn.style.cssText = 'position:absolute;bottom:16px;right:16px;z-index:5;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;';
-        btn.addEventListener('click', function (e) {
-          e.stopPropagation();
-          el.muted = !el.muted;
-          btn.textContent = el.muted ? '🔇' : '🔊';
-          btn.title = el.muted ? 'Activar sonido' : 'Silenciar';
-        });
+        setupMuteBtn(slot, el, btn);
         slot.appendChild(btn);
       }
       return;
@@ -145,6 +169,7 @@
         media.controls = true;
         media.muted = true;
         media.playsInline = true;
+        allVideos.push(media);
       } else {
         media = document.createElement('img');
         media.src = resolveSrc(item.src);

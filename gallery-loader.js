@@ -61,10 +61,26 @@
     });
   }
 
+  function muteAll() {
+    allVideos.forEach(function (v) {
+      v.muted = true;
+      v.pause();
+    });
+    document.querySelectorAll('.hero-video-btn').forEach(function (b) {
+      b.textContent = '🔇';
+      b.title = 'Activar sonido';
+    });
+  }
+
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
       allVideos.forEach(function (v) { if (!v.paused) v.pause(); });
     }
+  });
+
+  window.addEventListener('pageshow', function () {
+    muteAll();
+    renderGallery();
   });
 
   function renderGallery() {

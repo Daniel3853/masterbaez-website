@@ -88,34 +88,7 @@
   </div>
   <div class="article-hero" style="position:relative;overflow:hidden;">
     <div class="media-slot" data-media-slot="blog-article-2-es" style="position:absolute;inset:0;z-index:1;"></div>
-    <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption2')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
-    <div class="media-caption-overlay" id="heroCaption2" style="display:none;z-index:2;">
-      <h2>El acoso es una realidad para demasiados niños. Pero no tiene que definirlos.</h2>
-      <p>Enseñamos a los niños a reconocer, evitar y responder al acoso con confianza y respeto.</p>
-    </div>
   </div>
-  <script>
-    function toggleHeroCaption(btn, captionId) {
-      var caption = document.getElementById(captionId);
-      if (!caption) return;
-      caption.style.display = 'none';
-      btn.style.display = 'none';
-      try { localStorage.setItem('mb_caption_hidden_' + captionId, '1'); } catch(e) {}
-    }
-    (function(){
-      try {
-        var btn = document.querySelector('.hero-caption-toggle');
-        if (btn) {
-          var m = btn.getAttribute('onclick').match(/'([^']+)'/);
-          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) !== '1') {
-            var c = document.getElementById(m[1]);
-            if (c) c.style.display = '';
-            btn.style.display = '';
-          }
-        }
-      } catch(e) {}
-    })();
-  </script>
   <p>Ningún padre quiere pensar que su hijo está siendo acosado. Pero la realidad es que casi 1 de cada 5 estudiantes reporta haber sido acosado en la escuela. En Master Baez Martial Arts, en Cooper City, FL, creemos que la mejor defensa contra el acoso no es la agresión — es la conciencia, la confianza y el respeto.</p>
   <h2>Reconocer: La Primera Línea de Defensa</h2>
   <p>Antes de que un niño pueda responder al acoso, necesita reconocerlo. Enseñamos a los niños a identificar las diferentes formas de acoso:</p>

@@ -88,34 +88,7 @@
   </div>
   <div class="article-hero" style="position:relative;overflow:hidden;">
     <div class="media-slot" data-media-slot="blog-article-2-en" style="position:absolute;inset:0;z-index:1;"></div>
-    <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption2')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
-    <div class="media-caption-overlay" id="heroCaption2" style="display:none;z-index:2;">
-      <h2>Bullying is a reality for too many kids. But it doesn't have to define them.</h2>
-      <p>We teach children how to recognize, avoid, and respond to bullying with confidence and respect.</p>
-    </div>
   </div>
-  <script>
-    function toggleHeroCaption(btn, captionId) {
-      var caption = document.getElementById(captionId);
-      if (!caption) return;
-      caption.style.display = 'none';
-      btn.style.display = 'none';
-      try { localStorage.setItem('mb_caption_hidden_' + captionId, '1'); } catch(e) {}
-    }
-    (function(){
-      try {
-        var btn = document.querySelector('.hero-caption-toggle');
-        if (btn) {
-          var m = btn.getAttribute('onclick').match(/'([^']+)'/);
-          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) !== '1') {
-            var c = document.getElementById(m[1]);
-            if (c) c.style.display = '';
-            btn.style.display = '';
-          }
-        }
-      } catch(e) {}
-    })();
-  </script>
   <p>No parent wants to think about their child being bullied. But the reality is that nearly 1 in 5 students report being bullied at school. At Master Baez Martial Arts in Cooper City, FL, we believe the best defense against bullying isn't aggression — it's awareness, confidence, and respect.</p>
   <h2>Recognize: The First Line of Defense</h2>
   <p>Before a child can respond to bullying, they need to recognize it. We teach children to identify the different forms of bullying:</p>

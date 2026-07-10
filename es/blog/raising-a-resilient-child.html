@@ -88,34 +88,7 @@
   </div>
   <div class="article-hero" style="position:relative;overflow:hidden;">
     <div class="media-slot" data-media-slot="blog-article-1-es" style="position:absolute;inset:0;z-index:1;"></div>
-    <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption1')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
-    <div class="media-caption-overlay" id="heroCaption1" style="display:none;z-index:2;">
-      <h2>La Resiliencia No Se Enseña. Se Forja.</h2>
-      <p>Y la mayoría de los padres la están debilitando accidentalmente todos los días.</p>
-    </div>
   </div>
-  <script>
-    function toggleHeroCaption(btn, captionId) {
-      var caption = document.getElementById(captionId);
-      if (!caption) return;
-      caption.style.display = 'none';
-      btn.style.display = 'none';
-      try { localStorage.setItem('mb_caption_hidden_' + captionId, '1'); } catch(e) {}
-    }
-    (function(){
-      try {
-        var btn = document.querySelector('.hero-caption-toggle');
-        if (btn) {
-          var m = btn.getAttribute('onclick').match(/'([^']+)'/);
-          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) !== '1') {
-            var c = document.getElementById(m[1]);
-            if (c) c.style.display = '';
-            btn.style.display = '';
-          }
-        }
-      } catch(e) {}
-    })();
-  </script>
   <p>Empecemos con una verdad dura: tu trabajo como padre no es hacer feliz a tu hijo. Es prepararlo para un mundo que no siempre saldrá a su favor.</p>
   <p>La resiliencia — la capacidad de recuperarse de los tropiezos, adaptarse al cambio y seguir adelante cuando las cosas se ponen difíciles — es la habilidad más importante que le puedes dar a tu hijo. Y sin embargo, la mayoría de nosotros estamos criando a nuestros hijos de una forma que la destruye sistemáticamente.</p>
   <p>Corremos a ayudar ante la primera señal de dificultad. Resolvemos sus problemas. Amortiguamos cada caída. Lo hacemos con buena intención. Pero lo estamos haciendo al revés.</p>

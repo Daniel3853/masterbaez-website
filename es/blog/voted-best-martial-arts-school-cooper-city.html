@@ -88,34 +88,7 @@
   </div>
   <div class="article-hero" style="position:relative;overflow:hidden;">
     <div class="media-slot" data-media-slot="blog-article-4-es" style="position:absolute;inset:0;z-index:1;"></div>
-    <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption4')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
-    <div class="media-caption-overlay" id="heroCaption4" style="display:none;z-index:2;">
-      <h2>Cooper City votó. La comunidad decidió. Master Baez Martial Arts es la mejor escuela de artes marciales en Cooper City, FL.</h2>
-      <p>Seamos honestos.</p>
-    </div>
   </div>
-  <script>
-    function toggleHeroCaption(btn, captionId) {
-      var caption = document.getElementById(captionId);
-      if (!caption) return;
-      caption.style.display = 'none';
-      btn.style.display = 'none';
-      try { localStorage.setItem('mb_caption_hidden_' + captionId, '1'); } catch(e) {}
-    }
-    (function(){
-      try {
-        var btn = document.querySelector('.hero-caption-toggle');
-        if (btn) {
-          var m = btn.getAttribute('onclick').match(/'([^']+)'/);
-          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) !== '1') {
-            var c = document.getElementById(m[1]);
-            if (c) c.style.display = '';
-            btn.style.display = '';
-          }
-        }
-      } catch(e) {}
-    })();
-  </script>
   <p>Hay muchas escuelas de artes marciales en Cooper City, FL. Así que cuando la comunidad habla, escuchas. Master Baez Martial Arts fue votada la mejor escuela de artes marciales en Cooper City, FL por voto comunitario. No por un panel de jueces. No por un equipo de marketing. Por la gente real que vive aquí, entrena aquí y envía a sus hijos aquí.</p>
   <h2>¿Qué Hace a Master Baez la Mejor Escuela de Artes Marciales en Cooper City, FL?</h2>
   <p>Somos un centro de desarrollo infantil disfrazado de escuela de artes marciales. Nuestro programa híbrido cruza el fitness con el desarrollo de la identidad, dando a los atletas una base de entrenamiento que a la vez construye habilidades prácticas para la vida.</p>

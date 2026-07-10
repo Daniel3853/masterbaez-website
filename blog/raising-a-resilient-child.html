@@ -89,34 +89,7 @@
   </div>
   <div class="article-hero" style="position:relative;overflow:hidden;">
     <div class="media-slot" data-media-slot="blog-article-1-en" style="position:absolute;inset:0;z-index:1;"></div>
-    <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption1')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
-    <div class="media-caption-overlay" id="heroCaption1" style="display:none;z-index:2;">
-      <h2>Resilience Isn't Taught. It's Forged.</h2>
-      <p>And most parents are accidentally undermining it every single day.</p>
-    </div>
   </div>
-  <script>
-    function toggleHeroCaption(btn, captionId) {
-      var caption = document.getElementById(captionId);
-      if (!caption) return;
-      caption.style.display = 'none';
-      btn.style.display = 'none';
-      try { localStorage.setItem('mb_caption_hidden_' + captionId, '1'); } catch(e) {}
-    }
-    (function(){
-      try {
-        var btn = document.querySelector('.hero-caption-toggle');
-        if (btn) {
-          var m = btn.getAttribute('onclick').match(/'([^']+)'/);
-          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) !== '1') {
-            var c = document.getElementById(m[1]);
-            if (c) c.style.display = '';
-            btn.style.display = '';
-          }
-        }
-      } catch(e) {}
-    })();
-  </script>
   <p>Let's start with a hard truth: your job as a parent is not to make your child happy. It's to prepare them for a world that won't always go their way.</p>
   <p>Resilience — the ability to bounce back from setbacks, adapt to change, and keep going when things get hard — is the single most important skill you can give your child. And yet, most of us are raising our kids in a way that systematically destroys it.</p>
   <p>We rush in at the first sign of struggle. We solve their problems. We cushion every fall. We mean well. But we're doing it backwards.</p>

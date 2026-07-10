@@ -88,34 +88,7 @@
   </div>
   <div class="article-hero" style="position:relative;overflow:hidden;">
     <div class="media-slot" data-media-slot="blog-article-3-es" style="position:absolute;inset:0;z-index:1;"></div>
-    <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption3')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
-    <div class="media-caption-overlay" id="heroCaption3" style="display:none;z-index:2;">
-      <h2>La confianza no es algo con lo que nazcan los niños. Se construye — un paso, una clase, un logro a la vez.</h2>
-      <p>Así es como las artes marciales crean niños que creen en sí mismos.</p>
-    </div>
   </div>
-  <script>
-    function toggleHeroCaption(btn, captionId) {
-      var caption = document.getElementById(captionId);
-      if (!caption) return;
-      caption.style.display = 'none';
-      btn.style.display = 'none';
-      try { localStorage.setItem('mb_caption_hidden_' + captionId, '1'); } catch(e) {}
-    }
-    (function(){
-      try {
-        var btn = document.querySelector('.hero-caption-toggle');
-        if (btn) {
-          var m = btn.getAttribute('onclick').match(/'([^']+)'/);
-          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) !== '1') {
-            var c = document.getElementById(m[1]);
-            if (c) c.style.display = '';
-            btn.style.display = '';
-          }
-        }
-      } catch(e) {}
-    })();
-  </script>
   <p>Todo padre quiere un hijo confiado. Pero la confianza no es un interruptor que se enciende. La confianza real — el tipo que se sostiene bajo presión — tiene que ganarse. En Master Baez Martial Arts, en Cooper City, FL, hemos visto llegar a miles de niños tímidos, apenas haciendo contacto visual, e irse cargándose de otra manera. Hombros hacia atrás. Cabeza en alto.</p>
   <h2>La Confianza Viene de la Competencia</h2>
   <p>La confianza real viene de un solo lugar: la competencia. Cuando un niño aprende una habilidad — de verdad la aprende, a través de la práctica, la repetición y la lucha — no necesita que nadie le diga que es bueno en ella. Lo sabe. Las artes marciales son especialmente adecuadas para construir este tipo de confianza porque el progreso es visible y medible.</p>

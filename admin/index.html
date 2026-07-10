@@ -64,17 +64,11 @@
     <div class="section-label">Sección Atlética / Transformaciones</div>
     <div class="grid" id="sectionFields"></div>
 
-    <div class="section-label">Programas</div>
+    <div class="section-label">Programas (fotos + video bienvenida)</div>
     <div class="grid" id="programFields"></div>
 
-    <div class="section-label">Blog</div>
+    <div class="section-label">Blog — Fotos de artículos</div>
     <div id="blogFields"></div>
-
-    <div class="section-label" style="margin-top:32px;">Textos del Sitio</div>
-    <p style="font-size:13px;color:#666;margin-bottom:12px;">
-      Edita todos los textos del sitio (hero, navegación, programas, blog, FAQ, etc.)
-    </p>
-    <div id="textsFields"></div>
 
     <div class="section-label" style="margin-top:32px;">Enlaces de Programas (video / lead page / checkout)</div>
     <p style="font-size:13px;color:#666;margin-bottom:12px;">
@@ -83,6 +77,12 @@
       el "checkout" es la página de pago después del formulario.
     </p>
     <div id="programLinksFields"></div>
+
+    <div class="section-label" style="margin-top:32px;">Textos del Sitio (hero, programas, blog, FAQ, todo)</div>
+    <p style="font-size:13px;color:#666;margin-bottom:12px;">
+      Edita todos los textos en inglés y español
+    </p>
+    <div id="textsFields"></div>
 
     <div class="save-btn-wrap">
       <button class="btn btn-success" onclick="save()" id="saveBtn" style="font-size:18px;padding:14px 48px;">
@@ -130,11 +130,11 @@
         var galleryData = results[0];
         var plData = results[1];
         var ctData = results[2];
-        GALLERY = JSON.parse(atob(galleryData.content.replace(/\n/g, '')));
+        GALLERY = JSON.parse(decodeURIComponent(escape(atob(galleryData.content.replace(/\n/g, '')))));
         GALLERY._sha = galleryData.sha;
-        PROGRAM_LINKS = JSON.parse(atob(plData.content.replace(/\n/g, '')));
+        PROGRAM_LINKS = JSON.parse(decodeURIComponent(escape(atob(plData.content.replace(/\n/g, '')))));
         PROGRAM_LINKS._sha = plData.sha;
-        CONTENT = JSON.parse(atob(ctData.content.replace(/\n/g, '')));
+        CONTENT = JSON.parse(decodeURIComponent(escape(atob(ctData.content.replace(/\n/g, '')))));
         CONTENT._sha = ctData.sha;
         document.getElementById('editor').style.display = 'block';
         document.querySelector('.token-section').style.display = 'none';

@@ -1178,6 +1178,7 @@
     function closeModal() {
       document.getElementById('modalOverlay').classList.remove('open');
       document.body.style.overflow = '';
+      document.querySelectorAll('#modalContent video').forEach(function (v) { v.pause(); });
     }
 
     function renderModal(view, data) {

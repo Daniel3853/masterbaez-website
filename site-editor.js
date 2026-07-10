@@ -150,18 +150,24 @@
 
   function toggleEditMode() {
     if (editMode) {
-      // Exit → quitar editor y mostrar botón amarillo ⚙ Admin
+      // Exit → ocultar editor y mostrar botón amarillo ⚙ Admin
       editMode = false;
       var toggleBtn = document.getElementById('se-toggle');
-      if (toggleBtn) toggleBtn.remove();
+      if (toggleBtn) toggleBtn.style.display = 'none';
       var bar = document.getElementById('se-bar');
-      if (bar) bar.remove();
+      if (bar) bar.style.display = 'none';
+      editableEls().forEach(function (el) {
+        el.contentEditable = 'false';
+        el.style.outline = '';
+        el.style.cursor = '';
+      });
       if (adminLink) adminLink.style.display = '';
       return;
     }
     editMode = true;
     document.getElementById('se-bar').style.display = 'flex';
-    document.getElementById('se-toggle').textContent = '✅ SALIR';
+    var toggleBtn = document.getElementById('se-toggle');
+    if (toggleBtn) { toggleBtn.style.display = ''; toggleBtn.textContent = '✅ SALIR'; }
     editableEls().forEach(function (el) {
       el.contentEditable = 'true';
       el.style.outline = '2px dashed #a855f7';

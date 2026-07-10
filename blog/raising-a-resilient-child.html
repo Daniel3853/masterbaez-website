@@ -90,7 +90,7 @@
   <div class="article-hero" style="position:relative;overflow:hidden;">
     <div class="media-slot" data-media-slot="blog-article-1-en" style="position:absolute;inset:0;z-index:1;"></div>
     <button type="button" class="hero-caption-toggle" onclick="toggleHeroCaption(this,'heroCaption1')" style="position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,0.55);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;backdrop-filter:blur(2px);">Ocultar texto</button>
-    <div class="media-caption-overlay" id="heroCaption1" style="z-index:2;">
+    <div class="media-caption-overlay" id="heroCaption1" style="display:none;z-index:2;">
       <h2>Resilience Isn't Taught. It's Forged.</h2>
       <p>And most parents are accidentally undermining it every single day.</p>
     </div>
@@ -108,10 +108,10 @@
         var btn = document.querySelector('.hero-caption-toggle');
         if (btn) {
           var m = btn.getAttribute('onclick').match(/'([^']+)'/);
-          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) === '1') {
+          if (m && localStorage.getItem('mb_caption_hidden_' + m[1]) !== '1') {
             var c = document.getElementById(m[1]);
-            if (c) c.style.display = 'none';
-            btn.style.display = 'none';
+            if (c) c.style.display = '';
+            btn.style.display = '';
           }
         }
       } catch(e) {}

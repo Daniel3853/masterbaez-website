@@ -27,8 +27,7 @@
   var adminLink = null;
   // Botón de acceso al editor
   function crearBotonAdmin() {
-    adminLink = document.createElement('a');
-    adminLink.href = '#';
+    adminLink = document.createElement('button');
     adminLink.textContent = '⚙ Admin';
     adminLink.title = 'Editar contenido del sitio';
     adminLink.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999999;' +
@@ -39,8 +38,7 @@
       'transition:all 0.3s;';
     adminLink.onmouseover = function() { adminLink.style.background = '#fcd34d'; adminLink.style.color = '#000'; };
     adminLink.onmouseout = function() { adminLink.style.background = '#fbbf24'; adminLink.style.color = '#1a1a2e'; };
-    adminLink.onclick = function(e) {
-      e.preventDefault();
+    adminLink.onclick = function() {
       if (authorized) { toggleEditMode(); return; }
       var pwd = prompt('Ingresa la contraseña para editar el sitio:');
       if (pwd === EDITOR_PASSWORD) {

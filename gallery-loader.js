@@ -12,7 +12,6 @@
     return baseUrl + path;
   }
 
-  // Cargar datos actualizados desde gallery.json (lo que edita el /admin)
   function loadGalleryJson() {
     if (window.location.protocol === 'file:') return;
     fetch(baseUrl + 'data/gallery.json', { cache: 'no-store' })
@@ -37,16 +36,24 @@
   }
 
   var allVideos = [];
+  var userUnmuted = {};
 
-  function setupMuteBtn(slot, video, btn) {
+  function forceMute(video) {
+    video.muted = true;
+    video.setAttribute('muted', '');
+  }
+
+  function setupMuteBtn(slotKey, slot, video, btn) {
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       video.muted = !video.muted;
+      userUnmuted[slotKey] = !video.muted;
       btn.textContent = video.muted ? '🔇' : '🔊';
       btn.title = video.muted ? 'Activar sonido' : 'Silenciar';
     });
     video.addEventListener('ended', function () {
-      video.muted = true;
+      forceMute(video);
+      userUnmuted[slotKey] = false;
       if (btn) {
         btn.textContent = '🔇';
         btn.title = 'Activar sonido';
@@ -54,21 +61,22 @@
       video.play().catch(function () {});
     });
     video.addEventListener('play', function () {
+      if (!userUnmuted[slotKey]) {
+        forceMute(video);
+      }
       if (video.muted && btn) {
         btn.textContent = '🔇';
         btn.title = 'Activar sonido';
       }
     });
-  }
-
-  function muteAll() {
-    allVideos.forEach(function (v) {
-      v.muted = true;
-      v.pause();
-    });
-    document.querySelectorAll('.hero-video-btn').forEach(function (b) {
-      b.textContent = '🔇';
-      b.title = 'Activar sonido';
+    video.addEventListener('playing', function () {
+      if (!userUnmuted[slotKey]) {
+        forceMute(video);
+      }
+      if (video.muted && btn) {
+        btn.textContent = '🔇';
+        btn.title = 'Activar sonido';
+      }
     });
   }
 
@@ -79,7 +87,14 @@
   });
 
   window.addEventListener('pageshow', function () {
-    muteAll();
+    allVideos.forEach(function (v) {
+      forceMute(v);
+      v.pause();
+    });
+    document.querySelectorAll('.hero-video-btn').forEach(function (b) {
+      b.textContent = '🔇';
+      b.title = 'Activar sonido';
+    });
     renderGallery();
   });
 
@@ -99,7 +114,7 @@
       if (existingVideo) {
         el = existingVideo;
         el.src = resolveSrc(item.src);
-        el.muted = true;
+        forceMute(el);
         el.playsInline = true;
         el.loop = false;
         el.autoplay = true;
@@ -108,22 +123,22 @@
         el.style.objectFit = 'cover';
         slot.style.position = 'relative';
         slot.style.overflow = 'hidden';
-        el.play().catch(function () {});
-        allVideos.push(el);
         if (!slot.querySelector('.hero-video-btn')) {
           var btn2 = document.createElement('button');
           btn2.className = 'hero-video-btn';
           btn2.textContent = '🔇';
           btn2.title = 'Activar sonido';
           btn2.style.cssText = 'position:absolute;bottom:16px;right:16px;z-index:5;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;';
-          setupMuteBtn(slot, el, btn2);
+          setupMuteBtn(key, slot, el, btn2);
           slot.appendChild(btn2);
         }
+        el.play().catch(function () {});
+        allVideos.push(el);
         return;
       }
       el = document.createElement('video');
       el.src = resolveSrc(item.src);
-      el.muted = true;
+      forceMute(el);
       el.playsInline = true;
       el.loop = false;
       el.autoplay = true;
@@ -149,7 +164,7 @@
         btn.textContent = '🔇';
         btn.title = 'Activar sonido';
         btn.style.cssText = 'position:absolute;bottom:16px;right:16px;z-index:5;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;';
-        setupMuteBtn(slot, el, btn);
+        setupMuteBtn(key, slot, el, btn);
         slot.appendChild(btn);
       }
       return;

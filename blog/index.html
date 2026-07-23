@@ -61,7 +61,7 @@
       <a href="../index.html#contact">Contact</a>
       <span class="nav-phone">954-380-1340</span>
       <a href="../index.html#trial" class="nav-cta">Start Today</a>
-      <a class="lang-toggle" href="../es/blog/index.html">ES</a>
+      <a class="lang-toggle" id="langToggle" href="#" onclick="toggleLang(); return false;">ES</a>
     </div>
   </div>
 </nav>
@@ -201,10 +201,53 @@
   <script src="../gallery-loader.js"></script>
   <script src="../content-loader.js"></script>
   <script src="../local-media-preview.js"></script>
-  <script src="../admin-config.js"></script>
-  <script src="../site-editor.js"></script>
   <script src="../chatbot.js"></script>
   <script>
+    // ===== Language toggle (shared with main site via localStorage 'mb-lang') =====
+    var _lang = (function () { try { return localStorage.getItem('mb-lang') || 'en'; } catch (e) { return 'en'; } })();
+    var translations = {
+      blog_listing_subtitle: { en: 'Real advice for raising resilient, confident kids — from the team behind Cooper City\'s #1 martial arts school.', es: 'Consejos reales para criar niños resilientes y seguros de sí mismos — del equipo detrás de la escuela de artes marciales #1 de Cooper City.' },
+      blog_article1_featured: { en: 'Featured', es: 'Destacado' },
+      blog_article1_tag: { en: 'Resilience', es: 'Resiliencia' },
+      blog_article1_title: { en: '5 Ways to Raise a Resilient Child (And Why Most Parents Are Getting It Backwards)', es: '5 Formas de Criar un Niño Resiliente (Y Por Qué La Mayoría De Los Padres Lo Están Haciendo Al Revés)' },
+      blog_article1_desc: { en: 'Resilience isn\'t about shielding kids from failure — it\'s about teaching them how to bounce back. Here\'s what actually works.', es: 'La resiliencia no se trata de proteger a los niños del fracaso — se trata de enseñarles cómo recuperarse. Esto es lo que realmente funciona.' },
+      blog_article2_tag: { en: 'Bullying Prevention', es: 'Prevención de Acoso' },
+      blog_article2_title: { en: 'How Master Baez Martial Arts Teaches Kids to Recognize, Avoid, and Respond to Bullying', es: 'Cómo Master Baez Martial Arts Enseña a los Niños a Reconocer, Evitar y Responder al Acoso' },
+      blog_article2_desc: { en: 'Bullying is a reality for too many kids. We teach them how to handle it with confidence, awareness, and respect.', es: 'El acoso es una realidad para demasiados niños. Les enseñamos cómo manejarlo con confianza, conciencia y respeto.' },
+      blog_article3_tag: { en: 'Confidence', es: 'Confianza' },
+      blog_article3_title: { en: 'Why Martial Arts Builds Confidence in Kids', es: 'Por Qué Las Artes Marciales Construyen Confianza en Los Niños' },
+      blog_article3_desc: { en: 'Confidence isn\'t something kids are born with. It\'s forged through challenge, achievement, and the right environment.', es: 'La confianza no es algo con lo que nazcan los niños. Se forja a través del desafío, el logro y el ambiente adecuado.' },
+      blog_article4_tag: { en: 'Awards', es: 'Premios' },
+      blog_article4_title: { en: 'Master Baez Martial Arts Voted Best Martial Arts School in Cooper City, FL', es: 'Master Baez Martial Arts Votada Mejor Escuela de Artes Marciales en Cooper City, FL' },
+      blog_article4_desc: { en: 'By community vote, Master Baez Martial Arts has been named the best martial arts school in Cooper City.', es: 'Por voto comunitario, Master Baez Martial Arts ha sido nombrada la mejor escuela de artes marciales en Cooper City.' },
+      read_story: { en: 'Read the Story →', es: 'Leer la Historia →' },
+      offer_title: { en: '🔥 2 Classes FREE + 3 Months for $149', es: '🔥 2 Clases GRATIS + 3 Meses por $149' },
+      so_desc: { en: 'Includes uniform, evaluation & 100% money-back guarantee', es: 'Incluye uniforme, evaluación y garantía de devolución del 100%' },
+      so_timer: { en: '⏱ Offer ends in: <span id="soTimer">2d 03:43:01</span>', es: '⏱ Oferta termina en: <span id="soTimer">2d 03:43:01</span>' },
+      so_btn: { en: 'Claim Your Spot', es: 'Reserva tu Lugar' },
+      vb_label: { en: 'parents viewing now', es: 'padres viendo ahora' }
+    };
+    function toggleLang() {
+      _lang = _lang === 'en' ? 'es' : 'en';
+      try { localStorage.setItem('mb-lang', _lang); } catch (e) {}
+      applyLang();
+    }
+    function applyLang() {
+      document.documentElement.lang = _lang;
+      var label = _lang === 'en' ? 'ES' : 'EN';
+      var toggleEl = document.getElementById('langToggle');
+      if (toggleEl) toggleEl.textContent = label;
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (translations[key]) el.textContent = translations[key][_lang];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-html');
+        if (translations[key]) el.innerHTML = translations[key][_lang];
+      });
+    }
+    applyLang();
+
     // Sticky Offer Bar close
     function closeStickyOffer() {
       document.getElementById('stickyOffer').classList.add('closed');

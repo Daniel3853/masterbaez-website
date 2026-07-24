@@ -30,6 +30,24 @@ collections:
         name: "gallery"
         file: "data/gallery.json"
         fields:
+          - label: "📸 GALERÍA — Fotos (agrega las que quieras, sin límite)"
+            name: "gallery_photos"
+            widget: "list"
+            required: false
+            label_singular: "Foto"
+            fields:
+              - { label: "Foto", name: "src", widget: "image" }
+              - { label: "Descripción (alt, para SEO)", name: "alt", widget: "string", required: false }
+              - { label: "Pie de foto (opcional)", name: "caption", widget: "string", required: false }
+          - label: "🎬 GALERÍA — Videos (agrega los que quieras, sin límite)"
+            name: "gallery_videos"
+            widget: "list"
+            required: false
+            label_singular: "Video"
+            fields:
+              - { label: "Video (MP4)", name: "src", widget: "file" }
+              - { label: "Descripción", name: "alt", widget: "string", required: false }
+              - { label: "Pie de foto (opcional)", name: "caption", widget: "string", required: false }
           - label: "Foto/Video Principal del Hero (portada, foto grande de fondo)"
             name: "hero-main"
             widget: "object"
@@ -58,24 +76,6 @@ collections:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen", name: "src", widget: "image", required: false }
               - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
-          - label: "Galería de Fotos (agrega las que quieras, sin límite)"
-            name: "gallery_photos"
-            widget: "list"
-            required: false
-            label_singular: "Foto"
-            fields:
-              - { label: "Foto", name: "src", widget: "image" }
-              - { label: "Descripción (alt, para SEO)", name: "alt", widget: "string", required: false }
-              - { label: "Pie de foto (opcional)", name: "caption", widget: "string", required: false }
-          - label: "Galería de Videos (agrega los que quieras, sin límite)"
-            name: "gallery_videos"
-            widget: "list"
-            required: false
-            label_singular: "Video"
-            fields:
-              - { label: "Video (MP4)", name: "src", widget: "file" }
-              - { label: "Descripción", name: "alt", widget: "string", required: false }
-              - { label: "Pie de foto (opcional)", name: "caption", widget: "string", required: false }
           - label: "✏️ BLOG — Artículo 1 (Inglés)"
             name: "blog-article-1-en"
             widget: "object"

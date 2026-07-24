@@ -58,6 +58,18 @@
   </div>
 
   <div id="editor" style="display:none;">
+    <div class="section-label" style="margin-top:0;">📸 Galería de Fotos</div>
+    <div id="galleryPhotosFields"></div>
+    <div style="text-align:center;margin:8px 0 20px;">
+      <button class="btn btn-primary" onclick="addGalleryItem('photos')">+ Agregar Foto</button>
+    </div>
+
+    <div class="section-label">🎬 Galería de Videos</div>
+    <div id="galleryVideosFields"></div>
+    <div style="text-align:center;margin:8px 0 20px;">
+      <button class="btn btn-primary" onclick="addGalleryItem('videos')">+ Agregar Video</button>
+    </div>
+
     <div class="section-label">Hero — Foto Principal</div>
     <div class="grid" id="heroFields"></div>
 
@@ -145,6 +157,7 @@
         document.getElementById('editor').style.display = 'block';
         document.querySelector('.token-section').style.display = 'none';
         render();
+        renderGalleryLists();
         renderProgramLinks();
         renderTexts();
         showStatus('Listo, edita y guarda', 'done');
@@ -171,6 +184,54 @@
       if (s.indexOf('://') !== -1 || s.indexOf('//') === 0) return s;
       if (s.indexOf('/') === 0) return 'https://daniel3853.github.io/masterbaez-website' + s;
       return 'https://daniel3853.github.io/masterbaez-website/' + s;
+    }
+
+    function ensureGalleryArrays() {
+      if (!Array.isArray(GALLERY.gallery_photos)) GALLERY.gallery_photos = [];
+      if (!Array.isArray(GALLERY.gallery_videos)) GALLERY.gallery_videos = [];
+    }
+
+    function galleryItemHTML(kind, i, item) {
+      var arrKey = kind === 'photos' ? 'gallery_photos' : 'gallery_videos';
+      var srcLabel = kind === 'photos' ? 'URL de la imagen' : 'URL del video (MP4)';
+      var src = (item && item.src) || '';
+      var alt = (item && item.alt) || '';
+      var caption = (item && item.caption) || '';
+      var previewHtml = (kind === 'photos' && src) ?
+        '<img class="preview" src="' + esc(resolveSrc(src)) + '" onerror="this.style.display=\'none\'" />' : '';
+      return '<div class="blog-section" style="position:relative;">' +
+        '<button class="btn btn-danger" style="position:absolute;top:12px;right:12px;padding:4px 10px;font-size:12px;" onclick="removeGalleryItem(\'' + kind + '\',' + i + ')">✕ Quitar</button>' +
+        '<h3>' + (kind === 'photos' ? 'Foto ' : 'Video ') + (i + 1) + '</h3>' +
+        '<div class="field"><label>' + srcLabel + '</label><div class="inline-flex">' +
+        '<input type="text" id="g-' + arrKey + '-' + i + '-src" value="' + esc(src) + '" placeholder="' + srcLabel + '" style="flex:1" />' +
+        previewHtml +
+        '</div></div>' +
+        '<div class="field"><label>Descripción (alt, para SEO)</label>' +
+        '<input type="text" id="g-' + arrKey + '-' + i + '-alt" value="' + esc(alt) + '" placeholder="Descripción" /></div>' +
+        '<div class="field"><label>Pie de foto (opcional)</label>' +
+        '<input type="text" id="g-' + arrKey + '-' + i + '-caption" value="' + esc(caption) + '" placeholder="Pie de foto" /></div>' +
+        '</div>';
+    }
+
+    function renderGalleryLists() {
+      ensureGalleryArrays();
+      var photosHTML = GALLERY.gallery_photos.map(function(item, i) { return galleryItemHTML('photos', i, item); }).join('');
+      document.getElementById('galleryPhotosFields').innerHTML = photosHTML || '<p style="color:#666;font-size:13px;">Sin fotos todavía. Usa "+ Agregar Foto".</p>';
+      var videosHTML = GALLERY.gallery_videos.map(function(item, i) { return galleryItemHTML('videos', i, item); }).join('');
+      document.getElementById('galleryVideosFields').innerHTML = videosHTML || '<p style="color:#666;font-size:13px;">Sin videos todavía. Usa "+ Agregar Video".</p>';
+    }
+
+    function addGalleryItem(kind) {
+      ensureGalleryArrays();
+      var arrKey = kind === 'photos' ? 'gallery_photos' : 'gallery_videos';
+      GALLERY[arrKey].push({ src: '', alt: '', caption: '' });
+      renderGalleryLists();
+    }
+
+    function removeGalleryItem(kind, i) {
+      var arrKey = kind === 'photos' ? 'gallery_photos' : 'gallery_videos';
+      GALLERY[arrKey].splice(i, 1);
+      renderGalleryLists();
     }
 
     function render() {
@@ -309,6 +370,23 @@
       showStatus('Guardando...', 'saving');
       var updatedGallery = JSON.parse(JSON.stringify(GALLERY));
       delete updatedGallery._sha;
+
+      ['gallery_photos', 'gallery_videos'].forEach(function(arrKey) {
+        var kind = arrKey === 'gallery_photos' ? 'photos' : 'videos';
+        if (Array.isArray(updatedGallery[arrKey])) {
+          updatedGallery[arrKey] = updatedGallery[arrKey].map(function(item, i) {
+            var srcEl = document.getElementById('g-' + arrKey + '-' + i + '-src');
+            var altEl = document.getElementById('g-' + arrKey + '-' + i + '-alt');
+            var capEl = document.getElementById('g-' + arrKey + '-' + i + '-caption');
+            return {
+              type: kind === 'videos' ? 'video' : 'image',
+              src: srcEl ? srcEl.value.trim() : (item.src || ''),
+              alt: altEl ? altEl.value.trim() : (item.alt || ''),
+              caption: capEl ? capEl.value.trim() : (item.caption || '')
+            };
+          });
+        }
+      });
 
       Object.keys(GALLERY).forEach(function(key) {
         if (key === '_sha') return;

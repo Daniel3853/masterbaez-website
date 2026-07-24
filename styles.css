@@ -529,6 +529,12 @@
     @media (max-width: 400px) {
       .viewer-badge { bottom: 165px; }
     }
+    /* Celular en horizontal: la pantalla es muy baja de alto y estos
+       botones flotantes (calculados para vertical) terminan encima
+       del contenido. Los ocultamos / achicamos para que no tapen nada. */
+    @media (max-height: 480px) {
+      .viewer-badge, .social-toast { display: none; }
+    }
 
     /* Social Proof Toast */
     .social-toast {
@@ -599,6 +605,10 @@
     }
     @media (max-width: 400px) {
       .whatsapp-btn { bottom: 105px; }
+    }
+    @media (max-height: 480px) {
+      .whatsapp-btn { bottom: 8px; right: 8px; width: 40px; height: 40px; }
+      .whatsapp-btn svg { width: 20px; height: 20px; }
     }
 
     /* Modal */

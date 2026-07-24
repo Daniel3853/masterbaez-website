@@ -159,16 +159,13 @@
 <script src="../../data/gallery.js"></script>
 <script src="../../gallery-loader.js"></script>
 <script src="../../content-loader.js"></script>
-<script src="../../local-media-preview.js"></script>
-<script src="../../admin-config.js"></script>
-<script src="../../site-editor.js"></script>
 
   <!-- Sticky Offer Bar -->
   <div class="sticky-offer" id="stickyOffer">
     <span class="so-title" data-i18n="offer_title">🔥 2 Classes FREE + 3 Months for $149</span>
     <span class="so-desc" data-i18n="so_desc">Includes uniform, evaluation & 100% money-back guarantee</span>
     <span class="so-timer" data-i18n-html="so_timer">⏱ Offer ends in: <span id="soTimer">2d 03:43:01</span></span>
-    <button class="so-btn" onclick="openModal('program')" data-i18n="so_btn">Claim Your Spot</button>
+    <button class="so-btn" onclick="try{localStorage.setItem('mb-lang','es')}catch(e){};window.location.href='../../index.html#trial'" data-i18n="so_btn">Claim Your Spot</button>
     <button class="so-close" onclick="closeStickyOffer()">✕</button>
   </div>
 

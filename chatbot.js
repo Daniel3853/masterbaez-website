@@ -332,6 +332,7 @@ var MB_QA = [
       '@keyframes mbPulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.6);opacity:0}}'+
       '@media(max-width:480px){#mbT{bottom:200px;right:10px;width:48px;height:48px;font-size:20px}#mbT::before{inset:-3px}#mbT::after{inset:-6px}#mbB{width:calc(100vw-32px);right:10px;bottom:256px;height:380px;max-height:calc(100vh - 280px)}}'+
       '@media(max-width:400px){#mbT{bottom:225px}#mbB{bottom:281px}}'+
+      '@media(max-height:480px){#mbT{bottom:8px;right:56px;width:40px;height:40px;font-size:18px}#mbB{bottom:56px;right:8px;width:300px;height:calc(100vh - 76px);max-height:280px}}'+
       '</style>'+
       '<button id="mbT">💬</button>'+
       '<div id="mbB">'+

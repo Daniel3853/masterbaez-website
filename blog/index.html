@@ -230,6 +230,8 @@
       _lang = _lang === 'en' ? 'es' : 'en';
       try { localStorage.setItem('mb-lang', _lang); } catch (e) {}
       applyLang();
+      var navLinksEl = document.querySelector('.nav-links');
+      if (navLinksEl) navLinksEl.classList.remove('open');
     }
     function applyLang() {
       document.documentElement.lang = _lang;
@@ -276,6 +278,16 @@
     }
     showSocialToast();
     setInterval(showSocialToast, 18000);
+  </script>
+  <script>
+    // Cierra el menú móvil al tocar cualquier enlace dentro de él
+    // (antes se quedaba abierto tapando el contenido, ej. al cambiar idioma).
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        var navLinksEl = document.querySelector('.nav-links');
+        if (navLinksEl) navLinksEl.classList.remove('open');
+      });
+    });
   </script>
 </body>
 </html>

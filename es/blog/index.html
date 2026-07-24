@@ -233,5 +233,15 @@
     showSocialToast();
     setInterval(showSocialToast, 18000);
   </script>
+  <script>
+    // Cierra el menú móvil al tocar cualquier enlace dentro de él
+    // (antes se quedaba abierto tapando el contenido, ej. al cambiar idioma).
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        var navLinksEl = document.querySelector('.nav-links');
+        if (navLinksEl) navLinksEl.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 </html>

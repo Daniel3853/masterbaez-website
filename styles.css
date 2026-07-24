@@ -1,5 +1,13 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      /* Evita que Chrome/Android agrande el texto automáticamente en la
+         primera carga (el "texto gigante" que se corrige solo al girar
+         el celular, porque girar fuerza a recalcular el tamaño real). */
+      -webkit-text-size-adjust: 100%;
+      -moz-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #0d0d1a;

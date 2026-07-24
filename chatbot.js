@@ -330,7 +330,8 @@ var MB_QA = [
       '#mbTg span:nth-child(2){animation-delay:.2s}#mbTg span:nth-child(3){animation-delay:.4s}'+
       '@keyframes mbP{0%,60%,100%{opacity:.3}20%{opacity:1}}'+
       '@keyframes mbPulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.6);opacity:0}}'+
-      '@media(max-width:480px){#mbT{bottom:200px;right:10px;width:48px;height:48px;font-size:20px}#mbT::before{inset:-3px}#mbT::after{inset:-6px}#mbB{width:calc(100vw-32px);right:10px;bottom:256px;height:380px}}'+
+      '@media(max-width:480px){#mbT{bottom:200px;right:10px;width:48px;height:48px;font-size:20px}#mbT::before{inset:-3px}#mbT::after{inset:-6px}#mbB{width:calc(100vw-32px);right:10px;bottom:256px;height:380px;max-height:calc(100vh - 280px)}}'+
+      '@media(max-width:400px){#mbT{bottom:225px}#mbB{bottom:281px}}'+
       '</style>'+
       '<button id="mbT">💬</button>'+
       '<div id="mbB">'+

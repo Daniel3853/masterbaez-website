@@ -487,6 +487,13 @@
       body { padding-bottom: 80px; }
       .sticky-offer { padding: 8px 16px; gap: 8px; font-size: 12px; }
     }
+    @media (max-width: 400px) {
+      /* En celulares muy angostos el banner se parte en varias filas y
+         crece más de lo esperado, tapando el WhatsApp / contador / chat.
+         Ocultamos la descripción secundaria para mantenerlo compacto. */
+      .sticky-offer .so-desc { display: none; }
+      .sticky-offer { padding: 6px 12px; gap: 6px; }
+    }
 
     /* Viewer Counter Badge */
     .viewer-badge {
@@ -518,6 +525,9 @@
     @media (max-width: 860px) {
       .viewer-badge { bottom: 145px; right: 10px; font-size: 11px; padding: 6px 10px; }
       .viewer-badge .vb-icon { font-size: 13px; }
+    }
+    @media (max-width: 400px) {
+      .viewer-badge { bottom: 165px; }
     }
 
     /* Social Proof Toast */
@@ -551,6 +561,9 @@
     @media (max-width: 860px) {
       .social-toast { bottom: 256px; right: 10px; max-width: 260px; padding: 10px 14px; }
     }
+    @media (max-width: 400px) {
+      .social-toast { bottom: 276px; }
+    }
 
     /* WhatsApp Button */
     .whatsapp-btn {
@@ -583,6 +596,9 @@
     @media (max-width: 860px) {
       .whatsapp-btn { bottom: 90px; right: 10px; width: 48px; height: 48px; }
       .whatsapp-btn svg { width: 24px; height: 24px; }
+    }
+    @media (max-width: 400px) {
+      .whatsapp-btn { bottom: 105px; }
     }
 
     /* Modal */

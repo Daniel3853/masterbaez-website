@@ -51,6 +51,7 @@ collections:
           - label: "Foto/Video Principal del Hero (portada, foto grande de fondo)"
             name: "hero-main"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
               - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
@@ -58,6 +59,7 @@ collections:
           - label: "Foto de Entrenamiento Atlético"
             name: "athletic-1"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen", name: "src", widget: "image", required: false }
@@ -65,6 +67,7 @@ collections:
           - label: "Foto — Historia de Oliver"
             name: "trans-oliver"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen", name: "src", widget: "image", required: false }
@@ -72,6 +75,7 @@ collections:
           - label: "Foto — Historia de Ryder"
             name: "trans-ryder"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen", name: "src", widget: "image", required: false }
@@ -79,6 +83,7 @@ collections:
           - label: "✏️ BLOG — Artículo 1 (Inglés)"
             name: "blog-article-1-en"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
@@ -86,6 +91,7 @@ collections:
           - label: "✏️ BLOG — Artículo 1 (Español)"
             name: "blog-article-1-es"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
@@ -93,6 +99,7 @@ collections:
           - label: "✏️ BLOG — Artículo 2 (Inglés)"
             name: "blog-article-2-en"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
@@ -100,6 +107,7 @@ collections:
           - label: "✏️ BLOG — Artículo 2 (Español)"
             name: "blog-article-2-es"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
@@ -107,6 +115,7 @@ collections:
           - label: "✏️ BLOG — Artículo 3 (Inglés)"
             name: "blog-article-3-en"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
@@ -114,6 +123,7 @@ collections:
           - label: "✏️ BLOG — Artículo 3 (Español)"
             name: "blog-article-3-es"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
@@ -121,6 +131,7 @@ collections:
           - label: "✏️ BLOG — Artículo 4 (Inglés)"
             name: "blog-article-4-en"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
@@ -128,6 +139,7 @@ collections:
           - label: "✏️ BLOG — Artículo 4 (Español)"
             name: "blog-article-4-es"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "image" }
               - { label: "Imagen (jpg/png, máx 5MB)", name: "src", widget: "file", required: false }
@@ -135,6 +147,7 @@ collections:
           - label: "Foto/Video de Programas — Tiny Tigers"
             name: "program-tiny_tigers"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
               - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
@@ -142,6 +155,7 @@ collections:
           - label: "Foto/Video de Programas — Kids Martial Arts"
             name: "program-kids"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
               - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
@@ -149,6 +163,7 @@ collections:
           - label: "Foto/Video de Programas — Adultos"
             name: "program-adults"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
               - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
@@ -156,6 +171,7 @@ collections:
           - label: "Foto/Video de Programas — After School"
             name: "program-after_school"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "select", options: ["image", "video"], default: "image" }
               - { label: "Imagen o Video (MP4)", name: "src", widget: "file", required: false }
@@ -163,6 +179,7 @@ collections:
           - label: "🎬 Video de Bienvenida a Programas"
             name: "programs-welcome"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Tipo", name: "type", widget: "hidden", default: "video" }
               - { label: "Video (MP4)", name: "src", widget: "file", required: false }

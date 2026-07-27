@@ -23,7 +23,7 @@ hacer clic y arrastrar el archivo.
    "publish directory" como `/` (la raíz). Clic en "Deploy".
 4. En unos segundos tu página estará viva en una URL tipo
    `tusitio.netlify.app`. Luego puedes conectar tu dominio real
-   (masterbaezmartialarts.com) desde "Domain settings" en Netlify.
+   (masterbaezhapkido.com) desde "Domain settings" en Netlify.
 
 ## Paso 3 — Activa el login del panel (Identity + Git Gateway)
 1. Dentro de tu sitio en Netlify, ve a **Site configuration → Identity**
